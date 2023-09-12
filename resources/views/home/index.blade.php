@@ -35,8 +35,8 @@
                                     </h2>
                                     <p class="lead text-white mt-3 lh-180 c-white animated" data-animation-in="fadeInUp"
                                        data-animation-delay="2500">
-                                        Free HTML UI Kit based on the well known Bootstrap 4 Framework brought to you by
-                                        <strong class="text-white">Webpixels</strong>
+                                        最烦打王者的时候不看小地图-一堆nz队友，打游戏不带脑子就去打匹配，别在排位ex人
+                                        <strong class="text-white">就知道狗叫</strong>
                                     </p>
                                 </div>
                             </div>

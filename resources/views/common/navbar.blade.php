@@ -1,54 +1,102 @@
-<nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4">
-    <div class="container">
-        <a class="navbar-brand" href="./"><strong>翻斗花园</strong> UI Kit</a>
-        <button class="navbar-toggler" type="button" data-action="offcanvas-open" data-target="#navbar_main"
-                aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse offcanvas-collapse" id="navbar_main">
-            <ul class="navbar-nav ml-auto align-items-lg-center">
-                <h6 class="dropdown-header font-weight-600 d-lg-none px-0">Menu</h6>
-                <li class="nav-item active">
-                    <a class="nav-link" href="./index.html">概述</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">页面</a>
-                    <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
-                        <a class="dropdown-item" href="./pages/homepage.html">Homepage</a>
-                        <a class="dropdown-item" href="./pages/about.html">关于我们</a>
-                        <a class="dropdown-item" href="./pages/sign-in.html">登录</a>
-                        <a class="dropdown-item" href="./pages/contact.html">联系我们</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">翻斗花园</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_example_1"
+            aria-controls="navbar_example_1" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar_example_1">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">连接</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbar_1_dropdown_1" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多</a>
+                <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
+                    <a class="dropdown-item" href="#">行动</a>
+                    <a class="dropdown-item" href="#">其他行动</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">其他东西在这</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">AAA水果批发</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">AAA宽带办理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">这个不可以点</a>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="#"><i class="fas fa-cogs"></i></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link nav-link-icon" href="#" id="navbar_1_dropdown_2" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-xl py-0">
+                    <div class="py-3 px-3">
+                        <h5 class="heading h6 mb-0">通知中心</h5>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./docs/introduction.html">Docs</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://github.com/webpixels/boomerang-ui-kit/archive/master.zip" target="_blank"
-                       class="nav-link d-lg-none">Download Free</a>
-                    <a href="https://github.com/webpixels/boomerang-ui-kit/archive/master.zip" target="_blank"
-                       class="btn btn-sm bg-white d-none d-lg-inline-flex">Download Free</a>
-                </li>
-                <div class="dropdown-divider d-lg-none my-4"></div>
-                <h6 class="dropdown-header font-weight-600 d-lg-none px-0">Social Media</h6>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="https://instagram.com/webpixelsofficial/" target="_blank"><i
-                            class="fab fa-instagram"></i><span class="ml-2 d-lg-none">Instagram</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="https://web.facebook.com/webpixels" target="_blank"><i
-                            class="fab fa-facebook"></i><span class="ml-2 d-lg-none">Facebook</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="https://dribbble.com/webpixels" target="_blank"><i
-                            class="fab fa-dribbble"></i><span class="ml-2 d-lg-none">Dribbble</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="https://github.com/webpixels" target="_blank"><i
-                            class="fab fa-github"></i><span class="ml-2 d-lg-none">Github</span></a>
-                </li>
-            </ul>
-        </div>
+                    <div class="list-group">
+                        {{--三个虚拟通知 假数据--}}
+                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <div class="list-group-img">
+                                <span class="avatar bg-purple">JD</span>
+                            </div>
+                            <div class="list-group-content">
+                                <div class="list-group-heading">Johnyy Depp <small>10:05 PM</small></div>
+                                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing eiusmod tempor</p>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <div class="list-group-img">
+                                <span class="avatar bg-pink">TC</span>
+                            </div>
+                            <div class="list-group-content">
+                                <div class="list-group-heading">Tom Cruise <small>10:05 PM</small></div>
+                                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing eiusmod tempor</p>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <div class="list-group-img">
+                                <span class="avatar bg-blue">WS</span>
+                            </div>
+                            <div class="list-group-content">
+                                <div class="list-group-heading">Will Smith <small>10:05 PM</small></div>
+                                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing eiusmod tempor</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="py-3 text-center">
+                        <a href="#" class="link link-sm link--style-3">查看所有消息</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link nav-link-icon" href="#" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <h6 class="dropdown-header">用户菜单</h6>
+                    <a class="dropdown-item" href="#">
+                        <span class="float-right badge badge-primary">4</span>
+                        <i class="fas fa-envelope text-primary"></i>信息
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-cog text-primary"></i>设置
+                    </a>
+                    <div class="dropdown-divider" role="presentation"></div>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-sign-out-alt text-primary"></i>退出登录
+                    </a>
+                </div>
+            </li>
+        </ul>
     </div>
 </nav>

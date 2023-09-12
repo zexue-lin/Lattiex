@@ -2,6 +2,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" href="{{URL::asset('assets/images/favicon.ico')}}">
 <title>翻斗花园 - @yield('title')</title>
 <!-- bootstrap -->
 {{--<link rel="stylesheet" href="{{URL::asset('assets/css/bootstrap.min.css')}}">--}}
