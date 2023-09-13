@@ -5,9 +5,7 @@
 
 {{--页面独立的css文件--}}
 @push('css')
-    <link rel="stylesheet" href="{{URL::asset('assets/css/theme.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/css/demo.css')}}">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
+
 @endpush
 
 @section('content')
@@ -15,7 +13,9 @@
     {{--  顶部导航  --}}
     @include('common.navbar')
 
+    {{--  主体内容  --}}
     <main class="main">
+        {{--    第一部分，背景图    --}}
         <section class="spotlight parallax bg-cover bg-size--cover" data-spotlight="fullscreen"
                  style="background-image:  url('{{ asset('assets/images/backgrounds/img-1.jpg') }}')">
             <span class="mask bg-primary alpha-7"></span>
@@ -45,6 +45,70 @@
                 </div>
             </div>
         </section>
+        {{--    第二部分    --}}
+        <section class="slice slice-lg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <!-- Typography部分 -->
+                        <div class="row align-items-center mb-5">
+                            <div class="col-8">
+                                <h2 class="heading h3 mb-0">排版</h2>
+                            </div>
+                            <div class="col-4 text-right">
+                                <a href="docs/typography.html" class="btn btn-sm btn-primary">文档中打开</a>
+                            </div>
+                        </div>
+                        <div class="row typeface-palette cols-xs-space cols-sm-space cols-md-space">
+                            <div class="col-sm-4">
+                                <a>
+                                    <div class="typeface-entry">
+                                    <span
+                                        class="badge badge-md typeface-badge badge-pill bg-primary text-white">常规</span>
+                                        <h3 class="heading display-3 font-weight-400 text-dark">
+                                            Aa
+                                        </h3>
+                                        <p>
+                                            Mist enveloped the ship three hours out from port.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-4">
+                                <a>
+                                    <div class="typeface-entry">
+                                        <span
+                                            class="badge badge-md typeface-badge badge-pill bg-primary text-white">半粗体</span>
+                                        <h3 class="heading display-3 font-weight-600 text-dark">
+                                            Aa
+                                        </h3>
+                                        <p>
+                                            A shining crescent far beneath the flying.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-4">
+                                <a data-value="'Quicksand', sans-serif">
+                                    <div class="typeface-entry">
+                                    <span
+                                        class="badge badge-md typeface-badge badge-pill bg-primary text-white">粗体</span>
+                                        <h3 class="heading display-3 font-weight-700 text-dark">
+                                            Aa
+                                        </h3>
+                                        <p>
+                                            A shining crescent far beneath the flying.
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        >
     </main>
 
     {{--  底部导航  --}}

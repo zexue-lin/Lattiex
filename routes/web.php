@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,12 @@ use Illuminate\Support\Facades\Route;
 // 首页页面
 Route::get('/', [HomeController::class, 'index']);
 
+// 用户相关路由
+Route::prefix('/user')->group(function () {
+    Route::get('login', [UserController::class, 'login']);
+});
 
+// 后台管理页面
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

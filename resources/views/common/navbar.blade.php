@@ -91,6 +91,9 @@
                     <a class="dropdown-item" href="#">
                         <i class="fas fa-cog text-primary"></i>设置
                     </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-users text-primary"></i>个人信息
+                    </a>
                     <div class="dropdown-divider" role="presentation"></div>
                     <a class="dropdown-item" href="#">
                         <i class="fas fa-sign-out-alt text-primary"></i>退出登录

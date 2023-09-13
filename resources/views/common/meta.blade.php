@@ -14,7 +14,9 @@
 {{--<link rel="stylesheet/less" href="{{URL::asset('assets/css/reset.less')}}">--}}
 
 <!-- 公共样式 -->
-{{--<link rel="stylesheet/less" href="{{URL::asset('assets/css/common.less')}}">--}}
+<link rel="stylesheet" href="{{URL::asset('assets/css/theme.css')}}">
+<link rel="stylesheet" href="{{URL::asset('assets/css/demo.css')}}">
+<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
 
 {{--页面独立的css文件--}}
 @stack('css')
