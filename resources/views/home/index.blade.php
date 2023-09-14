@@ -65,8 +65,8 @@
                                     <div class="typeface-entry">
                                     <span
                                         class="badge badge-md typeface-badge badge-pill bg-primary text-white">常规</span>
-                                        <h3 class="heading display-3 font-weight-400 text-dark">
-                                            Aa
+                                        <h3 class="heading display-3 font-weight-20 text-dark">
+                                            这是一
                                         </h3>
                                         <p>
                                             Mist enveloped the ship three hours out from port.
@@ -74,34 +74,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-sm-4">
-                                <a>
-                                    <div class="typeface-entry">
-                                        <span
-                                            class="badge badge-md typeface-badge badge-pill bg-primary text-white">半粗体</span>
-                                        <h3 class="heading display-3 font-weight-600 text-dark">
-                                            Aa
-                                        </h3>
-                                        <p>
-                                            A shining crescent far beneath the flying.
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-sm-4">
-                                <a data-value="'Quicksand', sans-serif">
-                                    <div class="typeface-entry">
-                                    <span
-                                        class="badge badge-md typeface-badge badge-pill bg-primary text-white">粗体</span>
-                                        <h3 class="heading display-3 font-weight-700 text-dark">
-                                            Aa
-                                        </h3>
-                                        <p>
-                                            A shining crescent far beneath the flying.
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
+
                         </div>
                     </div>
                 </div>

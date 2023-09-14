@@ -11,4 +11,10 @@ class HomeController extends Controller
     {
         return view('home.index');
     }
+
+    // 留言界面
+    public function suggest()
+    {
+        return view('home.suggest');
+    }
 }

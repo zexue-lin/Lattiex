@@ -5,10 +5,10 @@
 <link rel="icon" href="{{URL::asset('assets/images/favicon.ico')}}">
 <title>翻斗花园 - @yield('title')</title>
 <!-- bootstrap -->
-{{--<link rel="stylesheet" href="{{URL::asset('assets/css/bootstrap.min.css')}}">--}}
+<link rel="stylesheet" href="{{URL::asset('assets/css/bootstrap.min.css')}}">
 
 <!-- animate.css -->
-{{--<link rel="stylesheet" href="{{URL::asset('assets/css/animate.min.css')}}">--}}
+<link rel="stylesheet" href="{{URL::asset('assets/css/animate.min.css')}}">
 
 <!-- 重置样式 -->
 {{--<link rel="stylesheet/less" href="{{URL::asset('assets/css/reset.less')}}">--}}

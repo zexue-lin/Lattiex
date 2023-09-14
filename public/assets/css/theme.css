@@ -46,7 +46,7 @@ html {
 }
 
 @-ms-viewport {
-    width: device-width
+    width: device-width;
 }
 
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -155,7 +155,7 @@ a {
 
 a:hover {
     color: #0066db;
-    text-decoration: unone
+    text-decoration: unone;
 }
 
 a:not([href]):not([tabindex]) {
@@ -1780,7 +1780,7 @@ pre code {
     background-color: #f8f9fa;
     border-color: #ced4da;
     outline: 0;
-    box-shadow: none, 0 4px 10px 0 rgba(0, 0, 0, 0.04)
+    box-shadow: none, 0 4px 10px 0 rgba(0, 0, 0, 0.04);
 }
 
 .form-control::placeholder {
@@ -3172,8 +3172,11 @@ tbody.collapse.show {
 .input-group > .form-control, .input-group > .custom-select, .input-group > .custom-file {
     position: relative;
     flex: 1 1 auto;
-    width: 1%;
-    margin-bottom: 0
+    /*width: 1%;*/
+    margin-bottom: 0;
+    border-radius: 1.5rem;
+    width: 233px;
+    height: 33px;
 }
 
 .input-group > .form-control:focus, .input-group > .custom-select:focus, .input-group > .custom-file:focus {
@@ -3191,8 +3194,11 @@ tbody.collapse.show {
 
 .input-group > .form-control:not(:first-child), .input-group > .custom-select:not(:first-child) {
     border-top-left-radius: 0;
-    border-bottom-left-radius: 0
+    border-bottom-left-radius: 0;
+    border-left: 0;
+    padding-left: 0;
 }
+
 
 .input-group > .custom-file {
     display: flex;
@@ -3252,7 +3258,9 @@ tbody.collapse.show {
 
 .input-group > .input-group-prepend > .btn, .input-group > .input-group-prepend > .input-group-text, .input-group > .input-group-append:not(:last-child) > .btn, .input-group > .input-group-append:not(:last-child) > .input-group-text, .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
     border-top-right-radius: 0;
-    border-bottom-right-radius: 0
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
 }
 
 .input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
@@ -3303,7 +3311,8 @@ tbody.collapse.show {
 }
 
 .custom-control-label {
-    margin-bottom: 0
+    margin-bottom: 0;
+    padding-left: 26px;
 }
 
 .custom-control-label::before {
@@ -6901,9 +6910,9 @@ a.bg-tertiary:hover, a.bg-tertiary:focus, button.bg-tertiary:hover, button.bg-te
     margin-top: 1rem !important
 }
 
-.mr-3, .mx-3 {
-    margin-right: 1rem !important
-}
+/*.mr-3, .mx-3 {*/
+/*    margin-right: 1rem !important*/
+/*}*/
 
 .mb-3, .my-3 {
     margin-bottom: 1rem !important
@@ -7303,7 +7312,8 @@ a.bg-tertiary:hover, a.bg-tertiary:focus, button.bg-tertiary:hover, button.bg-te
     }
 
     .mr-sm-2, .mx-sm-2 {
-        margin-right: .5rem !important
+        margin-right: .5rem !important;
+        height: 39.6px;
     }
 
     .mb-sm-2, .my-sm-2 {
@@ -9922,14 +9932,14 @@ a.bg-lighter:hover, a.bg-lighter:focus, button.bg-lighter:hover, button.bg-light
 }
 
 .avatar-lg {
-    width: 58px;
-    height: 58px;
+    width: 90px;
+    height: 90px;
     font-size: .765625rem
 }
 
 .avatar-sm {
-    width: 38px;
-    height: 38px;
+    width: 18px;
+    height: 18px;
     font-size: .765625rem
 }
 
@@ -11651,6 +11661,7 @@ textarea[resize="horizontal"] {
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
     background-color: rgba(255, 255, 255, 0.1)
 }
+
 
 .navbar-dark .navbar-nav .show > .nav-link, .navbar-dark .navbar-nav .active > .nav-link, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .nav-link.active {
     background-color: rgba(255, 255, 255, 0.1)

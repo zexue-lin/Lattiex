@@ -1,0 +1,37 @@
+.user-avatar {
+    display: flex;
+    justify-content: center;
+
+    /*align-items: center;*/
+}
+
+.profile-title {
+    font-size: 1.4rem;
+}
+
+.profile-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.sex-radio {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    height: 23px;
+}
+
+.sex-text {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-indent: 30px;
+}
+
+.form-group-secret {
+    margin-bottom: 20px;
+}
+
+.form-group-sex {
+    margin-bottom: 0px;
+}

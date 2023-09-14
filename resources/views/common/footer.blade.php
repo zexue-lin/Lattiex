@@ -51,7 +51,7 @@
         <hr>
         <div class="d-flex align-items-center">
           <span class="">
-            &copy; 2018 <a href="https://webpixels.io/" class="footer-link" target="_blank">Webpixels</a>. All rights reserved.
+            &copy; 2023 <a href="https://webpixels.io/" class="footer-link" target="_blank">网络像素</a>. 版权所有.
           </span>
             <ul class="nav ml-lg-auto">
                 <li class="nav-item">

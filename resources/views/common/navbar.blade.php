@@ -10,7 +10,11 @@
                 <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">连接</a>
+                <a class="nav-link" href="#">AAA农家土鸡蛋批发</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">AAA水果批发</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbar_1_dropdown_1" role="button"
@@ -19,20 +23,27 @@
                     <a class="dropdown-item" href="#">行动</a>
                     <a class="dropdown-item" href="#">其他行动</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">其他东西在这</a>
+                    <a class="dropdown-item" href="#">常用正版软件下载地址</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">AAA水果批发</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">AAA宽带办理</a>
+                <a class="nav-link" href="{{url('home/suggest')}}">留言</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">这个不可以点</a>
             </li>
 
         </ul>
+        {{-- 搜索框 --}}
+        <form class="form-inline my-2 my-lg-0">
+            <div class="input-group">
+
+                <input class="form-control form-control-sm mr-sm-2" type="search"
+                       placeholder="搜索你想要的内容"
+                       aria-label="Search"/>
+            </div>
+            {{--            <button class="btn btn-sm btn-primary my-2 my-sm-0" type="submit">搜索</button>--}}
+        </form>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link nav-link-icon" href="#"><i class="fas fa-cogs"></i></a>
@@ -80,10 +91,17 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link nav-link-icon" href="#" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
+                {{--                <a class="nav-link nav-link-icon" href="#" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown"--}}
+                {{--                   aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>--}}
+                <a class="nav-link" href="#" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false"><img
+                        src="{{URL::asset('assets/images/avatar/default.jpg')}}" alt=""
+                        class="avatar avatar-sm"></a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <h6 class="dropdown-header">用户菜单</h6>
+                    <a class="dropdown-item" href="{{url('user/login')}}">
+                        <i class="fas fa-anchor text-primary"></i>登录
+                    </a>
                     <a class="dropdown-item" href="#">
                         <span class="float-right badge badge-primary">4</span>
                         <i class="fas fa-envelope text-primary"></i>信息
@@ -91,8 +109,8 @@
                     <a class="dropdown-item" href="#">
                         <i class="fas fa-cog text-primary"></i>设置
                     </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-users text-primary"></i>个人信息
+                    <a class="dropdown-item" href="{{url('user/profile')}}">
+                        <i class="fas  fa-address-card text-primary"></i>个人资料
                     </a>
                     <div class="dropdown-divider" role="presentation"></div>
                     <a class="dropdown-item" href="#">

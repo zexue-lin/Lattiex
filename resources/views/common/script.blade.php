@@ -11,3 +11,11 @@
 <script src="{{URL::asset('assets/vendor/textarea-autosize/textarea-autosize.min.js')}}"></script>
 <!-- Theme JS -->
 <script src="{{URL::asset('assets/js/theme.js')}}"></script>
+
+<!-- wow.js -->
+<script src="{{URL::asset('assets/js/wow.min.js')}}"></script>
+
+<script>
+    //实例化wow.js
+    new WOW().init()
+</script>
