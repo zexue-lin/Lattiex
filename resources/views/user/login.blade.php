@@ -3,6 +3,9 @@
 
 @section('title','登录')
 
+{{--设置token -- ajax请求必须需要--}}
+<meta name="csrf-token" content="{{csrf_token()}}">
+
 {{--页面独立的css文件--}}
 @push('css')
     <link rel="stylesheet" href="{{URL::asset('assets/css/home.css')}}">
@@ -36,12 +39,12 @@
                                           action="{{url('user/login_form')}}" method="post">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="input_email"
-                                                   placeholder="邮箱地址">
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                   placeholder="邮箱地址" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="input_password"
-                                                   placeholder="密码">
+                                            <input type="password" class="form-control" id="password" name="password"
+                                                   placeholder="密码" required>
                                         </div>
                                         <div class="login-register">
                                             <div>还没有账号，<a href="{{url('user/register')}}"

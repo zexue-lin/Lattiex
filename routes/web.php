@@ -37,6 +37,16 @@ Route::prefix('user')->group(function () {
     // Route::post('contact/addform', [ContactController::class, 'addform']);
     // Route::post('contact/editform', [ContactController::class, 'editform']);
 });
+
+/**
+ * Ajax请求的路由
+ */
+Route::prefix('user')->group(function () {
+    Route::post('checked_name', [UserController::class, 'checked_name']);
+    // Route::post('user/logout', [UserController::class, 'logout']);
+    // Route::post('contact/del', [UserController::class, 'del']);
+});
+
 // 后台管理页面
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

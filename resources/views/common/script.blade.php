@@ -19,3 +19,6 @@
     //实例化wow.js
     new WOW().init()
 </script>
+
+{{--// 页面js代码--}}
+@stack('script')

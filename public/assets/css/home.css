@@ -2,3 +2,20 @@
     display: flex;
     justify-content: space-between;
 }
+
+.alert-box-danger {
+    position: absolute;
+    z-index: 10;
+    top: -57px;
+}
+
+.alert-box-success {
+    position: absolute;
+    z-index: 10;
+    top: -57px;
+}
+
+
+.fade1.show1 {
+    opacity: 1;
+}

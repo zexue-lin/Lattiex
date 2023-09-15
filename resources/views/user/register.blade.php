@@ -3,10 +3,14 @@
 
 @section('title','注册')
 
+{{--设置token -- ajax请求必须需要--}}
+<meta name="csrf-token" content="{{csrf_token()}}">
+
 {{--页面独立的css文件--}}
 @push('css')
     <link rel="stylesheet" href="{{URL::asset('assets/css/home.css')}}">
 @endpush
+
 @section('content')
 
     {{--  顶部导航  --}}
@@ -19,6 +23,34 @@
             <span class="mask bg-primary alpha-6"></span>
             <div class="container d-flex align-items-center no-padding">
                 <div class="col">
+                    {{--提示框--}}
+                    {{--                    <div class="row justify-content-center">--}}
+                    {{--                        <div class="col-lg-8 alert-box-success">--}}
+                    {{--                            <div class="alert wow fadeInUp alert-success alert-dismissible fade1 show1" role="alert">--}}
+                    {{--                                <span class="alert-inner--icon"><i class="fas fa-check"></i></span>--}}
+                    {{--                                <span class="alert-inner--text"><strong>注册成功!</strong> 赶快去登录吧!</span>--}}
+                    {{--                                <button type="button" class="undo" aria-label="Undo">关闭</button>--}}
+                    {{--                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
+                    {{--                                    <span aria-hidden="true">&times;</span>--}}
+                    {{--                                </button>--}}
+                    {{--                            </div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    {{--                    <div class="row justify-content-center">--}}
+                    {{--                        <div class="col-lg-8 alert-box-danger">--}}
+                    {{--                            <div class="alert alert-danger alert-dismissible fade1 show1" role="alert">--}}
+                    {{--                                <span class="alert-inner--icon"><i class="fas fa-times"></i></span>--}}
+                    {{--                                <span class="alert-inner--text"><strong>注册失败</strong> 请修改信息后重试一次吧!</span>--}}
+                    {{--                                <button type="button" class="undo" aria-label="Undo">关闭</button>--}}
+                    {{--                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
+                    {{--                                    <span aria-hidden="true">&times;</span>--}}
+                    {{--                                </button>--}}
+                    {{--                            </div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    {{--提示框end--}}
+
+                    {{--注册框--}}
                     <div class="row justify-content-center">
                         <div class="col-lg-4">
                             <div class="card bg-primary text-white">
@@ -29,42 +61,62 @@
                                         </button>
                                     </a>
                                     <span class="clearfix"></span>
-                                    <img src="../assets/images/brand/icon.png" style="width: 50px;" alt="">
-
+                                    <img src="{{URL::asset('assets/images/brand/icon.png')}}" style="width: 50px;"
+                                         alt="">
+                                    <h4 class="heading h3 text-white pt-3">欢迎加入,<br>
+                                        注册您的账户.</h4>
 
                                     <form class="form-primary wow fadeInUp" data-wow-delay="200ms"
                                           style="margin-top: 3rem"
                                           action="{{url('user/register_form')}}" method="post">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="input_email"
-                                                   placeholder="有效邮箱地址">
+                                            <input type="text"
+                                                   class="form-control @error('name') is-invalid @enderror"
+                                                   name="name" id="name"
+                                                   placeholder="请输入昵称" required/>
+                                            @error('name')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="password"
+                                            <input type="email"
+                                                   class="form-control @error('email') is-invalid @enderror"
+                                                   name="email" id="email"
+                                                   placeholder="请输入邮箱" required/>
+                                            @error('email')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password"
+                                                   class="form-control @error('password') is-invalid @enderror"
                                                    name="password"
-                                                   placeholder="密码">
+                                                   id="password" placeholder="请输入密码"
+                                                   required/>
+                                            @error('password')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="re-password"
-                                                   name="re-password"
-                                                   placeholder="确认密码">
+                                            <input type="password"
+                                                   class="form-control @error('re_password') is-invalid @enderror"
+                                                   name="re_password"
+                                                   id="re_password" placeholder="请输入确认密码"
+                                                   required/>
+                                            @error('re_password')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
-
-                                        {{--                                        <div class="login-register">--}}
-                                        {{--                                            <div>还没有账号，<a href="#" class="text-white">去注册</a>--}}
-                                        {{--                                            </div>--}}
-                                        {{--                                            <div><a href="#" class="text-white">忘记密码?</a>--}}
-                                        {{--                                            </div>--}}
-                                        {{--                                        </div>--}}
-
-                                        <button type="submit" class="btn btn-block btn-lg bg-white mt-4">注册
+                                        <button type="submit" id="registerButton"
+                                                class="btn btn-block btn-lg bg-white mt-4">注册
                                         </button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {{--登录框end--}}
                 </div>
             </div>
         </section>
@@ -72,3 +124,30 @@
     {{--  底部导航  --}}
     @include('common.footer')
 @endsection
+@push('script')
+    <script>
+        {{--document.getElementById('registerButton').addEventListener('click', function (event) {--}}
+        {{--    event.preventDefault(); // Prevent the default form submission behavior--}}
+
+        {{--    const name = document.getElementById('name').value;--}}
+
+        {{--    $.ajax({--}}
+        {{--        type: 'post',--}}
+        {{--        url: '{{ url("user/checked_form") }}',--}}
+        {{--        data: {--}}
+        {{--            name--}}
+        {{--        },--}}
+        {{--        headers: {--}}
+        {{--            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+        {{--        },--}}
+        {{--        dataType: 'json',--}}
+        {{--        success: function (res) {--}}
+        {{--            console.log('Ajax response:', res);--}}
+        {{--        },--}}
+        {{--        error: function () {--}}
+        {{--        }--}}
+        {{--    });--}}
+        {{--});--}}
+
+    </script>
+@endpush

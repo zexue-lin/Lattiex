@@ -48,40 +48,98 @@
         {{--    第二部分    --}}
         <section class="slice slice-lg">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                        <!-- Typography部分 -->
-                        <div class="row align-items-center mb-5">
-                            <div class="col-8">
-                                <h2 class="heading h3 mb-0">排版</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="heading heading-5 strong-600">Special title treatment</h5>
+                                <h6 class="heading heading-sm strong-400 text-muted mb-4">
+                                    2 hrs ago
+                                </h6>
+                                <p class="card-text">With supporting text below...</p>
+                                <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
                             </div>
-                            <div class="col-4 text-right">
-                                <a href="docs/typography.html" class="btn btn-sm btn-primary">文档中打开</a>
+                            <div class="card-footer">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <span class="avatar avatar-sm bg-purple">JD</span>
+                                        <span class="avatar-content">David Wally</span>
+                                    </div>
+                                    <div class="col text-right text-xs-right">
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item pr-2">
+                                                <a href="#"><i class="fas fa-heart mr-1"></i> 50</a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <i class="fas fa-eye text-muted mr-1"></i> 750
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="row typeface-palette cols-xs-space cols-sm-space cols-md-space">
-                            <div class="col-sm-4">
-                                <a>
-                                    <div class="typeface-entry">
-                                    <span
-                                        class="badge badge-md typeface-badge badge-pill bg-primary text-white">常规</span>
-                                        <h3 class="heading display-3 font-weight-20 text-dark">
-                                            这是一
-                                        </h3>
-                                        <p>
-                                            Mist enveloped the ship three hours out from port.
-                                        </p>
-                                    </div>
-                                </a>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="heading heading-5 strong-600">Special title treatment</h5>
+                                <h6 class="heading heading-sm strong-400 text-muted mb-4">
+                                    2 hrs ago
+                                </h6>
+                                <p class="card-text">With supporting text below...</p>
+                                <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
                             </div>
-
+                            <div class="card-footer">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <span class="avatar avatar-sm bg-purple">JD</span>
+                                        <span class="avatar-content">David Wally</span>
+                                    </div>
+                                    <div class="col text-right text-xs-right">
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item pr-2">
+                                                <a href="#"><i class="fas fa-heart mr-1"></i> 50</a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <i class="fas fa-eye text-muted mr-1"></i> 750
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="heading heading-5 strong-600">Special title treatment</h5>
+                                <h6 class="heading heading-sm strong-400 text-muted mb-4">
+                                    2 hrs ago
+                                </h6>
+                                <p class="card-text">With supporting text below...</p>
+                                <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <span class="avatar avatar-sm bg-purple">JD</span>
+                                        <span class="avatar-content">David Wally</span>
+                                    </div>
+                                    <div class="col text-right text-xs-right">
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item pr-2">
+                                                2 hrs ago
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
             </div>
         </section>
-        >
     </main>
 
     {{--  底部导航  --}}
