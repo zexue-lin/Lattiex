@@ -22,6 +22,26 @@
             <span class="mask bg-primary alpha-6"></span>
             <div class="container d-flex align-items-center no-padding">
                 <div class="col">
+                    @if (session('success'))
+                        {{--提示框--}}
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 alert-box-success">
+                                <div
+                                    class="alert wow fadeInUp alert-success alert-dismissible fade1 show1"
+                                    role="alert">
+                                                        <span class="alert-inner--icon"><i
+                                                                class="fas fa-check"></i></span>
+                                    <span class="alert-inner--text"><strong>注册成功 </strong> 赶快去登录吧!</span>
+                                    <button type="button" class="undo" aria-label="Undo">关闭
+                                    </button>
+                                    <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                     <div class="row justify-content-center">
                         <div class="col-lg-4">
                             <div class="card bg-primary text-white">
@@ -46,6 +66,7 @@
                                             <input type="password" class="form-control" id="password" name="password"
                                                    placeholder="密码" required>
                                         </div>
+
                                         <div class="login-register">
                                             <div>还没有账号，<a href="{{url('user/register')}}"
                                                                class="text-white">去注册</a>

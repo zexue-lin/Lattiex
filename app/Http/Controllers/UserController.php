@@ -54,7 +54,7 @@ class UserController extends Controller
         Cookie::queue('LoginUser', $UserJson);
 
         // 登录成功
-        return redirect('/');
+        return redirect('/')->with('success', '登录成功！');
     }
 
     //注册页
@@ -77,7 +77,8 @@ class UserController extends Controller
             'email' => 'required|unique:users|email',
             'password' => 'required',
             're_password' => 'required|same:password',
-            'salt' => 'required'
+            'salt' => 'required',
+            'captcha' => 'required|captcha'
         ];
 
         // 错误信息
@@ -91,6 +92,7 @@ class UserController extends Controller
             're_password.required' => '密码必填',
             'salt.required' => '密码盐未知',
             're_password.same' => '确认密码和密码不匹配!',
+            'captcha.captcha' => '验证码不匹配'
         ];
 
         $validator = Validator::make($params, $rules, $message);
@@ -112,10 +114,10 @@ class UserController extends Controller
 
         if ($result) {
             // 注册成功
-            return response()->json(['message' => '注册成功'], 200);
+            return redirect('user/login')->with('success', '注册成功！');
         } else {
             // 注册失败
-            return response()->json(['message' => '注册失败'], 400);
+            return redirect('user/register')->with('error', '注册失败！');
         }
 
     }

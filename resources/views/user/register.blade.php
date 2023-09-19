@@ -108,6 +108,23 @@
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
+                                        <div class="form-group code">
+                                            <input type="password"
+                                                   class="form-control @error('captcha') is-invalid @enderror"
+                                                   name="captcha"
+                                                   id="captcha" placeholder="请输入验证码"
+                                                   required/>
+                                            @error('captcha')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                            <div style="display:flex;justify-content: space-around;align-items: center">
+                                                <div>点击图片刷新</div>
+                                                <img id="img" style=" border-radius: 5px"
+                                                     src="{{captcha_src()}}" alt="图片验证码">
+                                            </div>
+
+                                        </div>
+
                                         <button type="submit" id="registerButton"
                                                 class="btn btn-block btn-lg bg-white mt-4">注册
                                         </button>
@@ -126,6 +143,14 @@
 @endsection
 @push('script')
     <script>
+        $(function () {
+            var url = $('#img').attr('src');
+            $('#img').click(function () {
+                $(this).attr('src', url + Math.random())
+            })
+        })
+
+
         {{--document.getElementById('registerButton').addEventListener('click', function (event) {--}}
         {{--    event.preventDefault(); // Prevent the default form submission behavior--}}
 

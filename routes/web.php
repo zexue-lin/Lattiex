@@ -18,9 +18,10 @@ use Illuminate\Support\Facades\Route;
 // 首页页面
 Route::get('/', [HomeController::class, 'index']);
 
-// 主页相关路由
+// 处理home相关表单提交路由
 Route::prefix('home')->group(function () {
-    Route::get('suggest', [HomeController::class, 'suggest']);
+    Route::get('contact', [HomeController::class, 'contact']);
+    Route::post('contact_form', [HomeController::class, 'contact_form']);
 });
 
 // 用户相关路由
@@ -29,7 +30,7 @@ Route::prefix('user')->group(function () {
     Route::get('register', [UserController::class, 'register']);
     Route::get('profile', [UserController::class, 'profile']);
 });
-// 处理表单提交路由
+// 处理user相关表单提交路由
 Route::prefix('user')->group(function () {
     Route::post('register_form', [UserController::class, 'register_form']);
     Route::post('login_form', [UserController::class, 'login_form']);
@@ -37,6 +38,7 @@ Route::prefix('user')->group(function () {
     // Route::post('contact/addform', [ContactController::class, 'addform']);
     // Route::post('contact/editform', [ContactController::class, 'editform']);
 });
+
 
 /**
  * Ajax请求的路由

@@ -45,7 +45,7 @@
                 </div>
             </div>
         </section>
-        {{--    第二部分    --}}
+        {{--    第二部分，三个card    --}}
         <section class="slice slice-lg">
             <div class="container">
                 <div class="row">

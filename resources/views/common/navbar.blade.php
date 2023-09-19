@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">翻斗花园</a>
+    <a class="navbar-brand" href="/">翻斗花园</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_example_1"
             aria-controls="navbar_example_1" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('home/suggest')}}">留言</a>
+                <a class="nav-link" href="{{url('home/contact')}}">留言</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">这个不可以点</a>
