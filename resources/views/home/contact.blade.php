@@ -77,7 +77,7 @@
                 </div>
                 <div class="col-lg-5 ml-lg-auto">
                     <h3 class="heading heading-3 strong-300">
-                        可以通过以下方式与本人联系
+                        可以通过以下方式联系
                         <br>
                         邮件或者QQ
                     </h3>

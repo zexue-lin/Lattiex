@@ -14,8 +14,10 @@
 
     {{-- 主要内容 --}}
     <main class="main">
-        <section class="profile-container"
-                 style="background-image: url('{{ asset('assets/images/backgrounds/profile-bac.jpg') }}')">
+        {{--        <section class="profile-container"--}}
+        {{--                 style="background-image: url('{{ asset('assets/images/backgrounds/profile-bac.jpg') }}')">--}}
+        {{--背景图片暂时不要--}}
+        <section class="profile-container">
 
             <div class="container slice slice-sm">
                 <span class="profile-title" style="color: hotpink">个人信息设置</span>
@@ -86,6 +88,27 @@
                                     <option>1999</option>
                                     <option>1998</option>
                                     <option>1997</option>
+                                    <option>1996</option>
+                                    <option>1995</option>
+                                    <option>1994</option>
+                                    <option>1993</option>
+                                    <option>1991</option>
+                                    <option>1990</option>
+                                    <option>1989</option>
+                                    <option>1988</option>
+                                    <option>1987</option>
+                                    <option>1986</option>
+                                    <option>1985</option>
+                                    <option>1984</option>
+                                    <option>1983</option>
+                                    <option>1982</option>
+                                    <option>1981</option>
+                                    <option>1980</option>
+                                    <option>1979</option>
+                                    <option>1978</option>
+                                    <option>1977</option>
+                                    <option>1976</option>
+                                    <option>1975</option>
                                 </select>
                             </div>
                             <div class="col-md-3">

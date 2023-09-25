@@ -117,7 +117,8 @@
                                             @error('captcha')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
-                                            <div style="display:flex;justify-content: space-around;align-items: center">
+                                            <div
+                                                style="display:flex;justify-content: space-between;align-items: center;margin-top: 15px">
                                                 <div>点击图片刷新</div>
                                                 <img id="img" style=" border-radius: 5px"
                                                      src="{{captcha_src()}}" alt="图片验证码">
