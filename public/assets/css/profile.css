@@ -12,6 +12,7 @@
 .profile-btn {
     display: flex;
     justify-content: center;
+    margin-top: 40px;
 }
 
 .sex-radio {

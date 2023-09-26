@@ -69,7 +69,7 @@
 
                                         <div class="login-register">
                                             <div>还没有账号，<a href="{{url('user/register')}}"
-                                                               class="text-white">去注册</a>
+                                                               class="text-white">去<u>注册</u></a>
                                             </div>
                                             <div><a href="#" class="text-white">忘记密码?</a>
                                             </div>
@@ -86,5 +86,5 @@
         </section>
     </main>
     {{--  底部导航  --}}
-    @include('common.footer')
+    {{--    @include('common.footer')--}}
 @endsection

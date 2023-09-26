@@ -140,7 +140,7 @@
         </section>
     </main>
     {{--  底部导航  --}}
-    @include('common.footer')
+{{-- @include('common.footer')--}}
 @endsection
 @push('script')
     <script>
