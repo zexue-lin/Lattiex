@@ -11340,7 +11340,7 @@ textarea[resize="horizontal"] {
 
 .mask {
     position: absolute;
-    top: -1;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -12147,7 +12147,7 @@ textarea[resize="horizontal"] {
 
 .main {
     position: relative;
-    top: 63px;
+    /*top: 62px;*/
 }
 
 .slice {

@@ -112,7 +112,7 @@
                 </ul>
             </div>
         </aside>
-        <section class="content">
+        <section class="content" style="margin-top: 62px">
             <div class="content-inner content-docs">
                 <div class="pt-3 pb-4 mb-4 border-bottom">
                     <div class="row">
