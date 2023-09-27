@@ -40,7 +40,7 @@
             {{--侧边可滚动导航栏--}}
             <div class="scrollbar-inner">
                 <ul class="navigation pr-3">
-                    <li class="navigation-title">Getting started</li>
+                    <li class="navigation-title">标题一</li>
                     <li class="navigation-item">
                         <a href="introduction.html" class="navigation-link">Introduction</a>
                     </li>
@@ -56,7 +56,7 @@
                     <li class="navigation-item">
                         <a href="update.html" class="navigation-link">Update</a>
                     </li>
-                    <li class="navigation-title">Design elements</li>
+                    <li class="navigation-title">标题二</li>
                     <li class="navigation-item">
                         <a href="colors.html" class="navigation-link">Colors</a>
                     </li>
@@ -66,7 +66,7 @@
                     <li class="navigation-item">
                         <a href="icons.html" class="navigation-link">Icons</a>
                     </li>
-                    <li class="navigation-title">Components</li>
+                    <li class="navigation-title">标题三</li>
                     <li class="navigation-item">
                         <a href="alerts.html" class="navigation-link">Alerts</a>
                     </li>
@@ -114,6 +114,20 @@
         </aside>
         <section class="content">
             <div class="content-inner content-docs">
+                <div class="pt-3 pb-4 mb-4 border-bottom">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="post_area">
+                                <h2 class="heading h2 font-weight-bold">创建帖子</h2>
+                                <textarea placeholder="Type something..." rows="4" cols="80"></textarea>
+                            </div>
+
+                        </div>
+                        <div class="col-3">
+                            <h2 class="heading h2 font-weight-bold">Form elements</h2>
+                        </div>
+                    </div>
+                </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-9">
@@ -348,9 +362,13 @@
             <footer class="px-3 footer bg-white">
                 <div class="container ">
                     <div class="row align-items-center py-3 border-top">
-                        <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                        <div class="col-lg-3 text-center text-lg-left mb-2 mb-lg-0">
                             &copy; 2018 <a href="https://webpixels.io/" target="_blank">Webpixels</a>. All rights
                             reserved.
+                        </div>
+                        <div class="col-lg-3 text-center text-lg-left mb-2 mb-lg-0">
+                            &copy; 备案号: <a href="http://beian.miit.gov.cn/" target="_blank">豫ICP备2023022876号.</a>
+
                         </div>
                         <div class="col-lg-6 text-center text-lg-right">
                             <ul class="nav justify-content-center justify-content-lg-end">
