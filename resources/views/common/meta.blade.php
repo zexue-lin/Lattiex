@@ -17,7 +17,8 @@
 <link rel="stylesheet" href="{{URL::asset('assets/css/theme.css')}}">
 <link rel="stylesheet" href="{{URL::asset('assets/css/demo.css')}}">
 <link rel="stylesheet" href="{{URL::asset('assets/vendor/jquery-scrollbar/css/jquery-scrollbar.css')}}">
-<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
+{{--<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet"--}}
+{{--      type="text/css">--}}
 
 {{--页面独立的css文件--}}
 @stack('css')

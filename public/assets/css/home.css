@@ -297,15 +297,26 @@
 
 /*主页输入框*/
 .post_area {
-
-
+    background: none;
+    padding: 5px;
 }
 
-.textarea {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    resize: vertical; /* Allow vertical resizing only */
+.post_bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*更改鼠标光标的样式.这里是‘用于链接，表示可点击的链接’；还有auto，default，text，not-allowed*/
+    cursor: pointer;
 }
+
+.post_items:hover {
+    color: #288cff;
+}
+
+.post_items {
+    border-radius: 5px;
+    /*background: #288cff;*/
+}
+
 
 /*主页输入框 end*/
