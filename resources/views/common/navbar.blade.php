@@ -10,7 +10,7 @@
                 <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">AAA农家土鸡蛋批发</a>
+                <a class="nav-link" href="{{url('home/website')}}">AAA农家土鸡蛋</a>
             </li>
 
             <li class="nav-item">

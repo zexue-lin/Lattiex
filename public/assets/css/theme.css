@@ -6470,10 +6470,9 @@ a.bg-tertiary:hover, a.bg-tertiary:focus, button.bg-tertiary:hover, button.bg-te
         justify-content: flex-start !important
     }
 
-    .justify-content-lg-end {
-        justify-content: flex-end !important
-    }
-
+    /*.justify-content-lg-end {*/
+    /*    justify-content: flex-end !important*/
+    /*}*/
     .justify-content-lg-center {
         justify-content: center !important
     }
@@ -9011,10 +9010,9 @@ a.bg-tertiary:hover, a.bg-tertiary:focus, button.bg-tertiary:hover, button.bg-te
 }
 
 @media (min-width: 992px) {
-    .text-lg-left {
-        text-align: left !important
-    }
-
+    /*.text-lg-left {*/
+    /*    text-align: left !important*/
+    /*}*/
     .text-lg-right {
         text-align: right !important
     }

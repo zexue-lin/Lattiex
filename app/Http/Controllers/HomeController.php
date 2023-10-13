@@ -19,6 +19,12 @@ class HomeController extends Controller
         return view('home.contact');
     }
 
+    // 留言界面
+    public function website()
+    {
+        return view('home.website');
+    }
+
     // 处理留言提交
     public function contact_form(Request $request)
     {

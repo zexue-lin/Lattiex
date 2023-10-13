@@ -18,9 +18,14 @@ use Illuminate\Support\Facades\Route;
 // 首页页面
 Route::get('/', [HomeController::class, 'index']);
 
-// 处理home相关表单提交路由
+// home相关路由
 Route::prefix('home')->group(function () {
     Route::get('contact', [HomeController::class, 'contact']);
+    Route::get('website', [HomeController::class, 'website']);
+});
+
+// 处理home相关表单提交路由
+Route::prefix('home')->group(function () {
     Route::post('contact_form', [HomeController::class, 'contact_form']);
 });
 

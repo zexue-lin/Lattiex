@@ -127,11 +127,21 @@
                                               placeholder="由你分享..."
                                               rows="1"></textarea>
                                 </div>
+                                <label for="file-1" id="avatarbox">
+                                    <img src="assets/images/upload.png" id="upload" alt="">
+                                </label>
                                 <div class="post_bottom">
                                     <div class="post_items"><i class="fa fa-smile"
                                                                style="margin-right: 5px"> </i>表情
                                     </div>
-                                    <div class="post_items"><i class="fas fa-image" style="margin-right: 5px"></i>图片
+                                    <div class="post_items">
+                                        <input type="file" name="file-1[]" id="file-1"
+                                               class="custom-input-img"
+                                               data-multiple-caption="{count} files selected" multiple/>
+                                        <label for="file-1">
+                                            <i class="fas fa-image"></i>
+                                            <span>图片</span>
+                                        </label>
                                     </div>
                                     <div class="post_items"><i class="fas fa-video" style="margin-right: 5px"></i>视频
                                     </div>
@@ -140,7 +150,6 @@
                                     </div>
                                     <button class="btn btn-sm btn-primary">发送</button>
                                 </div>
-
 
                             </div>
                         </div>
@@ -154,6 +163,62 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
+
+                        <div class="card" style="margin-bottom: 20px">
+                            <div class="card-header py-4">
+                                <div class="d-flex align-items-center">
+                                    <span class="avatar avatar-md bg-purple">头像</span>
+                                    <div class="avatar-content">
+                                        <h5 class="h6 mb-0">用户名称</h5>
+                                        <small class="d-block text-muted">2023.10.12 15:30:21</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-image">
+                                <img src="holder.js/600x400?auto=yes" class="img-fluid">
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-1">
+                                    <div class="col">
+                                        <div class="card-icon-actions card-icon-actions-lg">
+                                            <a href="#" class="love active"><i class="fas fa-heart"></i></a>
+                                            <a href="#"><i class="fas fa-comment"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card-icon-actions card-icon-actions-lg text-right">
+                                            <a href="#"><i class="fas fa-bookmark"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h6 class="heading h6 mb-3">23 点赞</h6>
+                                <p class="card-text">我的发，啥时候才能给我涨工资哇</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row ">
+                                    <div class="col-10">
+                                        <form class="card-comment-box" role="form">
+                                                        <textarea rows="1" class="form-control textarea-autosize"
+                                                                  placeholder="添加评论..."></textarea>
+                                        </form>
+                                    </div>
+                                    <div class="col-2 text-right">
+                                        <div class="card-icon-actions card-icon-actions-lg">
+                                            <a href="#" data-toggle="dropdown" aria-expanded="false">
+                                                <i class="fas fa-ellipsis-h"></i>
+                                            </a>
+                                            <div class="dropdown-menu py-0 text-center">
+                                                <a class="dropdown-item" href="#">Got to post</a>
+                                                <a class="dropdown-item" href="#">Repost inappropriate</a>
+                                                <a class="dropdown-item" href="#">Embed</a>
+                                                <a class="dropdown-item" href="#">Cancel</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                         <h3 id="example">我要玩金铲铲</h3>
                         <div class="code-example">
                             <div class="card" style="width: 18rem;">
@@ -199,170 +264,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="highlight">
-
-                        </div>
-                        <div class="code-example">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="heading heading-5 strong-600">Special title treatment</h5>
-                                            <h6 class="heading heading-sm strong-400 text-muted mb-4">
-                                                2 hrs ago
-                                            </h6>
-                                            <p class="card-text">With supporting text below...</p>
-                                            <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="row align-items-center">
-                                                <div class="col">
-                                                    <span class="avatar avatar-sm bg-purple">JD</span>
-                                                    <span class="avatar-content">David Wally</span>
-                                                </div>
-                                                <div class="col text-right text-xs-right">
-                                                    <ul class="list-inline mb-0">
-                                                        <li class="list-inline-item pr-2">
-                                                            <a href="#"><i class="fas fa-heart mr-1"></i> 50</a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <i class="fas fa-eye text-muted mr-1"></i> 750
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="heading heading-5 strong-600">Special title treatment</h5>
-                                            <h6 class="heading heading-sm strong-400 text-muted mb-4">
-                                                2 hrs ago
-                                            </h6>
-                                            <p class="card-text">With supporting text below...</p>
-                                            <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="row align-items-center">
-                                                <div class="col">
-                                                    <span class="avatar avatar-sm bg-purple">JD</span>
-                                                    <span class="avatar-content">David Wally</span>
-                                                </div>
-                                                <div class="col text-right text-xs-right">
-                                                    <ul class="list-inline mb-0">
-                                                        <li class="list-inline-item pr-2">
-                                                            2 hrs ago
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="highlight">
-
-                        </div>
-                        <h3 id="actions">Actions</h3>
-                        <div class="code-example">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <div class="row align-items-center">
-                                                <div class="col-8">
-                                                    <h4 class="heading h5 mb-0">Favorite post</h4>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div class="card-icon-actions text-right">
-                                                        <a href="#" class="favorite active" data-toggle="tooltip"
-                                                           data-original-title="Save to favorites"><i
-                                                                class="fas fa-star"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text">With supporting text below as a natural lead-in to
-                                                additional content.</p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="row align-items-center">
-                                                <div class="col-6">
-                                                    <a href="#" class="btn btn-sm btn-primary">Action button</a>
-                                                </div>
-                                                <div class="col-6 text-right">
-                                                    <span class="text-muted">2 hrs ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <div class="row align-items-center">
-                                                <div class="col-8">
-                                                    <h4 class="heading h5 mb-0">Love &amp; bookmark post</h4>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div class="card-icon-actions text-right">
-                                                        <a href="#" class="favorite" data-toggle="tooltip"
-                                                           data-original-title="Save as favorite"><i
-                                                                class="fas fa-star"></i></a>
-                                                        <a href="#" class="love active" data-toggle="tooltip"
-                                                           data-original-title="Love this"><i
-                                                                class="fas fa-heart"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text">With supporting text below as a natural lead-in to
-                                                additional content.</p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <div class="row align-items-center">
-                                                <div class="col-6">
-                                                    <a href="#" class="btn btn-sm btn-primary">Action button</a>
-                                                </div>
-                                                <div class="col-6 text-right">
-                                                    <span class="text-muted">2 hrs ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <h3 id="list-groups">List groups</h3>
-                        <div class="code-example">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="card">
-                                        <div class="card-header py-4">
-                                            <h4 class="heading h5 font-weight-500 mb-0">Simple list group</h4>
-                                        </div>
-                                        <div class="list-group">
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">Cras justo odio</li>
-                                                <li class="list-group-item">Dapibus ac facilisis in</li>
-                                                <li class="list-group-item">Vestibulum at eros</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
 
 
                     </div>
+                    {{--右侧浮动导航栏--}}
                     <div class="col-lg-3 d-none d-lg-inline-block">
                         <div class="sidebar-sticky" data-stick-in-parent="true">
                             <ul class="section-nav">
@@ -385,15 +290,15 @@
             <footer class="px-3 footer bg-white">
                 <div class="container ">
                     <div class="row align-items-center py-3 border-top">
-                        <div class="col-lg-3 text-center text-lg-left mb-2 mb-lg-0">
-                            &copy; 2018 <a href="https://webpixels.io/" target="_blank">Webpixels</a>. All rights
+                        <div class="col-lg-4 text-center text-lg-left mb-2 mb-lg-0">
+                            &copy; 2023 <a href="http://lattiex.com/" target="_blank">Lattiex</a>. All rights
                             reserved.
                         </div>
-                        <div class="col-lg-3 text-center text-lg-left mb-2 mb-lg-0">
+                        <div class="col-lg-4 text-center text-lg-left mb-2 mb-lg-0">
                             &copy; 备案号: <a href="http://beian.miit.gov.cn/" target="_blank">豫ICP备2023022876号.</a>
 
                         </div>
-                        <div class="col-lg-6 text-center text-lg-right">
+                        <div class="col-lg-4 text-center text-lg-right">
                             <ul class="nav justify-content-center justify-content-lg-end">
                                 <li class="nav-item">
                                     <a class="nav-link active" href="https://instagram.com/webpixelsofficial"
