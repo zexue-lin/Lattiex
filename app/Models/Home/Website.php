@@ -5,12 +5,12 @@ namespace App\Models\Home;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Contact extends Model
+class Website extends Model
 {
     use HasFactory;
 
     // 指定数据表(留言)
-    protected $table = 'contact';
+    protected $table = 'website';
 
     /**
      * 不可批量赋值的属性

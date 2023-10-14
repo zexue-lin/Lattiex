@@ -8,7 +8,7 @@
 
 {{--页面独立的css文件--}}
 @push('css')
-
+    <link rel="stylesheet" href="{{URL::asset('assets/css/home.css')}}">
 @endpush
 
 @section('content')
@@ -23,26 +23,6 @@
                 <h1 class="font-weight-400"><a href="../"><span class="font-weight-700">"食用"功能网址</span> 分享</a>
                 </h1>
             </div>
-
-            {{--玩跑轮的仓鼠--}}
-            {{--<div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">--}}
-            {{--    <div class="wheel"></div>--}}
-            {{--    <div class="hamster">--}}
-            {{--        <div class="hamster__body">--}}
-            {{--            <div class="hamster__head">--}}
-            {{--                <div class="hamster__ear"></div>--}}
-            {{--                <div class="hamster__eye"></div>--}}
-            {{--                <div class="hamster__nose"></div>--}}
-            {{--            </div>--}}
-            {{--            <div class="hamster__limb hamster__limb--fr"></div>--}}
-            {{--            <div class="hamster__limb hamster__limb--fl"></div>--}}
-            {{--            <div class="hamster__limb hamster__limb--br"></div>--}}
-            {{--            <div class="hamster__limb hamster__limb--bl"></div>--}}
-            {{--            <div class="hamster__tail"></div>--}}
-            {{--        </div>--}}
-            {{--    </div>--}}
-            {{--    <div class="spoke"></div>--}}
-            {{--</div>--}}
             {{--侧边可滚动导航栏--}}
             <div class="scrollbar-inner">
                 <ul class="navigation pr-3">
@@ -127,17 +107,41 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
-                        <h3 id="example">我要玩金铲铲</h3>
-
-                        <a href="https://baidu.com" style="text-decoration: none;">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h4 class="card-title">百度网址</h4>
-                                    <p class="card-text">Some quick example text....</p>
-                                    {{--<a href="#" class="btn btn-sm btn-primary">Go somewhere</a>--}}
+                        <h2 id="example" style="margin-bottom: 1.5rem">工具类网站</h2>
+                        <div class="row item_row">
+                            @foreach($websites1 as $item)
+                                <div class="card_web" data-toggle="tooltip"
+                                     data-placement="bottom"
+                                     title="{{$item->toggle_title}}">
+                                    <a href="{{$item->href}}" style="text-decoration: none;" target="_blank">
+                                        <div style="width: 10rem;">
+                                            <div class="card_web-body">
+                                                <h5 class="card_web-title">{{$item->title}}</h5>
+                                                <p class="card_web-text">{{$item->text}}</p>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
-                        </a>
+                            @endforeach
+                        </div>
+
+                        <h2 id="example" style="margin-bottom: 1.5rem">下载类网站</h2>
+                        <div class="row item_row">
+                            @foreach($websites2 as $item)
+                                <div class="card_web" data-toggle="tooltip"
+                                     data-placement="bottom"
+                                     title="{{$item->toggle_title}}">
+                                    <a href="{{$item->href}}" style="text-decoration: none;" target="_blank">
+                                        <div style="width: 10rem;">
+                                            <div class="card_web-body">
+                                                <h5 class="card_web-title">{{$item->title}}</h5>
+                                                <p class="card_web-text">{{$item->text}}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
 
 
                     </div>

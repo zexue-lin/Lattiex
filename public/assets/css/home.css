@@ -1,3 +1,4 @@
+/* ------------user/login.blade.php + register.blade.php------------ */
 .login-register {
     display: flex;
     justify-content: space-between;
@@ -19,6 +20,8 @@
     opacity: 1;
 }
 
+
+/* ------------home/index.blade.php------------ */
 /*玩跑轮的仓鼠*/
 .wheel-and-hamster {
     --dur: 1s;
@@ -348,5 +351,46 @@
     color: #288cff;
 }
 
-
 /*主页输入框 end*/
+
+/* ------------home/website.blade.php------------ */
+.item_row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card_web {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /*min-width: 0;*/
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: .0625rem solid rgba(0, 0, 0, 0.05);
+    border-radius: .375rem;
+    background: #f3f3f3;
+    transition: .5s;
+    margin-bottom: 1rem;
+}
+
+.card_web:hover {
+    transform: translateY(-.7rem); /* 上移 10 像素 */
+
+}
+
+.card_web-body {
+    flex: 1 1 auto;
+    padding: 1rem
+}
+
+.card_web-text {
+    white-space: nowrap; /* 禁止文本换行 */
+    overflow: hidden; /* 隐藏超出容器宽度的文本 */
+    text-overflow: ellipsis; /* 超出时显示省略号 */
+    margin-bottom: 0;
+}
+
+.card_web-title {
+    margin-bottom: .5rem;
+    text-align: center;
+}

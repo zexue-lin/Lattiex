@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Home\Contact;
 use Illuminate\Http\Request;
+use App\Models\Home\Website as WebModel;
 
 class HomeController extends Controller
 {
@@ -22,11 +23,25 @@ class HomeController extends Controller
     // 留言界面
     public function website()
     {
-        return view('home.website');
+        // 使用 WebModel 模型查询网站类型为1的所有数据
+        $websites1 = WebModel::where('category', 1)->get();
+
+        // 使用 WebModel 模型查询网站类型为1的所有数据
+        $websites2 = WebModel::where('category', 2)->get();
+
+        $data = compact([
+            'websites1',
+            'websites2'
+        ]);
+
+        // 将查询结果传递给视图
+        return view('home.website', $data);
     }
 
+
     // 处理留言提交
-    public function contact_form(Request $request)
+    public
+    function contact_form(Request $request)
     {
         $params = $request->all();
 
