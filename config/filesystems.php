@@ -52,10 +52,10 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
-        'voyager' => [
+        'uploads' => [
             'driver' => 'local',
-            'root' => storage_path('storage'),// change here something specific to your application need
-            'url' => env('APP_URL') . '/storage',
+            'root' => public_path('uploads'),
+            'url' => env('APP_URL') . '/uploads',
             'visibility' => 'public',
         ],
 
