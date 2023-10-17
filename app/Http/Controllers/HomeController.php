@@ -5,13 +5,21 @@ namespace App\Http\Controllers;
 use App\Models\Home\Contact;
 use Illuminate\Http\Request;
 use App\Models\Home\Website as WebModel;
+use App\Models\Home\Posts as PostsModel;
 
 class HomeController extends Controller
 {
     // 主页
     public function index()
     {
-        return view('home.index');
+        // 使用 PostModel 查询数据库中的所有数据
+        $posts = PostsModel::all();
+
+        $data = compact([
+            'posts'
+        ]);
+        // 将数据传递给视图
+        return view('home.index', $data);
     }
 
     // 留言界面

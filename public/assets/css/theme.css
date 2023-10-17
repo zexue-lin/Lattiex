@@ -408,7 +408,11 @@ mark, .mark {
 
 .list-inline {
     padding-left: 0;
-    list-style: none
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
 .list-inline-item {

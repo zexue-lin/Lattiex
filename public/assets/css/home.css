@@ -353,6 +353,12 @@
 
 /*主页输入框 end*/
 
+.card {
+    margin-bottom: 1rem;
+    background: #f8f8f6;
+}
+
+
 /* ------------home/website.blade.php------------ */
 .item_row {
     display: flex;
@@ -368,7 +374,7 @@
     background-clip: border-box;
     border: .0625rem solid rgba(0, 0, 0, 0.05);
     border-radius: .375rem;
-    background: #f3f3f3;
+    background: #f8f8f6;
     transition: .5s;
     margin-bottom: 1rem;
 }

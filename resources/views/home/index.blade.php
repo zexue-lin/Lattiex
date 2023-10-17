@@ -119,12 +119,15 @@
                 <div class="pt-3 pb-4 mb-4 border-bottom">
                     {{--一共12份，分成了6+3 两份--}}
                     <div class="row">
+                        <div class="col-1">
+                            {{--<h2 class="heading h2 font-weight-bold"></h2>--}}
+                        </div>
                         <div class="col-lg-6">
-                            <div class="post_area">
-                                <h2 class="heading h2 font-weight-bold">分享</h2>
+                            <h2 class="heading h2 font-weight-bold">翻斗花园</h2>
+                            <form class="post_area">
                                 <div class="form-group">
                                     <textarea class="form-control textarea-autosize"
-                                              placeholder="由你分享..."
+                                              placeholder="只因你太美，Oh，baby..."
                                               rows="1"></textarea>
                                 </div>
                                 <label for="file-1" id="avatarbox">
@@ -150,19 +153,39 @@
                                     </div>
                                     <button class="btn btn-sm btn-primary">发送</button>
                                 </div>
-
-                            </div>
+                            </form>
                         </div>
+
                     </div>
-                    {{--<div class="col-3">--}}
-                    {{--<h2 class="heading h2 font-weight-bold">Form elements</h2>--}}
-                    {{--</div>--}}
+
 
                 </div>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
+                        @foreach($posts as $item)
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="heading heading-5 strong-600">{{$item->title}}</h3>
+                                    <h6 class="text-muted mb-1">时间：{{$item->created_at}}</h6>
+                                    <h5 class="card-text">{{$item->excerpt}}</h5>
+                                    <ul class="list-inline mb-1">
+                                        <div>
+                                            <li class="list-inline-item pr-2">
+                                                <a href="#"><i class="fas fa-heart mr-1"></i>{{$item->like}}</a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <i class="fas fa-eye text-muted mr-1"></i> {{$item->view}}
+                                            </li>
+                                        </div>
+
+                                        <span
+                                            class="badge badge-lg badge-pill badge-secondary text-uppercase">{{$item->meta_keywords}}</span>
+                                    </ul>
+                                </div>
+                            </div>
+                        @endforeach
 
                         <div class="card" style="margin-bottom: 20px">
                             <div class="card-header py-4">
@@ -173,9 +196,6 @@
                                         <small class="d-block text-muted">2023.10.12 15:30:21</small>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card-image">
-                                <img src="holder.js/600x400?auto=yes" class="img-fluid">
                             </div>
                             <div class="card-body">
                                 <div class="row mb-1">
@@ -193,6 +213,11 @@
                                 </div>
                                 <h6 class="heading h6 mb-3">23 点赞</h6>
                                 <p class="card-text">我的发，啥时候才能给我涨工资哇</p>
+                            </div>
+
+                            <div class="card-image">
+                                <img src="{{URL::asset('assets/images/avatar/default.jpg')}}"
+                                     class="img-fluid" style="width: 8rem">
                             </div>
                             <div class="card-footer">
                                 <div class="row ">
@@ -264,14 +289,12 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                     {{--右侧浮动导航栏--}}
                     <div class="col-lg-3 d-none d-lg-inline-block">
                         <div class="sidebar-sticky" data-stick-in-parent="true">
                             <ul class="section-nav">
-                                <li class="toc-entry toc-h3"><a href="#example">Example</a></li>
+                                <li class="toc-entry toc-h3"><a href="#download">Example</a></li>
                                 <li class="toc-entry toc-h3"><a href="#metadata">Metadata</a></li>
                                 <li class="toc-entry toc-h3"><a href="#actions">Actions</a></li>
                                 <li class="toc-entry toc-h3"><a href="#commentable">Commentable</a></li>

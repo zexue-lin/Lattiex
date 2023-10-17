@@ -26,73 +26,73 @@
             {{--侧边可滚动导航栏--}}
             <div class="scrollbar-inner">
                 <ul class="navigation pr-3">
-                    <li class="navigation-title">标题一</li>
-                    <li class="navigation-item">
-                        <a href="introduction.html" class="navigation-link">Introduction</a>
+                    <li class="navigation-title">网站类别</li>
+                    <li class="navigation-item toc-entry toc-h3">
+                        <a href="#tools" class="navigation-link">工具类网站</a>
                     </li>
-                    <li class="navigation-item">
-                        <a href="file-structure.html" class="navigation-link">File structure</a>
+                    <li class="navigation-item toc-entry toc-h3">
+                        <a href="#downloads" class="navigation-link">下载类网站</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="plugins.html" class="navigation-link">Plugins</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="customization.html" class="navigation-link">Customization</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="update.html" class="navigation-link">Update</a>
                     </li>
                     <li class="navigation-title">标题二</li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="colors.html" class="navigation-link">Colors</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="typography.html" class="navigation-link">Typography</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="icons.html" class="navigation-link">Icons</a>
                     </li>
                     <li class="navigation-title">标题三</li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="alerts.html" class="navigation-link">Alerts</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="avatars.html" class="navigation-link">Avatars</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="badges.html" class="navigation-link">Badges</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="buttons.html" class="navigation-link">Buttons</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="cards.html" class="navigation-link">Cards</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="dropdowns.html" class="navigation-link">Dropdowns</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="forms.html" class="navigation-link">Forms</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="modal.html" class="navigation-link">Modal</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="navbar.html" class="navigation-link">Navbar</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="navs.html" class="navigation-link">Navs</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="pagination.html" class="navigation-link">Pagination</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="progress.html" class="navigation-link">Progress</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="tables.html" class="navigation-link">Tables</a>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation-item toc-entry toc-h3">
                         <a href="tooltips.html" class="navigation-link">Tooltips</a>
                     </li>
                 </ul>
@@ -107,7 +107,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
-                        <h2 id="example" style="margin-bottom: 1.5rem">工具类网站</h2>
+                        <h2 id="tools" style="margin-bottom: 1.5rem;">工具类网站</h2>
                         <div class="row item_row">
                             @foreach($websites1 as $item)
                                 <div class="card_web" data-toggle="tooltip"
@@ -125,7 +125,7 @@
                             @endforeach
                         </div>
 
-                        <h2 id="example" style="margin-bottom: 1.5rem">下载类网站</h2>
+                        <h2 id="downloads" style="margin-bottom: 1.5rem">下载类网站</h2>
                         <div class="row item_row">
                             @foreach($websites2 as $item)
                                 <div class="card_web" data-toggle="tooltip"
@@ -149,7 +149,7 @@
                     <div class="col-lg-3 d-none d-lg-inline-block">
                         <div class="sidebar-sticky" data-stick-in-parent="true">
                             <ul class="section-nav">
-                                <li class="toc-entry toc-h3"><a href="#example">Example</a></li>
+                                <li class="toc-entry toc-h3"><a href="#downloads">Example</a></li>
                                 <li class="toc-entry toc-h3"><a href="#metadata">Metadata</a></li>
                                 <li class="toc-entry toc-h3"><a href="#actions">Actions</a></li>
                                 <li class="toc-entry toc-h3"><a href="#commentable">Commentable</a></li>
