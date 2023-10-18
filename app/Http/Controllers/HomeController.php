@@ -6,6 +6,7 @@ use App\Models\Home\Contact;
 use Illuminate\Http\Request;
 use App\Models\Home\Website as WebModel;
 use App\Models\Home\Posts as PostsModel;
+use App\Models\User\User as UserModel;
 
 class HomeController extends Controller
 {
@@ -13,10 +14,10 @@ class HomeController extends Controller
     public function index()
     {
         // 使用 PostModel 查询数据库中的所有数据
-        $posts = PostsModel::all();
+        $postsIndex = PostsModel::all();
 
         $data = compact([
-            'posts'
+            'postsIndex'
         ]);
         // 将数据传递给视图
         return view('home.index', $data);
@@ -25,7 +26,7 @@ class HomeController extends Controller
     // 留言界面
     public function contact()
     {
-        return view('home.contact');
+        return view('contact');
     }
 
     // 留言界面
@@ -43,13 +44,12 @@ class HomeController extends Controller
         ]);
 
         // 将查询结果传递给视图
-        return view('home.website', $data);
+        return view('website', $data);
     }
 
 
     // 处理留言提交
-    public
-    function contact_form(Request $request)
+    public function contact_form(Request $request)
     {
         $params = $request->all();
 
@@ -64,4 +64,31 @@ class HomeController extends Controller
         }
 
     }
+
+    // 文章详情页面
+    public function posts($id)
+    {
+        // 根据文章ID加载文章内容
+        $posts = PostsModel::find($id);
+
+        // 查询这篇文章的用户id
+        $Userid = $posts->user_id;
+
+        // 查询用户信息
+        $UserInfo = UserModel::find($Userid);
+
+
+        // 返回到文章详情页面，并传递文章信息
+
+        $data = compact([
+            'posts',
+            'UserInfo',
+        ]);
+        // dd($data);
+
+        // 将查询结果传递给视图
+        return view('posts', $data);
+
+    }
+
 }

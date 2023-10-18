@@ -359,7 +359,7 @@
 }
 
 
-/* ------------home/website.blade.php------------ */
+/* ------------views/website.blade.php------------ */
 .item_row {
     display: flex;
     justify-content: space-between;
@@ -399,4 +399,16 @@
 .card_web-title {
     margin-bottom: .5rem;
     text-align: center;
+}
+
+/* ------------views/posts.blade.php------------ */
+.posts-time-box {
+    display: flex;
+    height: 2rem;
+    align-items: center;
+}
+
+.posts-view {
+    margin-left: 1.5rem;
+    padding-bottom: .1rem;
 }

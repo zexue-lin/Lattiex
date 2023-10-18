@@ -18,7 +18,7 @@
     {{-- 主要内容 --}}
     <main class="main">
         <section class="py-xl bg-cover bg-size--cover"
-                 style="background-image: url('{{ asset('assets/images/backgrounds/img-1.jpg') }}');height: 100vh; ">
+                 style="background-image: url('{{ asset('assets/images/backgrounds/偶像练习生背景.jpg') }}');margin-top: 62px">
             <span class="mask bg-primary alpha-6"></span>
             <div class="container d-flex align-items-center no-padding">
                 <div class="col">

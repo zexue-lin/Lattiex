@@ -20,7 +20,7 @@
         <aside class="sidebar" id="nav_docs">
             {{--这里是仓鼠上面的一个大标题，隐藏掉了--}}
             <div class="sidebar-brand">
-                <h1 class="font-weight-400"><a href="../"><span class="font-weight-700">"食用"功能网址</span> 分享</a>
+                <h1 class="font-weight-400"><a href=""><span class="font-weight-700">"食用"功能网址</span> 分享</a>
                 </h1>
             </div>
             {{--侧边可滚动导航栏--}}

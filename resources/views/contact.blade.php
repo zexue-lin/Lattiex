@@ -95,8 +95,9 @@
             </div>
         </div>
     </section>
+    @include('common.gift')
     <section class="slice bg-tertiary bg-cover bg-size--cover"
-             style="background-image: url('../assets/images/backgrounds/img-1.jpg')">
+             style="background-image: url('{{asset('/assets/images/backgrounds/img-1.jpg')}}')">
         <span class="mask bg-tertiary alpha-9"></span>
         <div class="container">
             <div class="row cols-xs-space cols-sm-space cols-md-space">
@@ -104,7 +105,7 @@
                     <div class="card bg-dark alpha-container text-white border-0 overflow-hidden">
                         <a href="#" target="_blank">
                             <div class="card-img-bg"
-                                 style="background-image: url('../assets/images/prv/city-1.jpg');"></div>
+                                 style="background-image: url('{{asset('/assets/images/prv/city-1.jpg')}}');"></div>
                             <span class="mask bg-dark alpha-5 alpha-4--hover"></span>
                             <div class="card-body px-5 py-5">
                                 <div style="min-height: 300px;">
@@ -128,7 +129,7 @@
                     <div class="card bg-dark alpha-container text-white border-0 overflow-hidden">
                         <a href="#" target="_blank">
                             <div class="card-img-bg"
-                                 style="background-image: url('../assets/images/prv/city-2.jpg');"></div>
+                                 style="background-image: url('{{asset('/assets/images/prv/city-2.jpg')}}');"></div>
                             <span class="mask bg-dark alpha-5 alpha-4--hover"></span>
                             <div class="card-body px-5 py-5">
                                 <div style="min-height: 300px;">
@@ -153,35 +154,10 @@
     </section>
 
     {{--  底部导航  --}}
-{{-- @include('common.footer')--}}
+    {{-- @include('common.footer')--}}
 @endsection
 
 @push('script')
     <script>
-        {{--document.getElementById('contact_btn').addEventListener('click', function (event) {--}}
-        {{--    event.preventDefault(); // Prevent the default form submission behavior--}}
-
-        {{--    const name = document.getElementById('name').value;--}}
-        {{--    const email = document.getElementById('name').value;--}}
-        {{--    const content = document.getElementById('name').value;--}}
-        {{--    $.ajax({--}}
-        {{--        type: 'post',--}}
-        {{--        url: '{{ url("home/contact_form") }}',--}}
-        {{--        data: {--}}
-        {{--            name,--}}
-        {{--            email,--}}
-        {{--            content--}}
-        {{--        },--}}
-        {{--        headers: {--}}
-        {{--            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-        {{--        },--}}
-        {{--        dataType: 'json',--}}
-        {{--        success: function (res) {--}}
-        {{--            console.log('Ajax response:', res);--}}
-        {{--        },--}}
-        {{--        error: function () {--}}
-        {{--        }--}}
-        {{--    });--}}
-        {{--});--}}
     </script>
 @endpush

@@ -10,7 +10,7 @@
                 <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('home/website')}}">AAA农家土鸡蛋</a>
+                <a class="nav-link" href="{{url('/website')}}">AAA农家土鸡蛋</a>
             </li>
 
             <li class="nav-item">
@@ -27,7 +27,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('home/contact')}}">留言</a>
+                <a class="nav-link" href="{{url('/contact')}}">留言</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">这个不可以点</a>
@@ -122,12 +122,43 @@
                         <i class="fas  fa-address-card text-primary"></i>个人资料
                     </a>
                     <div class="dropdown-divider" role="presentation"></div>
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-sign-out-alt text-primary"></i>退出登录
+                    {{--<a class="dropdown-item" href="#">--}}
+                    {{--    <i class="fas fa-sign-out-alt text-primary"></i>退出登录--}}
+                    {{--</a>--}}
+                    <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal_5">
+                        <i class="fas fa-sign-out-alt text-primary"></i>
+                        退出登录
                     </a>
                 </div>
             </li>
         </ul>
+    </div>
+    <!-- 退出登录Modal -->
+    <div class="modal modal-danger fade" id="modal_5" tabindex="-1" role="dialog" aria-labelledby="modal_5"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_title_6">再多一眼，看一眼就会爆炸。</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="py-3 text-center">
+                        <i class="fas fa-exclamation-circle fa-4x"></i>
+                        <h4 class="heading mt-4">确定要退出登录吗?</h4>
+                        <p>
+                            You can easy create stackable modal boxes. For example, your inline content or Ajax response
+                            can contain a gallery:
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">是的,确定</button>
+                </div>
+            </div>
+        </div>
     </div>
 </nav>
 

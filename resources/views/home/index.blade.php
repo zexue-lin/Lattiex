@@ -14,6 +14,7 @@
 
     {{--  主体内容  --}}
     <main class="main">
+
         <aside class="sidebar" id="nav_docs">
             {{--这里是仓鼠上面的一个大标题，隐藏掉了--}}
             {{--            <div class="sidebar-brand">--}}
@@ -164,26 +165,30 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
-                        @foreach($posts as $item)
-                            <div class="card">
-                                <div class="card-body">
-                                    <h3 class="heading heading-5 strong-600">{{$item->title}}</h3>
-                                    <h6 class="text-muted mb-1">时间：{{$item->created_at}}</h6>
-                                    <h5 class="card-text">{{$item->excerpt}}</h5>
-                                    <ul class="list-inline mb-1">
-                                        <div>
-                                            <li class="list-inline-item pr-2">
-                                                <a href="#"><i class="fas fa-heart mr-1"></i>{{$item->like}}</a>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <i class="fas fa-eye text-muted mr-1"></i> {{$item->view}}
-                                            </li>
+                        @foreach($postsIndex as $item)
+                            <div class="card" style="">
+                                <a href="{{ url('posts', ['id' => $item->id]) }}"
+                                   style="text-decoration: none;" target="_blank">
+                                    <div class="card-body">
+                                        <h3 class="heading heading-5 strong-600">{{$item->title}}</h3>
+                                        <h6 class="text-muted mb-1">时间：{{$item->created_at}}</h6>
+                                        <h5 class="card-text">{{$item->excerpt}}</h5>
+                                        <div class="list-inline mb-1">
+                                            <div>
+                                                <li class="list-inline-item pr-2"
+                                                    onclick="handleLikeClick({{$item->like}})">
+                                                    <i class="fas fa-heart mr-1" id="likeIcon"
+                                                       style="color: #a9a9a9"></i>{{$item->like}}
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <i class="fas fa-eye text-muted mr-1"></i> {{$item->view}}
+                                                </li>
+                                            </div>
+                                            <span
+                                                class="badge badge-lg badge-pill badge-secondary text-uppercase">{{$item->meta_keywords}}</span>
                                         </div>
-
-                                        <span
-                                            class="badge badge-lg badge-pill badge-secondary text-uppercase">{{$item->meta_keywords}}</span>
-                                    </ul>
-                                </div>
+                                    </div>
+                                </a>
                             </div>
                         @endforeach
 
@@ -350,3 +355,17 @@
     {{--  底部导航  --}}
     {{-- @include('common.footer')--}}
 @endsection
+@push('script')
+    <script>
+        function handleLikeClick() {
+
+            // 在这里可以执行你想要的操作，比如增加点赞数、显示点赞信息等
+            alert('你进行了点赞，应该: ' + 1);
+            event.preventDefault(); // 阻止默认行为（网页跳转）
+            // 删除元素的style属性
+            const element = document.getElementById('likeIcon');
+            element.removeAttribute('style');
+        }
+
+    </script>
+@endpush

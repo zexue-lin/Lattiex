@@ -18,11 +18,19 @@ use Illuminate\Support\Facades\Route;
 // 首页页面
 Route::get('/', [HomeController::class, 'index']);
 
+// 带着文章id跳转
+Route::get('posts/{id}', [HomeController::class, 'posts']);
+
+Route::get('website', [HomeController::class, 'website']);
+
+Route::get('contact', [HomeController::class, 'contact']);
+
+
 // home相关路由
-Route::prefix('home')->group(function () {
-    Route::get('contact', [HomeController::class, 'contact']);
-    Route::get('website', [HomeController::class, 'website']);
-});
+// Route::prefix('home')->group(function () {
+//     // Route::get('posts/{id}', [HomeController::class, 'posts']);
+//
+// });
 
 // 处理home相关表单提交路由
 Route::prefix('home')->group(function () {
@@ -48,11 +56,6 @@ Route::prefix('user')->group(function () {
 /**
  * Ajax请求的路由
  */
-Route::prefix('user')->group(function () {
-    Route::post('checked_name', [UserController::class, 'checked_name']);
-    // Route::post('user/logout', [UserController::class, 'logout']);
-    // Route::post('contact/del', [UserController::class, 'del']);
-});
 
 // 后台管理页面
 Route::group(['prefix' => 'admin'], function () {

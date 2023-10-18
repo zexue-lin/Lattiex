@@ -122,23 +122,6 @@ class UserController extends Controller
 
     }
 
-    // 检查注册name
-    public function checked_name(Request $request)
-    {
-
-        $name = $request->input('name');
-        // 查询用户表是否存在该用户
-        $name = UserModel::find($name);
-
-        //
-        if ($name) {
-            return json_encode(['code' => 1, 'url' => '注册成功']);
-        } else {
-            return json_encode(['code' => 0, 'url' => '注册失败']);
-        }
-
-
-    }
 
     // 个人信息页
     public function profile()
