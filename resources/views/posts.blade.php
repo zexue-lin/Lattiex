@@ -24,7 +24,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h1 class="heading heading-5 strong-600">Special title treatment</h1>
+                                    <h1 class="heading heading-5 strong-600">{{$posts->title}}</h1>
                                     <div class="posts-time-box">
                                         <span class="strong-400 text-muted ">
                                             {{$posts->created_at}}
@@ -33,13 +33,12 @@
                                             <i class="fas fa-eye text-muted mr-1"></i>{{$posts->view}}
                                         </span>
                                     </div>
-
                                     <p class="card-text">With supporting text below...</p>
+                                    <div>{{$posts->body}}</div>
                                     <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
                                 </div>
                                 <div class="card-footer">
                                     <div class="row align-items-center">
-
                                         <div class="col text-right text-xs-right">
                                             <ul class="list-inline mb-0">
                                                 <div class="btn-group btn-action-label" role="group" aria-label="Like">
@@ -48,9 +47,8 @@
                                                         <span>Like</span>
                                                     </button>
                                                     <a href="#"
-                                                       class="btn btn-sm btn-outline-secondary btn-label">1030</a>
+                                                       class="btn btn-sm btn-outline-secondary btn-label">{{$posts->like}}</a>
                                                 </div>
-
                                             </ul>
                                         </div>
                                     </div>
@@ -61,13 +59,12 @@
                 </div>
                 {{-- 右侧个人信息 --}}
                 <div class="col-lg-3">
-
                     <div class="card">
                         <div class="card-footer">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <span class="avatar avatar-md bg-purple">头像</span>
-                                    <span class="avatar-content">{{$UserInfo->name}}</span>
+                                    <span class="avatar avatar-md bg-purple">{{$AuthorInfo->name}}</span>
+                                    <span class="avatar-content">{{$AuthorInfo->name}}</span>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +76,6 @@
                             <p class="card-text">With supporting text below...</p>
                             <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
                         </div>
-
                     </div>
                 </div>
 

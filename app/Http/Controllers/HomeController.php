@@ -72,17 +72,17 @@ class HomeController extends Controller
         $posts = PostsModel::find($id);
 
         // 查询这篇文章的用户id
-        $Userid = $posts->user_id;
+        $Authorid = $posts->author_id;
 
         // 查询用户信息
-        $UserInfo = UserModel::find($Userid);
+        $AuthorInfo = UserModel::find($Authorid);
 
 
         // 返回到文章详情页面，并传递文章信息
 
         $data = compact([
             'posts',
-            'UserInfo',
+            'AuthorInfo',
         ]);
         // dd($data);
 
