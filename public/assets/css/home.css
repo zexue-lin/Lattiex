@@ -412,3 +412,8 @@
     margin-left: 1.5rem;
     padding-bottom: .1rem;
 }
+
+.card-posts {
+    margin-bottom: 1rem;
+    background: #fff;
+}

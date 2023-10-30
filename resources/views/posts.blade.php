@@ -22,7 +22,7 @@
                 <div class="col-lg-9">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card">
+                            <div class="card-posts">
                                 <div class="card-body">
                                     <h1 class="heading heading-5 strong-600">{{$posts->title}}</h1>
                                     <div class="posts-time-box">
@@ -34,7 +34,9 @@
                                         </span>
                                     </div>
                                     <p class="card-text">With supporting text below...</p>
-                                    <div>{{$posts->body}}</div>
+
+                                    {{--使用Laravel的{!! !!}语法，它会告诉Laravel不要对内容进行HTML转义，而是直接输出HTML。--}}
+                                    <div>{!! $posts->body !!}</div>
                                     <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
                                 </div>
                                 <div class="card-footer">
@@ -71,10 +73,10 @@
                         <div class="card-body">
                             <h6 class="heading heading-5 strong-600">Special title treatment</h6>
                             <h6 class="heading heading-sm strong-400 text-muted mb-4">
-                                2 hrs ago
+                                2小时前
                             </h6>
                             <p class="card-text">With supporting text below...</p>
-                            <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
+                            <a href="#" class="btn btn-sm btn-primary">点击跳</a>
                         </div>
                     </div>
                 </div>
