@@ -13,8 +13,8 @@ class HomeController extends Controller
     // 主页
     public function index()
     {
-        // 使用 PostModel 查询数据库中的所有数据
-        $postsIndex = PostsModel::all();
+        // 使用 PostModel 查询数据库中的所有数据，并按照创建时间倒序排序
+        $postsIndex = PostsModel::orderBy('created_at', 'desc')->get();
 
         $data = compact([
             'postsIndex'
@@ -88,6 +88,27 @@ class HomeController extends Controller
 
         // 将查询结果传递给视图
         return view('posts', $data);
+
+    }
+
+    // 文章内容点赞请求
+    public function like_request($post_id)
+    {
+        // 根据文章ID加载文章内容
+        $posts = PostsModel::find($post_id);
+        if (!$posts) {
+            echo '该文章不存在！';
+        } else {
+            // 获取文章的"like"字段的值
+
+            // 获取点赞数组
+            $likeArr = explode(',', $posts->like);
+
+            // 过滤空的元素
+            $likeArr = array_filter($likeArr);
+            dd($likeArr);
+
+        }
 
     }
 

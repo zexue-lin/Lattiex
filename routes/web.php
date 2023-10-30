@@ -35,6 +35,7 @@ Route::get('contact', [HomeController::class, 'contact']);
 // 处理home相关表单提交路由
 Route::prefix('home')->group(function () {
     Route::post('contact_form', [HomeController::class, 'contact_form']);
+    Route::get('like_request/{post_id}', [HomeController::class, 'like_request']);
 });
 
 // 用户相关路由

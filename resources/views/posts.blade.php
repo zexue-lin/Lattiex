@@ -34,22 +34,22 @@
                                         </span>
                                     </div>
                                     <p class="card-text">With supporting text below...</p>
-
                                     {{--使用Laravel的{!! !!}语法，它会告诉Laravel不要对内容进行HTML转义，而是直接输出HTML。--}}
                                     <div>{!! $posts->body !!}</div>
-                                    <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
+                                    {{--<a href="#" class="btn btn-sm btn-primary">Go somewhere</a>--}}
                                 </div>
                                 <div class="card-footer">
                                     <div class="row align-items-center">
                                         <div class="col text-right text-xs-right">
                                             <ul class="list-inline mb-0">
                                                 <div class="btn-group btn-action-label" role="group" aria-label="Like">
-                                                    <button type="button" class="btn btn-sm btn-secondary btn-action">
+                                                    <a type="button" class="btn btn-sm btn-secondary btn-action"
+                                                       href="{{url('home/like_request', ['post_id' => $posts->id])}}">
                                                         <i class="fas fa-thumbs-up"></i>
                                                         <span>Like</span>
-                                                    </button>
-                                                    <a href="#"
-                                                       class="btn btn-sm btn-outline-secondary btn-label">{{$posts->like}}</a>
+                                                    </a>
+                                                    <span
+                                                        class="btn btn-sm btn-outline-secondary btn-label">{{$posts->like}}</span>
                                                 </div>
                                             </ul>
                                         </div>
@@ -65,18 +65,19 @@
                         <div class="card-footer">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <span class="avatar avatar-md bg-purple">{{$AuthorInfo->name}}</span>
+                                    <span
+                                        class="avatar avatar-md bg-purple">{{$AuthorInfo->avatar}}</span>
                                     <span class="avatar-content">{{$AuthorInfo->name}}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h6 class="heading heading-5 strong-600">Special title treatment</h6>
+                            <h6 class="heading heading-5 strong-600">用户信息自定义</h6>
                             <h6 class="heading heading-sm strong-400 text-muted mb-4">
                                 2小时前
                             </h6>
-                            <p class="card-text">With supporting text below...</p>
-                            <a href="#" class="btn btn-sm btn-primary">点击跳</a>
+                            <p class="card-text">也是用户信息</p>
+                            <a href="#" class="btn btn-sm btn-primary">点击跳转的一个按钮</a>
                         </div>
                     </div>
                 </div>
