@@ -99,58 +99,59 @@
     <section class="slice bg-tertiary bg-cover bg-size--cover"
              style="background-image: url('{{asset('/assets/images/backgrounds/img-1.jpg')}}')">
         <span class="mask bg-tertiary alpha-9"></span>
-        <div class="container">
-            <div class="row cols-xs-space cols-sm-space cols-md-space">
-                <div class="col-lg-6">
-                    <div class="card bg-dark alpha-container text-white border-0 overflow-hidden">
-                        <a href="#" target="_blank">
-                            <div class="card-img-bg"
-                                 style="background-image: url('{{asset('/assets/images/prv/city-1.jpg')}}');"></div>
-                            <span class="mask bg-dark alpha-5 alpha-4--hover"></span>
-                            <div class="card-body px-5 py-5">
-                                <div style="min-height: 300px;">
-                                    <h3 class="heading h1 text-white mb-3">示例名称</h3>
-                                    <p class="mt-4 mb-1 h5 text-white lh-180">
-                                        E: newyork@company.com
-                                    </p>
-                                    <p class="mb-1 h5 text-white lh-180">
-                                        T: 0755.222.333
-                                    </p>
-                                </div>
-                                <span href="#" class="text-white text-uppercase font-weight-500">
-                      See on map
-                      <i class="fas fa-arrow-right ml-2"></i>
-                    </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card bg-dark alpha-container text-white border-0 overflow-hidden">
-                        <a href="#" target="_blank">
-                            <div class="card-img-bg"
-                                 style="background-image: url('{{asset('/assets/images/prv/city-2.jpg')}}');"></div>
-                            <span class="mask bg-dark alpha-5 alpha-4--hover"></span>
-                            <div class="card-body px-5 py-5">
-                                <div style="min-height: 300px;">
-                                    <h3 class="heading h1 text-white mb-3">示例名称</h3>
-                                    <p class="mt-4 mb-1 h5 text-white lh-180">
-                                        E: newyork@company.com
-                                    </p>
-                                    <p class="mb-1 h5 text-white lh-180">
-                                        T: 0755.222.333
-                                    </p>
-                                </div>
-                                <span href="#" class="text-white text-uppercase font-weight-500">
-                      See on map
-                      <i class="fas fa-arrow-right ml-2"></i>
-                    </span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div>精选留言</div>
+        {{-- <div class="container">--}}
+        {{--            <div class="row cols-xs-space cols-sm-space cols-md-space">--}}
+        {{--                <div class="col-lg-6">--}}
+        {{--                    <div class="card bg-dark alpha-container text-white border-0 overflow-hidden">--}}
+        {{--                        <a href="#" target="_blank">--}}
+        {{--                            <div class="card-img-bg"--}}
+        {{--                                 style="background-image: url('{{asset('/assets/images/prv/city-1.jpg')}}');"></div>--}}
+        {{--                            <span class="mask bg-dark alpha-5 alpha-4--hover"></span>--}}
+        {{--                            <div class="card-body px-5 py-5">--}}
+        {{--                                <div style="min-height: 300px;">--}}
+        {{--                                    <h3 class="heading h1 text-white mb-3">示例名称</h3>--}}
+        {{--                                    <p class="mt-4 mb-1 h5 text-white lh-180">--}}
+        {{--                                        E: newyork@company.com--}}
+        {{--                                    </p>--}}
+        {{--                                    <p class="mb-1 h5 text-white lh-180">--}}
+        {{--                                        T: 0755.222.333--}}
+        {{--                                    </p>--}}
+        {{--                                </div>--}}
+        {{--                                <span href="#" class="text-white text-uppercase font-weight-500">--}}
+        {{--                      See on map--}}
+        {{--                      <i class="fas fa-arrow-right ml-2"></i>--}}
+        {{--                    </span>--}}
+        {{--                            </div>--}}
+        {{--                        </a>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--                <div class="col-lg-6">--}}
+        {{--                    <div class="card bg-dark alpha-container text-white border-0 overflow-hidden">--}}
+        {{--                        <a href="#" target="_blank">--}}
+        {{--                            <div class="card-img-bg"--}}
+        {{--                                 style="background-image: url('{{asset('/assets/images/prv/city-2.jpg')}}');"></div>--}}
+        {{--                            <span class="mask bg-dark alpha-5 alpha-4--hover"></span>--}}
+        {{--                            <div class="card-body px-5 py-5">--}}
+        {{--                                <div style="min-height: 300px;">--}}
+        {{--                                    <h3 class="heading h1 text-white mb-3">示例名称</h3>--}}
+        {{--                                    <p class="mt-4 mb-1 h5 text-white lh-180">--}}
+        {{--                                        E: newyork@company.com--}}
+        {{--                                    </p>--}}
+        {{--                                    <p class="mb-1 h5 text-white lh-180">--}}
+        {{--                                        T: 0755.222.333--}}
+        {{--                                    </p>--}}
+        {{--                                </div>--}}
+        {{--                                <span href="#" class="text-white text-uppercase font-weight-500">--}}
+        {{--                      See on map--}}
+        {{--                      <i class="fas fa-arrow-right ml-2"></i>--}}
+        {{--                    </span>--}}
+        {{--                            </div>--}}
+        {{--                        </a>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
     </section>
 
     {{--  底部导航  --}}

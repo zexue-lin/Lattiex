@@ -66,7 +66,9 @@
                             <div class="row align-items-center">
                                 <div class="col">
                                     <span
-                                        class="avatar avatar-md bg-purple">{{$AuthorInfo->avatar}}</span>
+                                        class="avatar avatar-md bg-purple"><img
+                                            src="{{ config('app.url') . '/uploads/'.( $AuthorInfo->avatar) }}"
+                                            alt="作者头像"/> </span>
                                     <span class="avatar-content">{{$AuthorInfo->name}}</span>
                                 </div>
                             </div>
