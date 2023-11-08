@@ -8,14 +8,13 @@
 
 {{--页面独立的css文件--}}
 @push('css')
-
+    <link rel="stylesheet" href="{{URL::asset('assets/css/home.css')}}">
 @endpush
 @section('content')
-
     {{--  顶部导航  --}}
     @include('common.navbar')
 
-    <section class="slice slice-lg">
+    <section class="slice-lg">
         <div class="container">
             <div class="row align-items-center cols-xs-space cols-sm-space cols-md-space">
                 <div class="col-lg-6">
@@ -29,7 +28,8 @@
                                     role="alert">
                                                         <span class="alert-inner--icon"><i
                                                                 class="fas fa-check"></i></span>
-                                    <span class="alert-inner--text"><strong>留言成功 </strong> 感谢您的反馈!</span>
+                                    <span
+                                        class="alert-inner--text"><strong>留言成功 </strong> 感谢您的反馈!</span>
                                     <button type="button" class="undo" aria-label="Undo">关闭
                                     </button>
                                     <button type="button" class="close" data-dismiss="alert"
@@ -85,74 +85,36 @@
                         Email: <a href="#">Lattiex@outlook.com</a>
                         <br>
                         QQ: 1625116337
+                        <br>
+                        Address: 翻斗大街翻斗花园2号楼1001室
                     </p>
+
                     <p class="">
                         这个b班是一天都不想上. Multiple functionalities and controls added,
                         extended color palette and beautiful typography, designed as its own extended version of
                         Bootstrap at the highest level of quality.
                     </p>
                 </div>
+
+                {{--留言内容部分--}}
+                <div class="col-lg-12">
+                    <h3 class="heading h3 mb-4" style="padding-top: 2rem"><i
+                            class="fa fa-anchor"></i> 留言数量 <span style="color: #7272f5">{{$count}}</span></h3>
+                    <div id="comments_msg">
+                        @include('contact_msg')
+                    </div>
+
+                </div>
+
             </div>
+            {{--显示分页器--}}
+            {{ $message->links('contact_pagination') }} <!-- 显示分页链接 -->
         </div>
+
+
     </section>
+
     @include('common.gift')
-    <section class="slice bg-tertiary bg-cover bg-size--cover"
-             style="background-image: url('{{asset('/assets/images/backgrounds/img-1.jpg')}}')">
-        <span class="mask bg-tertiary alpha-9"></span>
-        <div>精选留言</div>
-        {{-- <div class="container">--}}
-        {{--            <div class="row cols-xs-space cols-sm-space cols-md-space">--}}
-        {{--                <div class="col-lg-6">--}}
-        {{--                    <div class="card bg-dark alpha-container text-white border-0 overflow-hidden">--}}
-        {{--                        <a href="#" target="_blank">--}}
-        {{--                            <div class="card-img-bg"--}}
-        {{--                                 style="background-image: url('{{asset('/assets/images/prv/city-1.jpg')}}');"></div>--}}
-        {{--                            <span class="mask bg-dark alpha-5 alpha-4--hover"></span>--}}
-        {{--                            <div class="card-body px-5 py-5">--}}
-        {{--                                <div style="min-height: 300px;">--}}
-        {{--                                    <h3 class="heading h1 text-white mb-3">示例名称</h3>--}}
-        {{--                                    <p class="mt-4 mb-1 h5 text-white lh-180">--}}
-        {{--                                        E: newyork@company.com--}}
-        {{--                                    </p>--}}
-        {{--                                    <p class="mb-1 h5 text-white lh-180">--}}
-        {{--                                        T: 0755.222.333--}}
-        {{--                                    </p>--}}
-        {{--                                </div>--}}
-        {{--                                <span href="#" class="text-white text-uppercase font-weight-500">--}}
-        {{--                      See on map--}}
-        {{--                      <i class="fas fa-arrow-right ml-2"></i>--}}
-        {{--                    </span>--}}
-        {{--                            </div>--}}
-        {{--                        </a>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--                <div class="col-lg-6">--}}
-        {{--                    <div class="card bg-dark alpha-container text-white border-0 overflow-hidden">--}}
-        {{--                        <a href="#" target="_blank">--}}
-        {{--                            <div class="card-img-bg"--}}
-        {{--                                 style="background-image: url('{{asset('/assets/images/prv/city-2.jpg')}}');"></div>--}}
-        {{--                            <span class="mask bg-dark alpha-5 alpha-4--hover"></span>--}}
-        {{--                            <div class="card-body px-5 py-5">--}}
-        {{--                                <div style="min-height: 300px;">--}}
-        {{--                                    <h3 class="heading h1 text-white mb-3">示例名称</h3>--}}
-        {{--                                    <p class="mt-4 mb-1 h5 text-white lh-180">--}}
-        {{--                                        E: newyork@company.com--}}
-        {{--                                    </p>--}}
-        {{--                                    <p class="mb-1 h5 text-white lh-180">--}}
-        {{--                                        T: 0755.222.333--}}
-        {{--                                    </p>--}}
-        {{--                                </div>--}}
-        {{--                                <span href="#" class="text-white text-uppercase font-weight-500">--}}
-        {{--                      See on map--}}
-        {{--                      <i class="fas fa-arrow-right ml-2"></i>--}}
-        {{--                    </span>--}}
-        {{--                            </div>--}}
-        {{--                        </a>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--        </div>--}}
-    </section>
 
     {{--  底部导航  --}}
     {{-- @include('common.footer')--}}
@@ -160,5 +122,13 @@
 
 @push('script')
     <script>
+        // 监听分页器链接的点击事件
+        $('.pagination a').on('click', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            window.location.href = url;
+        });
+
+
     </script>
 @endpush

@@ -17,29 +17,29 @@
 
         <aside class="sidebar" id="nav_docs">
             {{--这里是仓鼠上面的一个大标题，隐藏掉了--}}
-            {{--            <div class="sidebar-brand">--}}
-            {{--                <h1 class="font-weight-400"><a href="../"><span class="font-weight-700">Boomerang</span> UI Kit</a></h1>--}}
-            {{--            </div>--}}
+            <div class="sidebar-brand">
+                <h1 class="font-weight-400"><a href="../"><span class="font-weight-700">翻斗花园</span> Kit</a></h1>
+            </div>
 
             {{--玩跑轮的仓鼠--}}
-            <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
-                <div class="wheel"></div>
-                <div class="hamster">
-                    <div class="hamster__body">
-                        <div class="hamster__head">
-                            <div class="hamster__ear"></div>
-                            <div class="hamster__eye"></div>
-                            <div class="hamster__nose"></div>
-                        </div>
-                        <div class="hamster__limb hamster__limb--fr"></div>
-                        <div class="hamster__limb hamster__limb--fl"></div>
-                        <div class="hamster__limb hamster__limb--br"></div>
-                        <div class="hamster__limb hamster__limb--bl"></div>
-                        <div class="hamster__tail"></div>
-                    </div>
-                </div>
-                <div class="spoke"></div>
-            </div>
+            {{--<div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">--}}
+            {{--    <div class="wheel"></div>--}}
+            {{--    <div class="hamster">--}}
+            {{--        <div class="hamster__body">--}}
+            {{--            <div class="hamster__head">--}}
+            {{--                <div class="hamster__ear"></div>--}}
+            {{--                <div class="hamster__eye"></div>--}}
+            {{--                <div class="hamster__nose"></div>--}}
+            {{--            </div>--}}
+            {{--            <div class="hamster__limb hamster__limb--fr"></div>--}}
+            {{--            <div class="hamster__limb hamster__limb--fl"></div>--}}
+            {{--            <div class="hamster__limb hamster__limb--br"></div>--}}
+            {{--            <div class="hamster__limb hamster__limb--bl"></div>--}}
+            {{--            <div class="hamster__tail"></div>--}}
+            {{--        </div>--}}
+            {{--    </div>--}}
+            {{--    <div class="spoke"></div>--}}
+            {{--</div>--}}
             {{--侧边可滚动导航栏--}}
             <div class="scrollbar-inner">
                 <ul class="navigation pr-3">

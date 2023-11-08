@@ -527,6 +527,7 @@ pre code {
     margin-left: auto
 }
 
+
 @media (min-width: 576px) {
     .container {
         max-width: 540px
@@ -4287,7 +4288,8 @@ tbody.collapse.show {
     display: flex;
     padding-left: 0;
     list-style: none;
-    border-radius: .375rem
+    border-radius: .375rem;
+    justify-content: center;
 }
 
 .page-link {
