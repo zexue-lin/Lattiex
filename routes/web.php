@@ -35,8 +35,6 @@ Route::get('contact', [HomeController::class, 'contact']);
 // 处理home相关表单提交路由
 Route::prefix('home')->group(function () {
     Route::post('contact_form', [HomeController::class, 'contact_form']);
-    Route::get('like_request/{post_id}', [HomeController::class, 'like_request']);
-    Route::post('contact_like/{contactId}', [HomeController::class, 'contact_like']);
 });
 
 // 用户相关路由
@@ -58,6 +56,10 @@ Route::prefix('user')->group(function () {
 /**
  * Ajax请求的路由
  */
+Route::prefix('home')->group(function () {
+    Route::get('like_request/{postId}', [HomeController::class, 'like_request']);
+    Route::post('contact_like/{contactId}', [HomeController::class, 'contact_like']);
+});
 
 // 后台管理页面
 Route::group(['prefix' => 'admin'], function () {

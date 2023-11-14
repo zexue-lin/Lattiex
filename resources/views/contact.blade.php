@@ -101,14 +101,14 @@
                     <h3 class="heading h3 mb-4" style="padding-top: 2rem"><i
                             class="fa fa-anchor"></i> 留言数量 <span style="color: #7272f5">{{$count}}</span></h3>
                     <div id="comments_msg">
-                        @include('contact_msg')
+                        @include('home.contact_msg')
                     </div>
 
                 </div>
 
             </div>
             {{--显示分页器--}}
-            {{ $message->links('contact_pagination') }} <!-- 显示分页链接 -->
+            {{ $message->links('home.contact_pagination') }} <!-- 显示分页链接 -->
         </div>
 
 

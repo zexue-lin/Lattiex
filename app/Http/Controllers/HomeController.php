@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Models\Home\Website as WebModel;
 use App\Models\Home\Posts as PostsModel;
@@ -38,18 +39,6 @@ class HomeController extends Controller
         return view('contact', $data);
     }
 
-    // public function contact_msg()
-    // {
-    //     // 留言总数
-    //     $count = ContactModel::count();
-    //     // 查询每个留言的内容，用于展示
-    //     $message = ContactModel::orderBy('created_at', 'desc')->paginate(3); // 每页显示3条留言
-    //     $data = compact([
-    //         'count',
-    //         'message'
-    //     ]);
-    //     return view('contact_msg', $data);
-    // }
 
     // 处理留言提交
     public
@@ -61,25 +50,32 @@ class HomeController extends Controller
 
         if ($result) {
             // 留言成功
-            return redirect('home/contact')->with('success', '留言成功！');
+            return redirect('/contact')->with('success', '留言成功！');
         } else {
             // 留言失败
-            return redirect('home/contact')->with('error', '留言失败！');
+            return redirect('/contact')->with('error', '留言失败！');
         }
 
     }
 
 
-    public
-    function contact_like($contactId)
+    public function contact_like($contactId)
     {
         // 执行点赞逻辑，这里你需要更新数据库中的点赞数
-        $post = ContactModel::find($contactId);
-        $post->like += 1;
-        $post->save();
-        dd($contactId);
+        $contact = ContactModel::find($contactId);
+
+        if (!$contact) {
+            return response()->json(['error' => '该留言不存在'], 404);
+        }
+        // 获取字段值并+1
+        $likecount = $contact->like + 1;
+
+        // 更新字段值
+        $contact->like = $likecount;
+
+        $contact->save();
         // 返回新的点赞数
-        return response()->json(['newLikeCount' => $post->like]);
+        return response()->json(['LikeCount' => $likecount]);
 
     }
 
@@ -113,6 +109,8 @@ class HomeController extends Controller
         // 查询这篇文章的用户id
         $Authorid = $posts->author_id;
 
+        // dd($Authorid);
+
         // 查询用户信息
         $AuthorInfo = UserModel::find($Authorid);
 
@@ -130,25 +128,28 @@ class HomeController extends Controller
     }
 
     // 文章内容点赞请求
-    public
-    function like_request($post_id)
+    public function like_request($post_id)
     {
         // 根据文章ID加载文章内容
         $posts = PostsModel::find($post_id);
+
         if (!$posts) {
-            echo '该文章不存在！';
-        } else {
-            // 获取文章的"like"字段的值
-
-            // 获取点赞数组
-            $likeArr = explode(',', $posts->like);
-
-            // 过滤空的元素
-            $likeArr = array_filter($likeArr);
-            dd($likeArr);
-
+            return response()->json(['error' => '该文章不存在！'], 404);
         }
 
+        // 获取文章的"like"字段的值
+        $newLikeCount = $posts->like + 1;
+
+        // 更新模型的like字段
+        $posts->like = $newLikeCount;
+
+        // 保存更新后的值
+        $posts->save();
+
+        // 返回新的点赞数
+        // response() 函数是 Laravel 中用于创建响应实例的全局辅助函数。
+        return response()->json(['newLikeCount' => $newLikeCount]);
     }
+
 
 }

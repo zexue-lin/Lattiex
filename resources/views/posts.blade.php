@@ -44,12 +44,13 @@
                                             <ul class="list-inline mb-0">
                                                 <div class="btn-group btn-action-label" role="group" aria-label="Like">
                                                     <a type="button" class="btn btn-sm btn-secondary btn-action"
-                                                       href="{{url('home/like_request', ['post_id' => $posts->id])}}">
+                                                       onclick="likeRequest({{ $posts->id }})">
                                                         <i class="fas fa-thumbs-up"></i>
                                                         <span>Like</span>
                                                     </a>
                                                     <span
-                                                        class="btn btn-sm btn-outline-secondary btn-label">{{$posts->like}}</span>
+                                                        class="btn btn-sm btn-outline-secondary btn-label"
+                                                        id="likeCount{{$posts->id}}">{{$posts->like}}</span>
                                                 </div>
                                             </ul>
                                         </div>
@@ -91,6 +92,22 @@
 
 @push('script')
     <script>
-
+        function likeRequest(postId) {
+            $.ajax({
+                url: "{{url('home/like_request')}}/" + postId,
+                type: "GET",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data) {
+                    // 更新点赞数量显示
+                    $('#likeCount' + postId).text(data.newLikeCount);
+                },
+                error: function () {
+                    // 处理错误
+                    alert('点赞失败');
+                }
+            });
+        }
     </script>
 @endpush

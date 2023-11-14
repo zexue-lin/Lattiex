@@ -11,7 +11,7 @@
         <div class="card-contact col-lg-12">
             <div class="comments">
                 <div class="comment-react">
-                    <button class="incrementButton" data-message-id="{{$cont->id}}">
+                    <button class="incrementButton" data-contact-id="{{$cont->id}}">
                         <svg fill="none" viewBox="0 0 24 24" height="16" width="16"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill="#707277" stroke-linecap="round" stroke-width="2"
@@ -20,7 +20,7 @@
                         </svg>
                     </button>
                     <hr>
-                    <span class="count">{{$cont->like}}</span>
+                    <span id="count{{$cont->id}}">{{$cont->like}}</span>
                 </div>
                 <div class="comment-container">
                     <div class="user">
@@ -52,17 +52,23 @@
     <script>
         // 为按钮添加点击事件
         $('.incrementButton').click(function () {
+            // $(this)  => 表示当前被点击的按钮
+            // data('message-id')是jQuery的方法，用于获取元素以data开头的属性的值，
+            // 此处14行设置了 <button class="incrementButton" data-message-id=>
+
+            var contactId = $(this).data('contact-id');
+
             // 发起AJAX请求，向后端发送数据更新请求
             $.ajax({
-                url: `{{url('home/contact_like')}}`, // 后端路由
+                url: "{{url('home/contact_like')}}/" + contactId, // 后端路由
                 method: 'POST',
-                data: {contactId: {{$cont->id}}}, // 传递文章的ID或标识
+                data: {contactId: contactId}, // 传递文章的ID或标识
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function (data) {
                     // 更新页面上的点赞数
-                    $('#count').text(data.newLikeCount);
+                    $('#count' + contactId).text(data.LikeCount);
                 },
                 error: function () {
                     // 处理错误
@@ -70,7 +76,6 @@
                 }
             })
         })
-
 
 
     </script>
