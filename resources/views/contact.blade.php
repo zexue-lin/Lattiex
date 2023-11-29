@@ -88,7 +88,6 @@
                         <br>
                         Address: 翻斗大街翻斗花园2号楼1001室
                     </p>
-
                     <p class="">
                         这个b班是一天都不想上. Multiple functionalities and controls added,
                         extended color palette and beautiful typography, designed as its own extended version of
@@ -103,18 +102,14 @@
                     <div id="comments_msg">
                         @include('home.contact_msg')
                     </div>
-
                 </div>
-
             </div>
             {{--显示分页器--}}
             {{ $message->links('home.contact_pagination') }} <!-- 显示分页链接 -->
         </div>
-
-
     </section>
 
-    @include('common.gift')
+    {{--@include('common.gift')--}}
 
     {{--  底部导航  --}}
     {{-- @include('common.footer')--}}

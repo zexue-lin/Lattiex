@@ -33,7 +33,7 @@
                                             <i class="fas fa-eye text-muted mr-1"></i>{{$posts->view}}
                                         </span>
                                     </div>
-                                    <p class="card-text">With supporting text below...</p>
+                                    <p class="card-text">{{$posts->excerpt}}</p>
                                     {{--使用Laravel的{!! !!}语法，它会告诉Laravel不要对内容进行HTML转义，而是直接输出HTML。--}}
                                     <div>{!! $posts->body !!}</div>
                                     {{--<a href="#" class="btn btn-sm btn-primary">Go somewhere</a>--}}
