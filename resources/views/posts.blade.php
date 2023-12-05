@@ -22,6 +22,26 @@
                 <div class="col-lg-9">
                     <div class="row">
                         <div class="col-md-12">
+                            {{--提示框--}}
+                            <div class="row justify-content-center" id="alert">
+                                <div class="col-lg-8 alert-box-success">
+                                    <div
+                                        class="alert wow fadeInUp alert-warning alert-dismissible fade1 show1"
+                                        role="alert">
+                                                        <span class="alert-inner--icon"><i
+                                                                class="fas fa-exclamation"></i></span>
+                                        <span
+                                            class="alert-inner--text"><strong>您已经点赞过 </strong> 无需重复点赞!</span>
+                                        <button type="button" class="undo" aria-label="Undo">关闭
+                                        </button>
+                                        <button type="button" class="close" data-dismiss="alert"
+                                                aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            {{--提示框end--}}
                             <div class="card-posts">
                                 <div class="card-body">
                                     <h1 class="heading heading-5 strong-600">{{$posts->title}}</h1>
@@ -56,6 +76,70 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            {{--评论区--}}
+                            <div class="commentBox">
+                                {{--<h3 class="heading h3 mb-4">评论</h3>--}}
+                                <div class="card">
+                                    <div class="card-header py-4">
+                                        <div class="d-flex align-items-center">
+                                            <h4 class="heading h5 mb-0">评论</h4>
+                                        </div>
+                                    </div>
+                                    <div class="list-group">
+                                        <a href="#"
+                                           class="list-group-item list-group-item-action d-flex align-items-center">
+                                            <div class="list-group-img">
+                                                <span class="avatar bg-purple">JD</span>
+                                            </div>
+                                            <div class="list-group-content">
+                                                <div class="list-group-heading">Johnyy Depp <small>10:05 PM</small>
+                                                </div>
+                                                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing
+                                                    eiusmod tempor</p>
+                                            </div>
+                                        </a>
+                                        <a href="#"
+                                           class="list-group-item list-group-item-action d-flex align-items-center">
+                                            <div class="list-group-img">
+                                                <span class="avatar bg-pink">TC</span>
+                                            </div>
+                                            <div class="list-group-content">
+                                                <div class="list-group-heading">Tom Cruise <small>11:30 PM</small></div>
+                                                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing
+                                                    eiusmod tempor</p>
+                                            </div>
+                                        </a>
+                                        <a href="#"
+                                           class="list-group-item list-group-item-action d-flex align-items-center">
+                                            <div class="list-group-img">
+                                                <span class="avatar bg-blue">WS</span>
+                                            </div>
+                                            <div class="list-group-content">
+                                                <div class="list-group-heading">Will Smith <small>15:45 PM</small></div>
+                                                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing
+                                                    eiusmod tempor</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="card-footer">
+                                        <form class="card-comment-box" role="form">
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <input class="form-control" placeholder="e.g @willsmith">
+                                                </div>
+                                                <div class="col-4 text-right">
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-success btn-icon-only rounded-circle">
+                                                        <span class="btn-inner--icon"><i
+                                                                class="fas fa-check"></i></span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -92,6 +176,9 @@
 
 @push('script')
     <script>
+        // 刚开始吧提示框设置为隐藏
+        $('#alert').css('display', 'none')
+
         function likeRequest(postId) {
             $.ajax({
                 url: "{{url('home/like_request')}}/" + postId,
@@ -105,7 +192,7 @@
                 },
                 error: function () {
                     // 处理错误
-                    alert('点赞失败');
+                    $('#alert').removeAttr('style')
                 }
             });
         }

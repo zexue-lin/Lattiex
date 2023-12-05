@@ -72,7 +72,8 @@
                 },
                 error: function () {
                     // 处理错误
-                    alert('点赞操作失败');
+                    console.log('无需重复点赞！')
+                    // $('#alert').removeAttr('style')
                 }
             })
         })

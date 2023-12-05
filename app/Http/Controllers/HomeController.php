@@ -9,6 +9,7 @@ use App\Models\Home\Website as WebModel;
 use App\Models\Home\Posts as PostsModel;
 use App\Models\User\User as UserModel;
 use App\Models\Home\Contact as ContactModel;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -67,6 +68,15 @@ class HomeController extends Controller
         if (!$contact) {
             return response()->json(['error' => '该留言不存在'], 404);
         }
+
+        // 获取客户点IP地址
+        $ClientIP = request()->ip();
+
+        $CacheKey = 'like_' . $contactId . '_' . $ClientIP;
+        if (Cache::has($CacheKey)) {
+            return response()->json(['error' => '您已经点赞过！'], 400);
+        }
+
         // 获取字段值并+1
         $likecount = $contact->like + 1;
 
@@ -74,6 +84,9 @@ class HomeController extends Controller
         $contact->like = $likecount;
 
         $contact->save();
+
+        // 将点赞记录写入 Cache，设置过期时间，例如10分钟
+        Cache::put($CacheKey, true, now()->addMinutes(999));
         // 返回新的点赞数
         return response()->json(['LikeCount' => $likecount]);
 
@@ -137,6 +150,15 @@ class HomeController extends Controller
             return response()->json(['error' => '该文章不存在！'], 404);
         }
 
+        // 获取客户点IP地址
+        $clientIP = request()->ip();
+
+        // 使用缓存检查是否已经点赞过,设置唯一缓存值
+        $cacheKey = 'like_' . $post_id . '_' . $clientIP;
+        if (Cache::has($cacheKey)) {
+            return response()->json(['error' => '您已经点赞过！'], 400);
+        }
+
         // 获取文章的"like"字段的值
         $newLikeCount = $posts->like + 1;
 
@@ -145,6 +167,10 @@ class HomeController extends Controller
 
         // 保存更新后的值
         $posts->save();
+
+        // 将点赞记录写入 Cache，设置过期时间，例如10分钟
+        Cache::put($cacheKey, true, now()->addMinutes(999));
+
 
         // 返回新的点赞数
         // response() 函数是 Laravel 中用于创建响应实例的全局辅助函数。

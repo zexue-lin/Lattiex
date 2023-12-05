@@ -13,11 +13,16 @@
 .alert-box-success {
     position: absolute;
     z-index: 10;
-    top: -57px;
+    top: 10px;
+}
+
+.fade1 {
+    opacity: 0;
+    transition: opacity 0.15s linear
 }
 
 .fade1.show1 {
-    opacity: 1;
+    opacity: 0;
 }
 
 
