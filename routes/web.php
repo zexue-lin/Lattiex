@@ -59,6 +59,7 @@ Route::prefix('user')->group(function () {
 Route::prefix('home')->group(function () {
     Route::get('like_request/{postId}', [HomeController::class, 'like_request']);
     Route::post('contact_like/{contactId}', [HomeController::class, 'contact_like']);
+    Route::get('increaseViewCount/{PostId}', [HomeController::class, 'increaseViewCount']);
 });
 
 // 后台管理页面

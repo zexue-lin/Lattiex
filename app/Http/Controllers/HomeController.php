@@ -178,4 +178,33 @@ class HomeController extends Controller
     }
 
 
+    // 文章浏览量+1
+    public function increaseViewCount($PostId)
+    {
+        $posts = PostsModel::find($PostId);
+
+        $userIp = request()->ip();
+        if (!$posts) {
+            return response()->json(['error' => '该文章不存在！'], 404);
+        }
+
+        // json_decode 解码JSON格式的数据
+        if ($posts && !in_array($userIp, json_decode($posts->viewed_ips))) {
+            // 如果未浏览过，浏览量加1
+            $NewViewCount = $posts->view++;
+
+            // 记录用户的ip，避免重复增加
+            $viewIps = json_decode($posts->viewed_ips, true);// 应该加上 true 参数将 JSON 转换为数组
+            $viewIps[] = $userIp; // 将用户ip地址添加到数组中
+            $posts->viewed_ips = json_encode($viewIps);// 保存到数据库
+
+            $posts->view = $NewViewCount; // 更新浏览次数字段
+            $posts->save();
+
+            return response()->json(['success' => true, 'NewViewCount' => $NewViewCount]);
+        } else {
+            return response()->json(['success' => false, 'message' => '该用户已经浏览过该文章']);
+        }
+
+    }
 }

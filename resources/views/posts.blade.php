@@ -55,7 +55,10 @@
                                     </div>
                                     <p class="card-text">{{$posts->excerpt}}</p>
                                     {{--使用Laravel的{!! !!}语法，它会告诉Laravel不要对内容进行HTML转义，而是直接输出HTML。--}}
-                                    <div>{!! $posts->body !!}</div>
+                                    {{--使用data-post-id将文章id储存在这里--}}
+                                    <div id="post" data-post-id="{{$posts->id}}">
+                                        <div>{!! $posts->body !!}</div>
+                                    </div>
                                     {{--<a href="#" class="btn btn-sm btn-primary">Go somewhere</a>--}}
                                 </div>
                                 <div class="card-footer">
@@ -179,6 +182,7 @@
         // 刚开始吧提示框设置为隐藏
         $('#alert').css('display', 'none')
 
+        // 文章点赞请求
         function likeRequest(postId) {
             $.ajax({
                 url: "{{url('home/like_request')}}/" + postId,
@@ -196,5 +200,34 @@
                 }
             });
         }
+
+        // 文章点赞请求 end
+
+        // 文章浏览量+1
+        $(document).ready(function () {
+            var PostId = $('#post').data('post-id');
+
+            // 调用增加浏览次数的函数
+            increaseViewCount(PostId);
+
+            function increaseViewCount(PostId) {
+                $.ajax({
+                    url: "{{url('home/increaseViewCount')}}/" + PostId,
+                    type: "GET",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (data) {
+                        // 更新浏览次数显示
+                        $('.posts-view').text(data.NewViewCount);
+                    },
+                    error: function () {
+                        // 处理错误
+                        console.log('浏览次数增加失败')
+                    }
+                });
+            }
+        })
+        // 文章浏览量+1 end
     </script>
 @endpush
