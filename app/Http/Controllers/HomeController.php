@@ -189,14 +189,16 @@ class HomeController extends Controller
         }
 
         // json_decode 解码JSON格式的数据
-        if ($posts && !in_array($userIp, json_decode($posts->viewed_ips))) {
+        $viewedIps = json_decode($posts->viewed_ips, true) ?? [];
+
+        // json_decode 解码JSON格式的数据
+        if ($posts && !in_array($userIp, $viewedIps)) {
             // 如果未浏览过，浏览量加1
             $NewViewCount = $posts->view++;
 
             // 记录用户的ip，避免重复增加
-            $viewIps = json_decode($posts->viewed_ips, true);// 应该加上 true 参数将 JSON 转换为数组
             $viewIps[] = $userIp; // 将用户ip地址添加到数组中
-            $posts->viewed_ips = json_encode($viewIps);// 保存到数据库
+            $posts->viewed_ips = json_encode($viewedIps);// 保存到数据库
 
             $posts->view = $NewViewCount; // 更新浏览次数字段
             $posts->save();
