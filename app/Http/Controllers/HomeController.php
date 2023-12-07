@@ -188,16 +188,16 @@ class HomeController extends Controller
             return response()->json(['error' => '该文章不存在！'], 404);
         }
 
-        // json_decode 解码JSON格式的数据
+        // json_decode 解码JSON格式的数据为数组
         $viewedIps = json_decode($posts->viewed_ips, true) ?? [];
 
         // json_decode 解码JSON格式的数据
         if ($posts && !in_array($userIp, $viewedIps)) {
             // 如果未浏览过，浏览量加1
-            $NewViewCount = $posts->view++;
+            $NewViewCount = $posts->view + 1;
 
             // 记录用户的ip，避免重复增加
-            $viewIps[] = $userIp; // 将用户ip地址添加到数组中
+            $viewedIps[] = $userIp; // 将用户ip地址添加到数组中
             $posts->viewed_ips = json_encode($viewedIps);// 保存到数据库
 
             $posts->view = $NewViewCount; // 更新浏览次数字段

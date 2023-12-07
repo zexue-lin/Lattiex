@@ -18,7 +18,7 @@
     {{-- 主要内容 --}}
     <main class="main">
         <section class="py-xl bg-cover bg-size--cover"
-                 style="background-image: url('{{ asset('assets/images/backgrounds/偶像练习生背景.jpg') }}');margin-top: 62px">
+                 style="background-image: url('{{ asset('assets/images/backgrounds/偶像练习生背景.jpg') }}')">
             <span class="mask bg-primary alpha-6"></span>
             <div class="container d-flex align-items-center no-padding">
                 <div class="col">
@@ -32,6 +32,46 @@
                                                         <span class="alert-inner--icon"><i
                                                                 class="fas fa-check"></i></span>
                                     <span class="alert-inner--text"><strong>注册成功 </strong> 赶快去登录吧!</span>
+                                    <button type="button" class="undo" aria-label="Undo">关闭
+                                    </button>
+                                    <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        {{--提示框--}}
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 alert-box-success">
+                                <div
+                                    class="alert wow fadeInUp alert-danger alert-dismissible fade1 show1"
+                                    role="alert">
+                                                        <span class="alert-inner--icon"><i
+                                                                class="fas fa-times"></i></span>
+                                    <span class="alert-inner--text"><strong>登录失败 </strong> 该邮箱未注册!</span>
+                                    <button type="button" class="undo" aria-label="Undo">关闭
+                                    </button>
+                                    <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                    @if (session('errorPsw'))
+                        {{--提示框--}}
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 alert-box-success">
+                                <div
+                                    class="alert wow fadeInUp alert-danger alert-dismissible fade1 show1"
+                                    role="alert">
+                                                        <span class="alert-inner--icon"><i
+                                                                class="fas fa-times"></i></span>
+                                    <span class="alert-inner--text"><strong>登录失败 </strong> 密码错误!</span>
                                     <button type="button" class="undo" aria-label="Undo">关闭
                                     </button>
                                     <button type="button" class="close" data-dismiss="alert"
@@ -60,7 +100,8 @@
                                         @csrf
                                         <div class="form-group">
                                             <input type="email" class="form-control" id="email" name="email"
-                                                   placeholder="邮箱地址" required>
+                                                   placeholder="邮箱地址" value="{{ old('email') }}" required>
+
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control" id="password" name="password"

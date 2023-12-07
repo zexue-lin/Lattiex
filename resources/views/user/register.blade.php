@@ -19,7 +19,7 @@
     {{-- 主要内容 --}}
     <main class="main">
         <section class="py-xl bg-cover bg-size--cover"
-                 style="background-image: url('{{ asset('assets/images/backgrounds/偶像练习生背景.jpg') }}');margin-top: 62px">
+                 style="background-image: url('{{ asset('assets/images/backgrounds/偶像练习生背景.jpg') }}')">
             <span class="mask bg-primary alpha-6"></span>
             <div class="container d-flex align-items-center no-padding">
                 <div class="col">
@@ -74,7 +74,7 @@
                                             <input type="text"
                                                    class="form-control @error('name') is-invalid @enderror"
                                                    name="name" id="name"
-                                                   placeholder="请输入昵称" required/>
+                                                   placeholder="请输入昵称" value="{{old('name')}}" required/>
                                             @error('name')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -83,7 +83,7 @@
                                             <input type="email"
                                                    class="form-control @error('email') is-invalid @enderror"
                                                    name="email" id="email"
-                                                   placeholder="请输入邮箱" required/>
+                                                   placeholder="请输入邮箱" value="{{old('email')}}" required/>
                                             @error('email')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -92,7 +92,7 @@
                                             <input type="password"
                                                    class="form-control @error('password') is-invalid @enderror"
                                                    name="password"
-                                                   id="password" placeholder="请输入密码"
+                                                   id="password" placeholder="请输入密码" value="{{old('password')}}"
                                                    required/>
                                             @error('password')
                                             <div class="alert alert-danger">{{ $message }}</div>
@@ -103,6 +103,7 @@
                                                    class="form-control @error('re_password') is-invalid @enderror"
                                                    name="re_password"
                                                    id="re_password" placeholder="请输入确认密码"
+                                                   value="{{old('re_password')}}"
                                                    required/>
                                             @error('re_password')
                                             <div class="alert alert-danger">{{ $message }}</div>
@@ -119,11 +120,10 @@
                                             @enderror
                                             <div
                                                 style="display:flex;justify-content: space-between;align-items: center;margin-top: 15px">
-                                                <div>点击图片刷新</div>
+                                                <div style="color: #9fcce8">点击图片刷新</div>
                                                 <img id="img" style=" border-radius: 5px"
                                                      src="{{captcha_src()}}" alt="图片验证码">
                                             </div>
-
                                         </div>
 
                                         <button type="submit" id="registerButton"

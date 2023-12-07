@@ -23,14 +23,14 @@ class UserController extends Controller
         $User = UserModel::where(['email' => $params['email']])->first();
 
         if (!$User) {
-            return redirect('user/login');
+            return redirect('user/login')->with('error', '该邮箱未注册，清注册后登录')->withInput();
         }
 
         $password = md5($params['password'] . $User->salt);
 
 
         if ($password != $User['password']) {
-            return redirect('user/login');
+            return redirect('user/login')->with('errorPsw', '密码错误')->withInput();
         }
 
         // 封装cookie数据

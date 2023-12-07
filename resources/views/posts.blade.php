@@ -93,35 +93,32 @@
                                         <a href="#"
                                            class="list-group-item list-group-item-action d-flex align-items-center">
                                             <div class="list-group-img">
-                                                <span class="avatar bg-purple">JD</span>
+                                                <span class="avatar bg-purple">像</span>
                                             </div>
                                             <div class="list-group-content">
-                                                <div class="list-group-heading">Johnyy Depp <small>10:05 PM</small>
+                                                <div class="list-group-heading">像素狂战士 <small>10:05 PM</small>
                                                 </div>
-                                                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing
-                                                    eiusmod tempor</p>
+                                                <p class="text-sm">好吧，文章很详细</p>
                                             </div>
                                         </a>
                                         <a href="#"
                                            class="list-group-item list-group-item-action d-flex align-items-center">
                                             <div class="list-group-img">
-                                                <span class="avatar bg-pink">TC</span>
+                                                <span class="avatar bg-pink">快</span>
                                             </div>
                                             <div class="list-group-content">
-                                                <div class="list-group-heading">Tom Cruise <small>11:30 PM</small></div>
-                                                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing
-                                                    eiusmod tempor</p>
+                                                <div class="list-group-heading">快车道巴库 <small>11:30 PM</small></div>
+                                                <p class="text-sm">好吧，文章很详细，赞同楼上</p>
                                             </div>
                                         </a>
                                         <a href="#"
                                            class="list-group-item list-group-item-action d-flex align-items-center">
                                             <div class="list-group-img">
-                                                <span class="avatar bg-blue">WS</span>
+                                                <span class="avatar bg-blue">网</span>
                                             </div>
                                             <div class="list-group-content">
-                                                <div class="list-group-heading">Will Smith <small>15:45 PM</small></div>
-                                                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipiscing
-                                                    eiusmod tempor</p>
+                                                <div class="list-group-heading">网络百夫长 <small>15:45 PM</small></div>
+                                                <p class="text-sm">好吧，文章很详细，+1+1</p>
                                             </div>
                                         </a>
                                     </div>
@@ -129,7 +126,8 @@
                                         <form class="card-comment-box" role="form">
                                             <div class="row align-items-center">
                                                 <div class="col-8">
-                                                    <input class="form-control" placeholder="e.g @willsmith">
+                                                    <textarea rows="1" class="form-control textarea-autosize"
+                                                              placeholder="在此输入您的评论..."></textarea>
                                                 </div>
                                                 <div class="col-4 text-right">
                                                     <button type="button"
