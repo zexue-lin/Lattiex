@@ -140,7 +140,6 @@
                                         </form>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -177,7 +176,7 @@
 
 @push('script')
     <script>
-        // 刚开始吧提示框设置为隐藏
+        // 刚开始把提示框设置为隐藏
         $('#alert').css('display', 'none')
 
         // 文章点赞请求
@@ -227,5 +226,45 @@
             }
         })
         // 文章浏览量+1 end
+
+        // 文章评论
+        $('.btn-icon-only').click(function () {
+            var PostID = $('#post').data('post-id');
+
+            $.ajax({
+                url: "{{url('home/PostComment')}}/" + PostID,
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data) {
+                    // 显示新的评论
+                },
+                error: function () {
+                    // 处理错误
+                    console.log('评论失败')
+                }
+            });
+        })
+        // 文章评论 end
+
+        // 文章响应式图片 获取文章所有图片
+        var allImages = document.querySelectorAll('#post img');
+
+        // 循环遍历每个图片
+        allImages.forEach(function (image) {
+            // 获取文本框的宽度
+            var textBoxWidth = document.getElementById('post').clientWidth;
+
+            // 获取图片宽度
+            var imageWidth = image.clientWidth;
+
+            // 检查是否超出文本框的宽度
+            if (imageWidth > textBoxWidth) {
+                image.style.width = '100%';
+                image.style.heigh = 'auto';
+            }
+        })
+        // 文章响应式图片 end
     </script>
 @endpush

@@ -60,6 +60,7 @@ Route::prefix('home')->group(function () {
     Route::get('like_request/{postId}', [HomeController::class, 'like_request']);
     Route::post('contact_like/{contactId}', [HomeController::class, 'contact_like']);
     Route::get('increaseViewCount/{PostId}', [HomeController::class, 'increaseViewCount']);
+    Route::post('PostComment/{PostID}', [HomeController::class, 'PostComment']);
 });
 
 // 后台管理页面

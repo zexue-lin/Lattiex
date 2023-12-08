@@ -6,6 +6,7 @@ use App\Models\User\User as UserModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 
 class UserController extends Controller
 {
@@ -53,8 +54,12 @@ class UserController extends Controller
         // 设置cookie
         Cookie::queue('LoginUser', $UserJson);
 
+        // 共享数据给所有视图
+        View::share('LoginUser', $data);
+
         // 登录成功
-        return redirect('/')->with('success', '登录成功！');
+        return redirect('/')->with(['LoginUser' => $data, 'success' => '登录成功！']);
+
     }
 
     //注册页

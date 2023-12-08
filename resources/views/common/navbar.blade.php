@@ -102,10 +102,17 @@
             <li class="nav-item dropdown">
                 {{--                <a class="nav-link nav-link-icon" href="#" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown"--}}
                 {{--                   aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>--}}
-                <a class="nav-link" href="#" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false"><img
-                        src="{{URL::asset('assets/images/avatar/default.jpg')}}" alt=""
-                        class="avatar avatar-sm"></a>
+                @if(!empty($LoginUser))
+                    <a class="nav-link" href="#" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false"><img
+                            src="{{URL::asset('uploads/'.$LoginUser['avatar'])}}" alt="User Avatar"
+                            class="avatar avatar-sm"></a>
+                @else
+                    <a class="nav-link" href="#" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false"><img
+                            src="{{URL::asset('uploads/users/default.png')}}" alt="Default Avatar"
+                            class="avatar avatar-sm"></a>
+                @endif
                 <div class="dropdown-menu dropdown-menu-right">
                     <h6 class="dropdown-header">用户菜单</h6>
                     <a class="dropdown-item" href="{{url('user/login')}}">

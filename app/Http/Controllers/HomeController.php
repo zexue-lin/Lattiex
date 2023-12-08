@@ -209,4 +209,14 @@ class HomeController extends Controller
         }
 
     }
+
+    // 文章评论
+    public function PostComment(Request $request, $PostID)
+    {
+        // 检查用户是否已登录
+        // 先查 先查 先查
+        // dd($PostID);
+        $LoginUser = !empty($request->cookie('LoginUser')) ? json_decode($request->cookie('LoginUser'), true) : [];
+        dd($LoginUser);
+    }
 }
