@@ -1,3 +1,5 @@
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="/">翻斗花园</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_example_1"
@@ -100,12 +102,14 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                {{--                <a class="nav-link nav-link-icon" href="#" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown"--}}
-                {{--                   aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>--}}
-                @if(!empty($LoginUser))
+                {{-- <a class="nav-link nav-link-icon" href="#" id="navbar_1_dropdown_3" role="button"
+                        data-toggle="dropdown" --}}
+                {{-- aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>--}}
+                @if(!empty(Cookie::get('LoginUser')))
                     <a class="nav-link" href="#" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false"><img
-                            src="{{URL::asset('uploads/'.$LoginUser['avatar'])}}" alt="User Avatar"
+                            src="{{URL::asset('uploads/'.json_decode(Cookie::get('LoginUser'))->avatar)}}"
+                            alt="User Avatar"
                             class="avatar avatar-sm"></a>
                 @else
                     <a class="nav-link" href="#" id="navbar_1_dropdown_3" role="button" data-toggle="dropdown"
@@ -130,7 +134,7 @@
                     </a>
                     <div class="dropdown-divider" role="presentation"></div>
                     {{--<a class="dropdown-item" href="#">--}}
-                    {{--    <i class="fas fa-sign-out-alt text-primary"></i>退出登录--}}
+                    {{-- <i class="fas fa-sign-out-alt text-primary"></i>退出登录--}}
                     {{--</a>--}}
                     <a class="dropdown-item" href="" data-toggle="modal" data-target="#modal_5">
                         <i class="fas fa-sign-out-alt text-primary"></i>
@@ -162,10 +166,34 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">是的,确定</button>
+                    <button type="button" id="logoutButton" class="btn btn-sm btn-secondary"
+                            data-dismiss="modal">是的,确定
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </nav>
+<script src="{{URL::asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+<script>
+    $("#logoutButton").click(function () {
+        $.ajax({
+            url: "{{url('user/logout')}}",
+            type: "POST",
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (res) {
+                if (res.code === 1) {
+                    console.log('退出登录成功')
+                }
+            },
+            error: function () {
+                // 处理错误
+                console.log('退出登录失败')
+            }
+        })
+    })
+</script>
 

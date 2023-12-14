@@ -56,7 +56,7 @@ class UserController extends Controller
 
         // 共享数据给所有视图
         View::share('LoginUser', $data);
-
+        // dd($UserJson);
         // 登录成功
         return redirect('/')->with(['LoginUser' => $data, 'success' => '登录成功！']);
 
@@ -129,14 +129,39 @@ class UserController extends Controller
 
 
     // 个人信息页
-    public function profile()
+    public function profile(Request $request)
     {
-        return view('user.profile');
+        // get cookie
+        $LoginUser = $request->cookie('LoginUser') ? json_decode($request->cookie('LoginUser'), true) : [];
+
+        // dd($LoginUser);
+        if ($LoginUser['name']) {
+            $name = $LoginUser['name'];
+        } else {
+            $name = '';
+        }
+
+        $phone = $LoginUser['phone'];
+
+        $data = compact([
+            'LoginUser',
+            'name',
+            'phone'
+        ]);
+        return view('user.profile', $data);
     }
 
     // 处理修改资料的逻辑
     public function profileForm(Request $request)
     {
+
+    }
+
+    // 退出登录
+    public function logout()
+    {
+        Cookie::queue(Cookie::forget('LoginUser'));
+        return json_encode(['code' => 1, 'msg' => '退出登录成功']);
 
     }
 }

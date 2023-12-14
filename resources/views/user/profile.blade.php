@@ -21,8 +21,7 @@
 
             <div class="container slice slice-sm">
                 <span class="profile-title" style="color: hotpink">个人信息设置</span>
-                <div class="user-avatar wow fadeInUp"
-                >
+                <div class="user-avatar wow fadeInUp">
                     <img src="{{URL::asset('assets/images/avatar/default.jpg')}}" class="avatar avatar-lg mr-3"
                          alt="默认头像">
                 </div>
@@ -30,10 +29,11 @@
                       method="post"
                       enctype="multipart/form-data">
                     @csrf
-
                     <div class="form-group">
                         <label for="nickname" style="color: dodgerblue">昵称</label>
-                        <input type="text" class="form-control" value="11" name="nickname"
+                        <input type="text" class="form-control"
+                               value="{{$LoginUser['name'] ? $LoginUser['name'] : '默认昵称'}}"
+                               name="nickname"
                                id="nickname"
                                placeholder="请输入姓名" required/>
                     </div>
@@ -190,18 +190,14 @@
                         <label for="phone" style="color: dodgerblue">所在地</label>
                         <div class="row mb-3">
                             <div class="col-md-3">
-                                <select class="selectpicker" title="省" data-live-search="true"
-                                        name="province" id="province"
-                                        data-live-search-placeholder="搜索 ...">
+                                <select class="selectpicker" title="省" name="province" id="province">
                                     <option>Alerts</option>
                                     <option>Badges</option>
                                     <option>Buttons</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <select class="selectpicker" title="市" data-live-search="true" name="city"
-                                        id="city"
-                                        data-live-search-placeholder="搜索 ...">
+                                <select class="selectpicker" title="市" name="city" id="city">
                                     <optgroup label="Components">
                                         <option>Alerts</option>
                                         <option>Badges</option>
@@ -210,9 +206,7 @@
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <select class="selectpicker" title="地区" data-live-search="true"
-                                        name="district" id="district"
-                                        data-live-search-placeholder="搜索 ...">
+                                <select class="selectpicker" title="地区" name="district" id="district">
                                     <optgroup label="Components">
                                         <option>Alerts</option>
                                         <option>Badges</option>

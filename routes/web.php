@@ -42,6 +42,7 @@ Route::prefix('user')->group(function () {
     Route::get('login', [UserController::class, 'login']);
     Route::get('register', [UserController::class, 'register']);
     Route::get('profile', [UserController::class, 'profile']);
+    Route::POST('logout', [UserController::class, 'logout']);
 });
 // 处理user相关表单提交路由
 Route::prefix('user')->group(function () {
