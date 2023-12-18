@@ -20,8 +20,28 @@
         {{--        <section class="profile-container"--}}
         {{--                 style="background-image: url('{{ asset('assets/images/backgrounds/profile-bac.jpg') }}')">--}}
         {{--背景图片暂时不要--}}
+        {{--提示框--}}
+        @if (session('error'))
+            <div class="row justify-content-center">
+                <div class="col-lg-8 alert-box-danger">
+                    <div
+                        class="alert wow fadeInUp alert-danger alert-dismissible fade1 show1"
+                        role="alert">
+                                                        <span class="alert-inner--icon"><i
+                                                                class="fas fa-times"></i></span>
+                        <span class="alert-inner--text"><strong>修改失败 </strong> 用户未登录!</span>
+                        <button type="button" class="undo" aria-label="Undo">关闭
+                        </button>
+                        <button type="button" class="close" data-dismiss="alert"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        @endif
+        {{--提示框end--}}
         <section class="profile-container">
-
             <div class="container slice slice-sm">
                 <span class="profile-title" style="color: hotpink">个人信息设置</span>
                 <div class="user-avatar wow fadeInUp">
@@ -30,7 +50,7 @@
                         class="avatar avatar-lg mr-3"
                         alt="默认头像">
                 </div>
-                <form class="profile wow fadeInUp" data-wow-delay="200ms" action="{{url('home/user/profileForm')}}"
+                <form class="profile wow fadeInUp" data-wow-delay="200ms" action="{{url('user/profileForm')}}"
                       method="post"
                       enctype="multipart/form-data">
                     @csrf
@@ -98,65 +118,16 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="email" style="color: dodgerblue">邮箱</label>
-                        <input type="email" class="form-control" id="email"
-                               value="{{optional($LoginUser)['email']??'example@qq.com'}}"
-                               placeholder="请输入邮箱" required/>
-                    </div>
+
                     <div class="form-group">
                         <label for="birth" style="color: dodgerblue">生日</label>
                         <div class="row mb-3">
                             <div class="col-md-3">
+                                {{--使用 now()->year 获取当前年份，循环获取年份--}}
                                 <select class="selectpicker" title="年" name="year" id="year">
-                                    <option>2023</option>
-                                    <option>2022</option>
-                                    <option>2021</option>
-                                    <option>2020</option>
-                                    <option>2019</option>
-                                    <option>2018</option>
-                                    <option>2017</option>
-                                    <option>2016</option>
-                                    <option>2015</option>
-                                    <option>2014</option>
-                                    <option>2013</option>
-                                    <option>2012</option>
-                                    <option>2011</option>
-                                    <option>2010</option>
-                                    <option>2009</option>
-                                    <option>2008</option>
-                                    <option>2007</option>
-                                    <option>2006</option>
-                                    <option>2005</option>
-                                    <option>2004</option>
-                                    <option>2003</option>
-                                    <option>2002</option>
-                                    <option>2001</option>
-                                    <option>2000</option>
-                                    <option>1999</option>
-                                    <option>1998</option>
-                                    <option>1997</option>
-                                    <option>1996</option>
-                                    <option>1995</option>
-                                    <option>1994</option>
-                                    <option>1993</option>
-                                    <option>1991</option>
-                                    <option>1990</option>
-                                    <option>1989</option>
-                                    <option>1988</option>
-                                    <option>1987</option>
-                                    <option>1986</option>
-                                    <option>1985</option>
-                                    <option>1984</option>
-                                    <option>1983</option>
-                                    <option>1982</option>
-                                    <option>1981</option>
-                                    <option>1980</option>
-                                    <option>1979</option>
-                                    <option>1978</option>
-                                    <option>1977</option>
-                                    <option>1976</option>
-                                    <option>1975</option>
+                                    @for ($year = now()->year; $year >= 1975; $year--)
+                                        <option>{{ $year }}</option>
+                                    @endfor
                                 </select>
                             </div>
                             <div class="col-md-3">
@@ -214,6 +185,12 @@
 
                     </div>
                     <div class="form-group">
+                        <label for="email" style="color: dodgerblue">邮箱</label>
+                        <input type="email" class="form-control" id="email"
+                               value="{{optional($LoginUser)['email']??'example@qq.com'}}"
+                               placeholder="请输入邮箱" required/>
+                    </div>
+                    <div class="form-group">
                         <label for="phone" style="color: dodgerblue">手机号</label>
                         <input type="tel" class="form-control" value="{{optional($LoginUser)['phone']??'110120119'}}"
                                name="phone" id="phone"
@@ -227,14 +204,13 @@
                     </div>
 
                     <div class="profile-btn">
-                        <button type="button" class="btn btn-primary btn-animated btn-animated-x">
+                        <button type="submit" class="btn btn-primary btn-animated btn-animated-x">
                             <span class="btn-inner--visible">确认修改</span>
                             <span class="btn-inner--hidden"><i class="fas fa-arrow-right"></i></span>
                         </button>
                     </div>
 
                 </form>
-
             </div>
         </section>
 
@@ -272,6 +248,8 @@
                     // 插入到id为city的元素中
                     $('#city').html(option)
 
+                    // 刷新selectpicker插件
+                    $('.selectpicker').selectpicker('refresh');
                     GetCity(res.data[0].code, '#district')
                 },
                 error: function () {
@@ -306,6 +284,8 @@
                     // 插入到id为district的元素中,同上一个
                     $('#district').html(option)
 
+                    // 刷新selectpicker插件
+                    $('.selectpicker').selectpicker('refresh');
                 }
             })
         })
@@ -337,6 +317,9 @@
                     }
                     // 插入到id为element的元素中，这里的element就是id为district的元素
                     $(element).html(option)
+
+                    // 刷新selectpicker插件
+                    $('.selectpicker').selectpicker('refresh');
                 }
             })
         }

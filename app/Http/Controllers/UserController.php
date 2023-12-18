@@ -183,6 +183,17 @@ class UserController extends Controller
     // 处理修改资料的逻辑
     public function profileForm(Request $request)
     {
+        $LoginUser = $request->cookie('LoginUser') ? json_decode($request->cookie('LoginUser'), true) : [];
+
+        $Userid = !empty($LoginUser['id']) ? $LoginUser['id'] : 0;
+
+        $User = UserModel::find($Userid);
+
+        if (!$User) {
+            // 用户未登录
+            return redirect('user/profile')->with(['error' => '用户未登录！']);
+            // return response()->json(['code' => 0, 'error' => '用户未登录'], 404);
+        }
 
     }
 
