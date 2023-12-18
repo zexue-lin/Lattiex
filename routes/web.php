@@ -37,6 +37,17 @@ Route::prefix('home')->group(function () {
     Route::post('contact_form', [HomeController::class, 'contact_form']);
 });
 
+/**
+ * Ajax请求的路由 home
+ */
+Route::prefix('home')->group(function () {
+    Route::get('like_request/{postId}', [HomeController::class, 'like_request']);
+    Route::post('contact_like/{contactId}', [HomeController::class, 'contact_like']);
+    Route::get('increaseViewCount/{PostId}', [HomeController::class, 'increaseViewCount']);
+    Route::post('PostComment/{PostID}', [HomeController::class, 'PostComment']);
+});
+
+
 // 用户相关路由
 Route::prefix('user')->group(function () {
     Route::get('login', [UserController::class, 'login']);
@@ -53,15 +64,11 @@ Route::prefix('user')->group(function () {
     // Route::post('contact/editform', [ContactController::class, 'editform']);
 });
 
-
 /**
- * Ajax请求的路由
+ * Ajax请求路由 User
  */
-Route::prefix('home')->group(function () {
-    Route::get('like_request/{postId}', [HomeController::class, 'like_request']);
-    Route::post('contact_like/{contactId}', [HomeController::class, 'contact_like']);
-    Route::get('increaseViewCount/{PostId}', [HomeController::class, 'increaseViewCount']);
-    Route::post('PostComment/{PostID}', [HomeController::class, 'PostComment']);
+Route::prefix('user')->group(function () {
+    Route::post('area', [UserController::class, 'area']);
 });
 
 // 后台管理页面

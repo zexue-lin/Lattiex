@@ -12152,7 +12152,7 @@ textarea[resize="horizontal"] {
 
 .main {
     position: relative;
-    /*top: 62px;*/
+    top: 62px;
 }
 
 .slice {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User\User as UserModel;
+use App\Models\User\Region as RegionModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
@@ -134,21 +135,49 @@ class UserController extends Controller
         // get cookie
         $LoginUser = $request->cookie('LoginUser') ? json_decode($request->cookie('LoginUser'), true) : [];
 
-        // dd($LoginUser);
-        if ($LoginUser['name']) {
-            $name = $LoginUser['name'];
+        // 查询省份的全部数据
+        $province = RegionModel::where(['grade' => 1])->select('code', 'name')->get();
+        // dd($province);
+        // 查询市
+        if ($LoginUser) {
+            $city = RegionModel::where(['parentid' => $LoginUser['province']])->select('code', 'name')->get();
         } else {
-            $name = '';
+            $city = [];
         }
-
-        $phone = $LoginUser['phone'];
+        // 查询区
+        if ($LoginUser) {
+            $district = RegionModel::where(['province' => $LoginUser['city']])->select('code', 'name')->get();
+        } else {
+            $district = [];
+        }
 
         $data = compact([
             'LoginUser',
-            'name',
-            'phone'
+            'province',
+            'city',
+            'district'
         ]);
+
         return view('user.profile', $data);
+    }
+
+    // 查询城市，地区
+    protected function area()
+    {
+        // 全局辅助函数rrequest，用于获取当前HTTP请求实例，这里用来获取请求的code值
+        $code = request('code');
+
+        $region = RegionModel::where(['parentid' => $code])->select('code', 'name')->get();
+
+        if (!$region) {
+            // 直接使用php的json_encode将关联数组转换为json字符串，相对简单
+            return json_encode(['code' => 0, 'error' => '所选地区不存在，请重新选择']);
+
+        }
+        // 使用laravel提供的response函数创建一个JSON响应对象，更加灵活，允许你设置响应的各种属性，如 HTTP 状态码、
+        // response()->json 会自动设置 Content-Type 头部为 application/json。
+        // 这里设置了成功的状态码是222，默认是200
+        return response()->json(['code' => 1, 'success' => '查询成功', 'data' => $region]);
     }
 
     // 处理修改资料的逻辑
