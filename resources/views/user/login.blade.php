@@ -82,6 +82,26 @@
                             </div>
                         </div>
                     @endif
+                    @if (session('msg'))
+                        {{--提示框--}}
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 alert-box-success">
+                                <div
+                                    class="alert wow fadeInUp alert-warning alert-dismissible fade1 show1"
+                                    role="alert">
+                                                        <span class="alert-inner--icon"><i
+                                                                class="fas fa-exclamation"></i></span>
+                                    <span class="alert-inner--text"><strong>请先登录 </strong> 登录后即可访问!</span>
+                                    <button type="button" class="undo" aria-label="Undo">关闭
+                                    </button>
+                                    <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                     <div class="row justify-content-center">
                         <div class="col-lg-4">
                             <div class="card bg-primary text-white">

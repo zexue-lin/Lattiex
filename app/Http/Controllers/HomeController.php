@@ -217,6 +217,12 @@ class HomeController extends Controller
         // 先查 先查 先查
         // dd($PostID);
         $LoginUser = !empty($request->cookie('LoginUser')) ? json_decode($request->cookie('LoginUser'), true) : [];
-        dd($LoginUser);
+
+        if (empty($LoginUser)) {
+            // dd('用户未登录，将执行重定向');
+            return redirect('user/login')->with(['msg' => '请先登录！']);
+        }
+        // $UserId = !empty($LoginUser['id']) ? $LoginUser['id'] : 0;
+        // dd($UserId);
     }
 }

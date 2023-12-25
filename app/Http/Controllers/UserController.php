@@ -6,6 +6,7 @@ use App\Models\User\User as UserModel;
 use App\Models\User\Region as RegionModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 
@@ -189,10 +190,92 @@ class UserController extends Controller
 
         $User = UserModel::find($Userid);
 
-        if (!$User) {
+        if (!$LoginUser) {
             // 用户未登录
             return redirect('user/profile')->with(['error' => '用户未登录！']);
             // return response()->json(['code' => 0, 'error' => '用户未登录'], 404);
+        }
+
+        // 接受全部参数
+        $params = $request->all();
+
+        // 封装更新数据的数组
+        $data = [
+            'name' => $params['name'],
+            'email' => $params['email'],
+            'province' => $params['province'],
+            'city' => $params['city'],
+            'district' => $params['district'],
+            'sex' => $params['sex'],
+            'year' => $params['year'],
+            'month' => $params['month'],
+            'date' => $params['date'],
+            'phone' => $params['phone'],
+        ];
+
+        // 修改密码
+        if (!empty($params['password'])) {
+            // 新的密码盐
+            $salt = build_ranstr();
+
+            // 加密
+            $password = md5($params['password'] . $salt);
+
+            $data['password'] = $password;
+            $data['salt'] = $salt;
+        }
+
+        // 修改头像
+        // 检查是否有头像文件上传
+        if (isset($_FILES['avatar']) && $_FILES['avatar']['size'] > 0) {
+            // $file -> 接收到上传文件的字段名,,store->保存文件，第一个参数是指定的路径，第二个参数是指定的磁盘
+            $file = $request->file('avatar')->store('users/avatars', 'uploads');
+
+            // 追加到data数组
+            $data['avatar'] = $file;
+        }
+
+        // 更新到数据库
+        $result = UserModel::where(['id' => $Userid])->update($data);
+
+        // 判断修改结果
+        if ($result === false) {
+            if (isset($_FILES['avatar']) && $_FILES['avatar']['size'] > 0) {
+                //上传失败要从磁盘里面删掉
+                Storage::disk('uploads')->delete($file);
+            }
+            return json_encode(['code' => 0, 'msg' => '修改失败']);
+        } else {
+            if (isset($_FILES['avatar']) && $_FILES['avatar']['size'] > 0) {
+                //修改成功，删除旧的头像，防止占空间
+                Storage::disk('uploads')->delete($User->avatar);
+            }
+
+            $user = UserModel::find($Userid);
+            // 封装cookie数据
+            $data = [
+                'id' => $user['id'],
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'phone' => $user['phone'],
+                'avatar' => $user['avatar'],
+                'sex' => $user['sex'],
+                'province' => $user['province'],
+                'city' => $user['city'],
+                'district' => $user['district'],
+                'created_at' => $user['created_at'],
+            ];
+
+            // 把数组转成json数据格式，目前的cookie是json格式，使用的时候要用json_decode解码
+            $UserJson = json_encode($data);
+
+            // 设置cookie
+            Cookie::queue('LoginUser', $UserJson);
+
+            // 共享数据给所有视图
+            View::share('LoginUser', $data);
+            // 登录成功
+            return redirect('user/profile')->with(['LoginUser' => $data, 'success' => '登录成功！']);
         }
 
     }

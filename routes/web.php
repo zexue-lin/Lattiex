@@ -48,7 +48,7 @@ Route::prefix('home')->group(function () {
 });
 
 
-// 用户相关路由
+// 用户视图相关路由
 Route::prefix('user')->group(function () {
     Route::get('login', [UserController::class, 'login']);
     Route::get('register', [UserController::class, 'register']);

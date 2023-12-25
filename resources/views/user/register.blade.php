@@ -110,7 +110,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group code">
-                                            <input type="password"
+                                            <input type="text"
                                                    class="form-control @error('captcha') is-invalid @enderror"
                                                    name="captcha"
                                                    id="captcha" placeholder="请输入验证码"

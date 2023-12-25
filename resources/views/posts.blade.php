@@ -123,7 +123,8 @@
                                         </a>
                                     </div>
                                     <div class="card-footer">
-                                        <form class="card-comment-box" role="form">
+                                        <form class="card-comment-box" role="form" action="{{url('home/PostComment')}}">
+                                            @csrf
                                             <div class="row align-items-center">
                                                 <div class="col-8">
                                                     <textarea rows="1" class="form-control textarea-autosize"
@@ -141,6 +142,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{--评论区end--}}
                         </div>
                     </div>
                 </div>
@@ -168,7 +170,7 @@
                         </div>
                     </div>
                 </div>
-
+                {{-- 右侧个人信息end --}}
             </div>
         </div>
     </main>

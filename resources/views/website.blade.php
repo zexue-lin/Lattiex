@@ -14,90 +14,10 @@
 @section('content')
     {{--  顶部导航  --}}
     @include('common.navbar')
-
     {{--  主体内容  --}}
     <main class="main">
-        <aside class="sidebar" id="nav_docs">
-            {{--这里是仓鼠上面的一个大标题，隐藏掉了--}}
-            <div class="sidebar-brand">
-                <h1 class="font-weight-400"><a href=""><span class="font-weight-700">"食用"功能网址</span> 分享</a>
-                </h1>
-            </div>
-            {{--侧边可滚动导航栏--}}
-            <div class="scrollbar-inner">
-                <ul class="navigation pr-3">
-                    <li class="navigation-title">网站类别</li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="#tools" class="navigation-link">工具类网站</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="#downloads" class="navigation-link">下载类网站</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="plugins.html" class="navigation-link">Plugins</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="customization.html" class="navigation-link">Customization</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="update.html" class="navigation-link">Update</a>
-                    </li>
-                    <li class="navigation-title">标题二</li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="colors.html" class="navigation-link">Colors</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="typography.html" class="navigation-link">Typography</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="icons.html" class="navigation-link">Icons</a>
-                    </li>
-                    <li class="navigation-title">标题三</li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="alerts.html" class="navigation-link">Alerts</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="avatars.html" class="navigation-link">Avatars</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="badges.html" class="navigation-link">Badges</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="buttons.html" class="navigation-link">Buttons</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="cards.html" class="navigation-link">Cards</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="dropdowns.html" class="navigation-link">Dropdowns</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="forms.html" class="navigation-link">Forms</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="modal.html" class="navigation-link">Modal</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="navbar.html" class="navigation-link">Navbar</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="navs.html" class="navigation-link">Navs</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="pagination.html" class="navigation-link">Pagination</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="progress.html" class="navigation-link">Progress</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="tables.html" class="navigation-link">Tables</a>
-                    </li>
-                    <li class="navigation-item toc-entry toc-h3">
-                        <a href="tooltips.html" class="navigation-link">Tooltips</a>
-                    </li>
-                </ul>
-            </div>
-        </aside>
+        {{--侧边可滚动导航栏--}}
+        @include('common.scrollbar')
         <section class="content" style="margin-top: 62px">
             <div class="content-inner content-docs">
                 {{--<div class="pt-3 pb-4 mb-4 border-bottom">--}}
@@ -149,8 +69,8 @@
                     <div class="col-lg-3 d-none d-lg-inline-block">
                         <div class="sidebar-sticky" data-stick-in-parent="true">
                             <ul class="section-nav">
-                                <li class="toc-entry toc-h3"><a href="#downloads">Example</a></li>
-                                <li class="toc-entry toc-h3"><a href="#metadata">Metadata</a></li>
+                                <li class="toc-entry toc-h3"><a href="#tools">工具类网站</a></li>
+                                <li class="toc-entry toc-h3"><a href="#downloads">下载类网站</a></li>
                                 <li class="toc-entry toc-h3"><a href="#actions">Actions</a></li>
                                 <li class="toc-entry toc-h3"><a href="#commentable">Commentable</a></li>
                                 <li class="toc-entry toc-h3"><a href="#list-groups">List groups</a></li>

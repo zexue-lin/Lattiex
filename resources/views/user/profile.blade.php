@@ -20,46 +20,52 @@
         {{--        <section class="profile-container"--}}
         {{--                 style="background-image: url('{{ asset('assets/images/backgrounds/profile-bac.jpg') }}')">--}}
         {{--背景图片暂时不要--}}
-        {{--提示框--}}
-        @if (session('error'))
-            <div class="row justify-content-center">
-                <div class="col-lg-8 alert-box-danger">
-                    <div
-                        class="alert wow fadeInUp alert-danger alert-dismissible fade1 show1"
-                        role="alert">
-                                                        <span class="alert-inner--icon"><i
-                                                                class="fas fa-times"></i></span>
-                        <span class="alert-inner--text"><strong>修改失败 </strong> 用户未登录!</span>
-                        <button type="button" class="undo" aria-label="Undo">关闭
-                        </button>
-                        <button type="button" class="close" data-dismiss="alert"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        @endif
-        {{--提示框end--}}
         <section class="profile-container">
-            <div class="container slice slice-sm">
+            <div class="container slice slice-lg">
                 <span class="profile-title" style="color: hotpink">个人信息设置</span>
-                <div class="user-avatar wow fadeInUp">
-                    <img
-                        src="{{ optional($LoginUser)['avatar'] ?? URL::asset('assets/images/avatar/default.jpg') }}"
-                        class="avatar avatar-lg mr-3"
-                        alt="默认头像">
-                </div>
                 <form class="profile wow fadeInUp" data-wow-delay="200ms" action="{{url('user/profileForm')}}"
                       method="post"
                       enctype="multipart/form-data">
                     @csrf
+                    {{--提示框--}}
+                    @if (session('error'))
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 alert-box-danger">
+                                <div
+                                    class="alert wow fadeInUp alert-danger alert-dismissible fade1 show1"
+                                    role="alert">
+                                                        <span class="alert-inner--icon"><i
+                                                                class="fas fa-times"></i></span>
+                                    <span class="alert-inner--text"><strong>修改失败 </strong> 用户未登录!</span>
+
+                                    <button type="button" class="undo" aria-label="Undo">关闭
+                                    </button>
+                                    <span style="margin: auto;">点击前往<a href="{{url('user/login')}}">登录</a></span>
+                                    <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                    {{--提示框end--}}
+                    <div class="user-avatar wow fadeInUp">
+                        <input type="file" name="avatar" id="avatar" style="display: none;"
+                               onchange="displaySelectedImage()"/>
+                        <label for="avatar">
+                            <img
+                                src="{{ optional($LoginUser)['avatar'] ? URL::asset('uploads/' . optional($LoginUser)['avatar']) : URL::asset('assets/images/avatar/default.png') }}"
+                                class="avatar avatar-lg mr-3"
+                                alt="默认头像" id="avatarImg">
+                        </label>
+                    </div>
                     <div class="form-group">
-                        <label for="nickname" style="color: dodgerblue">昵称</label>
+                        <label for="name" style="color: dodgerblue">昵称</label>
                         <input type="text" class="form-control"
                                value="{{ optional ($LoginUser)['name'] ?? '默认昵称' }}"
-                               name="nickname"
-                               id="nickname"
+                               name="name"
+                               id="name"
                                placeholder="请输入姓名" required/>
                     </div>
 
@@ -101,24 +107,23 @@
                     <div class="form-group form-group-sex">
                         <label for="sex" style="color: dodgerblue">性别</label>
                         <div class="d-inline-block custom-control custom-radio mb-3">
-                            <input type="radio" name="custom-radio-1" class="custom-control-input"
-                                   id="customRadio1">
-                            <label class="custom-control-label" for="customRadio1" style="color: dodgerblue">男</label>
+                            <input type="radio" name="sex" class="custom-control-input"
+                                   id="customRadio1" value="1" {{optional($LoginUser)['sex']==1?'checked':''}}>
+                            <label class="custom-control-label" for="customRadio1"
+                                   style="color: dodgerblue">男</label>
                         </div>
                         <div class="d-inline-block custom-control custom-radio mb-2 ml-3">
-                            <input type="radio" name="custom-radio-1" class="custom-control-input" id="customRadio2"
-                                   checked="">
+                            <input type="radio" name="sex" class="custom-control-input" id="customRadio2"
+                                   value="2" {{optional($LoginUser)['sex']==2?'checked':''}}>
                             <label class="custom-control-label" for="customRadio2" style="color: dodgerblue">女</label>
                         </div>
                         <div class="d-inline-block custom-control custom-radio mb-3">
-                            <input type="radio" name="custom-radio-1" class="custom-control-input" id="customRadio3"
-                                   checked="">
+                            <input type="radio" name="sex" class="custom-control-input" id="customRadio3"
+                                   value="0" {{optional($LoginUser)['sex']==0?'checked':''}}>
                             <label class="custom-control-label" for="customRadio3"
                                    style="color: dodgerblue">保密</label>
                         </div>
                     </div>
-
-
                     <div class="form-group">
                         <label for="birth" style="color: dodgerblue">生日</label>
                         <div class="row mb-3">
@@ -132,61 +137,23 @@
                             </div>
                             <div class="col-md-3">
                                 <select class="selectpicker" title="月" name="month" id="month">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                    <option>11</option>
-                                    <option>12</option>
+                                    @for ($month = 1;$month<=12;$month++)
+                                        <option>{{$month}}</option>
+                                    @endfor
                                 </select>
                             </div>
                             <div class="col-md-3">
                                 <select class="selectpicker" title="日" name="date" id="date">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                    <option>11</option>
-                                    <option>12</option>
-                                    <option>13</option>
-                                    <option>14</option>
-                                    <option>15</option>
-                                    <option>16</option>
-                                    <option>17</option>
-                                    <option>18</option>
-                                    <option>19</option>
-                                    <option>20</option>
-                                    <option>21</option>
-                                    <option>22</option>
-                                    <option>23</option>
-                                    <option>24</option>
-                                    <option>25</option>
-                                    <option>26</option>
-                                    <option>27</option>
-                                    <option>28</option>
-                                    <option>29</option>
-                                    <option>30</option>
-                                    <option>31</option>
+                                    @for($date = 1;$date<=31;$date++)
+                                        <option>{{$date}}</option>
+                                    @endfor
                                 </select>
                             </div>
                         </div>
-
                     </div>
                     <div class="form-group">
                         <label for="email" style="color: dodgerblue">邮箱</label>
-                        <input type="email" class="form-control" id="email"
+                        <input type="email" class="form-control" name="email" id="email"
                                value="{{optional($LoginUser)['email']??'example@qq.com'}}"
                                placeholder="请输入邮箱" required/>
                     </div>
@@ -199,8 +166,7 @@
                     <div class="form-group  form-group-secret">
                         <label for="password" style="color: dodgerblue">密码</label>
                         <input type="password" class="form-control" name="password" id="password"
-                               placeholder="留空默认不修改密码"
-                        />
+                               placeholder="留空默认不修改密码"/>
                     </div>
 
                     <div class="profile-btn">
@@ -322,6 +288,24 @@
                     $('.selectpicker').selectpicker('refresh');
                 }
             })
+        }
+
+        // 预览上传的头像
+        function displaySelectedImage() {
+            var fileInput = document.getElementById('avatar');
+            var image = document.getElementById('avatarImg');
+
+            if (fileInput.files.length > 0) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    image.src = e.target.result;
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+            {{--else {--}}
+            {{--    // 如果未选择文件，恢复默认头像--}}
+            {{--    image.src = "{{ URL::asset('uploads/'.optional($LoginUser)['avatar']) ?? URL::asset('assets/images/avatar/default.jpg') }}";--}}
+            {{--}--}}
         }
     </script>
 @endpush

@@ -9879,7 +9879,8 @@ a.bg-lighter:hover, a.bg-lighter:focus, button.bg-lighter:hover, button.bg-light
     width: 20px;
     border-radius: 50%;
     font-size: 0.8rem;
-    display: block
+    display: block;
+    color: white;
 }
 
 .alert-dismissible .close:hover, .alert-dismissible .close:focus {
@@ -9895,7 +9896,7 @@ a.bg-lighter:hover, a.bg-lighter:focus, button.bg-lighter:hover, button.bg-light
     right: 3.5rem;
     top: 50%;
     transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
     text-transform: uppercase;
     font-size: .765625rem;
     font-weight: 600;
@@ -12152,7 +12153,7 @@ textarea[resize="horizontal"] {
 
 .main {
     position: relative;
-    top: 62px;
+    /*top: 62px;*/
 }
 
 .slice {
