@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ToolController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +56,8 @@ Route::prefix('user')->group(function () {
     Route::get('profile', [UserController::class, 'profile']);
     Route::POST('logout', [UserController::class, 'logout']);
 });
+
+
 // 处理user相关表单提交路由
 Route::prefix('user')->group(function () {
     Route::post('register_form', [UserController::class, 'register_form']);
@@ -62,6 +65,12 @@ Route::prefix('user')->group(function () {
     Route::post('profileForm', [UserController::class, 'profileForm']);
     // Route::post('contact/addform', [ContactController::class, 'addform']);
     // Route::post('contact/editform', [ContactController::class, 'editform']);
+});
+
+// 工具网站相关路由
+Route::prefix('tool')->group(function () {
+    Route::get('/', [ToolController::class, 'index']);
+    Route::get('QRcode', [ToolController::class, 'QRcode']);
 });
 
 /**

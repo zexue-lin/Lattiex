@@ -22,7 +22,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbar_1_dropdown_1" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多</a>
                 <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
-                    <a class="dropdown-item" href="#">行动</a>
+                    <a class="dropdown-item" href="{{url('tool')}}">工具</a>
                     <a class="dropdown-item" href="#">其他行动</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">常用正版软件下载地址</a>

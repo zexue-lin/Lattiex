@@ -18,7 +18,7 @@
         {{--侧边可滚动导航栏--}}
         @include('common.scrollbar')
 
-        <section class="content" style="margin-top: 62px">
+        <section class="content" style="padding-top: 6rem">
             <div class="content-inner content-docs">
                 <div class="pt-3 pb-4 mb-4 border-bottom">
                     {{--一共12份，分成了6+3 两份--}}
