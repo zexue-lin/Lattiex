@@ -2849,12 +2849,18 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 
 .fade {
     opacity: 0;
-    transition: opacity 0.15s linear
+    transition: opacity 0.15s linear;
+
 }
 
 .fade.show {
     opacity: 1;
-    transition: opacity 0.15s linear
+    transition: opacity 0.15s linear;
+    position: fixed;
+    top: 100px;
+    left: 32.5%;
+    width: 35%;
+    /*transform: translateX(-50%);*/
 }
 
 .collapse {

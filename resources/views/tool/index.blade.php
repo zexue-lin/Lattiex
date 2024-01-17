@@ -120,7 +120,8 @@
                         <div class="col-lg-9">
                             <h3>左侧功能介绍</h3>
                             <div class="p-3 mb-2 bg-secondary text-dark">1. 二维码生成</div>
-                            <img src="https://i.postimg.cc/jSmQ1DdB/20240102140524.jpg" alt="none">
+                            <img src="http://www.u3.lattiex.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240102140524.png"
+                                 alt="none">
                         </div>
 
                         <div class="col-lg-3"></div>

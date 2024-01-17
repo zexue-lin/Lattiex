@@ -17,4 +17,8 @@ class ToolController extends Controller
     {
         return view('tool.QRcode');
     }
+
+    // 性格测试的网页
+
+    // 随机抽奖的网页代码
 }

@@ -32,7 +32,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8 alert-box-danger">
                                 <div
-                                    class="alert wow fadeInUp alert-danger alert-dismissible fade1 show1"
+                                    class="alert wow fadeInUp alert-danger alert-dismissible fade show"
                                     role="alert">
                                                         <span class="alert-inner--icon"><i
                                                                 class="fas fa-times"></i></span>

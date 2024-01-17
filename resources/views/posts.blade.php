@@ -23,10 +23,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             {{--提示框--}}
-                            <div class="row justify-content-center" id="alert">
+                            <div class="row justify-content-center" id="alert" style="display: none">
                                 <div class="col-lg-8 alert-box-success">
                                     <div
-                                        class="alert wow fadeInUp alert-warning alert-dismissible fade1 show1"
+                                        class="alert wow fadeInUp alert-warning alert-dismissible fade show"
                                         role="alert">
                                                         <span class="alert-inner--icon"><i
                                                                 class="fas fa-exclamation"></i></span>
@@ -50,7 +50,8 @@
                                             {{$posts->created_at}}
                                         </span>
                                         <span class="list-inline-item posts-view">
-                                            <i class="fas fa-eye text-muted mr-1"></i>{{$posts->view}}
+                                            <i class="fas fa-eye text-muted mr-1"></i>
+                                           <ii class="ii"> {{$posts->view}}</ii>
                                         </span>
                                     </div>
                                     <p class="card-text">{{$posts->excerpt}}</p>
@@ -192,6 +193,7 @@
                 success: function (data) {
                     // 更新点赞数量显示
                     $('#likeCount' + postId).text(data.newLikeCount);
+
                 },
                 error: function () {
                     // 处理错误
@@ -218,7 +220,7 @@
                     },
                     success: function (data) {
                         // 更新浏览次数显示
-                        $('.posts-view').text(data.NewViewCount);
+                        $('.posts-view .ii').text(data.NewViewCount);
                     },
                     error: function () {
                         // 处理错误

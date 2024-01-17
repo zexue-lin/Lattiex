@@ -27,7 +27,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8 alert-box-success">
                                 <div
-                                    class="alert wow fadeInUp alert-success alert-dismissible fade1 show1"
+                                    class="alert wow fadeInUp alert-success alert-dismissible fade show"
                                     role="alert">
                                                         <span class="alert-inner--icon"><i
                                                                 class="fas fa-check"></i></span>
@@ -47,7 +47,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8 alert-box-success">
                                 <div
-                                    class="alert wow fadeInUp alert-danger alert-dismissible fade1 show1"
+                                    class="alert wow fadeInUp alert-danger alert-dismissible fade show"
                                     role="alert">
                                                         <span class="alert-inner--icon"><i
                                                                 class="fas fa-times"></i></span>
@@ -67,7 +67,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8 alert-box-success">
                                 <div
-                                    class="alert wow fadeInUp alert-danger alert-dismissible fade1 show1"
+                                    class="alert wow fadeInUp alert-danger alert-dismissible fade show"
                                     role="alert">
                                                         <span class="alert-inner--icon"><i
                                                                 class="fas fa-times"></i></span>
@@ -87,7 +87,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8 alert-box-success">
                                 <div
-                                    class="alert wow fadeInUp alert-warning alert-dismissible fade1 show1"
+                                    class="alert wow fadeInUp alert-warning alert-dismissible fade show"
                                     role="alert">
                                                         <span class="alert-inner--icon"><i
                                                                 class="fas fa-exclamation"></i></span>
