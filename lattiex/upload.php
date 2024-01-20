@@ -60,24 +60,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["submit"])) {
     // 拼接处理上传的文件名
     $fileName = $nowTime . '-' . mt_rand(111, 9999) . '.' . $uploadType;
     $ymd = date('Y/md');
-    echo '现在的时间：' . $nowTime . '<br>';
-    echo '文件目录：' . $ymd . '<br>';
-    echo '目录：' . $activePath . '<br>';
-    echo '文件大小：' . $fileSize . '<br>';
-    echo '$ymd目录:' . $ymd . '</br>';
-    echo '以下测试环境' . '</br>';
-    echo '</br>';
 
 
     $fileName = $ymd . '/' . $fileName;
-    echo '$fileName->' . $fileName . '</br>';
     $fullfileName = $baseUrl . $activePath . '/' . $fileName;
-    echo '$fullfileName->' . $fullfileName . '</br>';
     $fileUrl = $activePath . '/' . $fileName; //构建完整的文件URL。
-    echo '$fileUrl->' . $fileUrl . '</br>' . '</br >';
-    echo '$fileSize->' . $fileSize . '</br>' . '</br >';
-    echo '$mediaType->' . $uploadType . '</br>' . '</br >';
-    echo '现在时间:' . $Time . '</br>';
     echo $_SERVER['HTTP_HOST'] . '</br>';
 
     // 连接ftp`
@@ -101,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["submit"])) {
     // $ftp->close();
     // // 关闭ftp连接
 
-    echo '文件路径：' . $baseUrl . $fileUrl;
+    // echo '文件路径：' . $baseUrl . $fileUrl;
     // 保存图片导目录
     // move_uploaded_file($temFile, $fullfileName) or die("上传文件到 $fullfileName 失败！"); //将上传的文件移到目标位置。
 
@@ -127,9 +114,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["submit"])) {
     <link rel="icon" href="http://www.lattiex.com/assets/images/favicon.ico">
     <title>文件上传结果页</title>
     <style>
-        .container {
-            width: 100%;
-            height: 100%;
+        body {
+            /*width: 100%;*/
+            /*height: 100%;*/
             --s: 200px; /* control the size */
             --c1: #1d1d1d;
             --c2: #4e4f51;
@@ -182,7 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["submit"])) {
         }
 
         .input_field {
-            width: 70%;
+            width: 75%;
             height: 36px;
             padding: 0 0 0 12px;
             border-radius: 5px;
@@ -216,19 +203,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["submit"])) {
             font-size: 12px;
             line-height: 15px;
             color: #ffffff;
+            margin-left: 1rem;
         }
 
         /*  main  */
         .main {
             display: flex;
             justify-content: center;
-            padding-top: 3rem;
+            padding-top: 8rem;
         }
 
         .mess {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            flex-direction: row
         }
     </style>
 
@@ -239,30 +227,75 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["submit"])) {
         <div class="card coupons">
             <form class="form">
                 <div class="mess">
-                    <label class="title">图片链接:</label>
+                    <label class="title">文件目录:</label>
 
-                    <input type="text" value="<?php echo $fullfileName; ?>"
+                    <input type="text" value="<?php echo $fileUrl; ?>"
                            class="input_field">
+                </div>
+                <div class="mess">
+                    <label class="title">上传时间:</label>
 
-                    <button>复制</button>
+                    <input type="text" value="<?php echo $Time; ?>"
+                           class="input_field">
                 </div>
                 <div class="mess">
                     <label class="title">文件大小:</label>
 
                     <input type="text" value="<?php echo $fileSize; ?>"
                            class="input_field">
+                </div>
+                <div class="mess">
+                    <label class="title">文件链接:</label>
 
-                    <button>复制</button>
+                    <input type="text" value="<?php echo $fullfileName; ?>"
+                           class="input_field" id="filefileName">
+
+                    <button type="button" onclick="handleCopy()">复制</button>
                 </div>
             </form>
         </div>
     </div>
 
 </div>
-
-
+<script src="assets/js/vendor/jquery-3.4.1.min.js"></script>
 <script>
+    // 原生的document.execCommand('copy')方法，移动和pc都可以用
+    // 点击复制，选择要复制的区域，执行复制，例如复制邀请码的实现
+    function handleCopy() {
+        // 复制方法1
+        // let urlValue = $('#filefileName').val();
+        let urlValue = $('#filefileName');
+        urlValue.focus(); // 将焦点设置到要复制的区域
+        urlValue.select(); // 选中要复制区域的文本内容
+        if (document.execCommand('copy')) {
+            document.execCommand('copy'); // 两次复制 为了兼容性
+        }
+        urlValue.blur(); // 将焦点移出
 
+        alert('复制成功');
+
+        // 复制方法2
+        // let urlValue = $('#filefileName').val();
+        //
+        // // 创建一个临时的textarea元素
+        // let tempTextArea = document.createElement('textarea');
+        // tempTextArea.value = urlValue;
+        //
+        // // 将textarea元素追加到body中
+        // document.body.appendChild(tempTextArea);
+        //
+        // // 选中textarea中的文本
+        // tempTextArea.select();
+        //
+        // // 执行复制命令
+        // document.execCommand('copy');
+        //
+        // // 移除临时textarea元素
+        // document.body.removeChild(tempTextArea);
+        //
+        // // 提示用户复制成功
+        // alert('复制成功');
+    }
 </script>
 </body>
 </html>
