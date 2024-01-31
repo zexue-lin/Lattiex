@@ -17,54 +17,54 @@
 
         {{--侧边可滚动导航栏--}}
         @include('common.scrollbar')
-
+z
         <section class="content" style="padding-top: 6rem">
-            <div class="content-inner content-docs">
-                <div class="pt-3 pb-4 mb-4 border-bottom">
-                    {{--一共12份，分成了6+3 两份--}}
-                    <div class="row">
-                        <div class="col-1">
-                            {{--<h2 class="heading h2 font-weight-bold"></h2>--}}
-                        </div>
-                        <div class="col-lg-6">
-                            <h2 class="heading h2 font-weight-bold">翻斗花园</h2>
-                            <form class="post_area">
-                                <div class="form-group">
-                                    <textarea class="form-control textarea-autosize"
-                                              placeholder="只因你太美，Oh，baby..."
-                                              rows="1"></textarea>
-                                </div>
-                                <label for="file-1" id="avatarbox">
-                                    <img src="assets/images/upload.png" id="upload" alt="">
-                                </label>
-                                <div class="post_bottom">
-                                    <div class="post_items"><i class="fa fa-smile"
-                                                               style="margin-right: 5px"> </i>表情
-                                    </div>
-                                    <div class="post_items">
-                                        <input type="file" name="file-1[]" id="file-1"
-                                               class="custom-input-img"
-                                               data-multiple-caption="{count} files selected" multiple/>
-                                        <label for="file-1">
-                                            <i class="fas fa-image"></i>
-                                            <span>图片</span>
-                                        </label>
-                                    </div>
-                                    <div class="post_items"><i class="fas fa-video" style="margin-right: 5px"></i>视频
-                                    </div>
-                                    <div class="post_items"><i class="fas fa-user-plus"
-                                                               style="margin-right: 5px"> </i>标记
-                                    </div>
-                                    <button class="btn btn-sm btn-primary">发送</button>
-                                </div>
-                            </form>
-                        </div>
+            {{--<div class="content-inner content-docs">--}}
+            {{--    <div class="pt-3 pb-4 mb-4 border-bottom">--}}
+            {{--        --}}{{--一共12份，分成了6+3 两份--}}
+            {{--        <div class="row">--}}
+            {{--            <div class="col-1">--}}
+            {{--                --}}{{--<h2 class="heading h2 font-weight-bold"></h2>--}}
+            {{--            </div>--}}
+            {{--            <div class="col-lg-6">--}}
+            {{--                <h2 class="heading h2 font-weight-bold">翻斗花园</h2>--}}
+            {{--                <form class="post_area">--}}
+            {{--                    <div class="form-group">--}}
+            {{--                        <textarea class="form-control textarea-autosize"--}}
+            {{--                                  placeholder="只因你太美，Oh，baby..."--}}
+            {{--                                  rows="1"></textarea>--}}
+            {{--                    </div>--}}
+            {{--                    <label for="file-1" id="avatarbox">--}}
+            {{--                        <img src="assets/images/upload.png" id="upload" alt="">--}}
+            {{--                    </label>--}}
+            {{--                    <div class="post_bottom">--}}
+            {{--                        <div class="post_items"><i class="fa fa-smile"--}}
+            {{--                                                   style="margin-right: 5px"> </i>表情--}}
+            {{--                        </div>--}}
+            {{--                        <div class="post_items">--}}
+            {{--                            <input type="file" name="file-1[]" id="file-1"--}}
+            {{--                                   class="custom-input-img"--}}
+            {{--                                   data-multiple-caption="{count} files selected" multiple/>--}}
+            {{--                            <label for="file-1">--}}
+            {{--                                <i class="fas fa-image"></i>--}}
+            {{--                                <span>图片</span>--}}
+            {{--                            </label>--}}
+            {{--                        </div>--}}
+            {{--                        <div class="post_items"><i class="fas fa-video" style="margin-right: 5px"></i>视频--}}
+            {{--                        </div>--}}
+            {{--                        <div class="post_items"><i class="fas fa-user-plus"--}}
+            {{--                                                   style="margin-right: 5px"> </i>标记--}}
+            {{--                        </div>--}}
+            {{--                        <button class="btn btn-sm btn-primary">发送</button>--}}
+            {{--                    </div>--}}
+            {{--                </form>--}}
+            {{--            </div>--}}
 
-                    </div>
+            {{--        </div>--}}
 
 
-                </div>
-            </div>
+            {{--    </div>--}}
+            {{--</div>--}}
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">

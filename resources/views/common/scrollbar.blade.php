@@ -1,8 +1,8 @@
 <aside class="sidebar" id="nav_docs">
     {{--这里是仓鼠上面的一个大标题，隐藏掉了--}}
-    <div class="sidebar-brand">
-        <h1 class="font-weight-400"><a href="../"><span class="font-weight-700">翻斗花园</span> Kit</a></h1>
-    </div>
+{{--    <div class="sidebar-brand">--}}
+    {{--        <h1 class="font-weight-400"><a href="../"><span class="font-weight-700">翻斗花园</span> Kit</a></h1>--}}
+    {{--    </div>--}}
     {{--玩跑轮的仓鼠--}}
     {{--<div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">--}}
     {{--    <div class="wheel"></div>--}}
