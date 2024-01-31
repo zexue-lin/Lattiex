@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["submit"])) {
     try {
         $ftp = new \FtpClient\FtpClient();
         $ftp->connect('112.74.182.94');
-        $ftp->login('piclatttiexftp', 'piclatttiexFTP');
+        $ftp->login('piclattiexftp', 'piclattiexFTP');
     } catch (\FtpClient\FtpException $e) {
         echo 'FTP连接失败，错误信息：' . $e->getMessage();
         exit;
