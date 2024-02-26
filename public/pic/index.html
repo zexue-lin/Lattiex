@@ -461,7 +461,7 @@
                         </p>
                     </div>
                     <div class="copyright_right">
-                        <p> 累计上传 <b style="color: white">123</b> 个文件
+                        <p> 累计上传 <b style="color: white">{{$fid}}</b> 个文件
                         </p>
                     </div>
                     <div class="copyright_right">
@@ -503,6 +503,8 @@
         const files = e.dataTransfer.files;
         fileInput.files = files;
     });
+
+
 </script>
 <!-- Js
 ========================= -->
@@ -524,6 +526,18 @@
 
 <!-- Main JS -->
 <script src="assets/js/main.js"></script>
+<script>
+
+    $.ajax({
+        url: 'check.php',
+        type: 'POST',
+        success: function (response) {
+            var fid = response;
+            $('.copyright_right b').text(fid);
+        }
+    })
+
+</script>
 </body>
 
 </html>

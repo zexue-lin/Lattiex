@@ -220,7 +220,7 @@ class HomeController extends Controller
 
         if (empty($LoginUser)) {
             // dd('用户未登录，将执行重定向');
-            return redirect('user/login')->with(['msg' => '请先登录！']);
+            return response()->json(['error' => '请先登录！'], 400);
         }
         // $UserId = !empty($LoginUser['id']) ? $LoginUser['id'] : 0;
         // dd($UserId);

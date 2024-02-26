@@ -17,7 +17,7 @@
 
         {{--侧边可滚动导航栏--}}
         @include('common.scrollbar')
-z
+        z
         <section class="content" style="padding-top: 6rem">
             {{--<div class="content-inner content-docs">--}}
             {{--    <div class="pt-3 pb-4 mb-4 border-bottom">--}}
@@ -65,9 +65,12 @@ z
 
             {{--    </div>--}}
             {{--</div>--}}
+
             <div class="container">
+
                 <div class="row">
                     <div class="col-lg-9">
+                        <h3 id="example">精选文章</h3>
                         @foreach($postsIndex as $item)
                             <div class="card" style="">
                                 <a href="{{ url('posts', ['id' => $item->id]) }}"
@@ -152,17 +155,7 @@ z
 
                             </div>
                         </div>
-                        <h3 id="example">我要玩金铲铲</h3>
-                        <div class="code-example">
-                            <div class="card" style="width: 18rem;">
-                                <img class="img-fluid" src="" alt="Card image cap"/>
-                                <div class="card-body">
-                                    <h4 class="card-title">Card title</h4>
-                                    <p class="card-text">Some quick example text....</p>
-                                    <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
+
                         <h3 id="metadata">Metadata</h3>
                         <div class="code-example">
                             <div class="row">
@@ -199,21 +192,21 @@ z
                         </div>
                     </div>
                     {{--右侧浮动导航栏--}}
-                    <div class="col-lg-3 d-none d-lg-inline-block">
-                        <div class="sidebar-sticky" data-stick-in-parent="true">
-                            <ul class="section-nav">
-                                <li class="toc-entry toc-h3"><a href="#download">Example</a></li>
-                                <li class="toc-entry toc-h3"><a href="#metadata">Metadata</a></li>
-                                <li class="toc-entry toc-h3"><a href="#actions">Actions</a></li>
-                                <li class="toc-entry toc-h3"><a href="#commentable">Commentable</a></li>
-                                <li class="toc-entry toc-h3"><a href="#list-groups">List groups</a></li>
-                                <li class="toc-entry toc-h3"><a href="#card-with-overlay">Card with overlay</a></li>
-                                <li class="toc-entry toc-h3"><a href="#colored-cards">Colored cards</a></li>
-                                <li class="toc-entry toc-h3"><a href="#pricing-cards">Pricing cards</a></li>
-                                <li class="toc-entry toc-h3"><a href="#icon-cards">Icon cards</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    {{--    <div class="col-lg-3 d-none d-lg-inline-block">--}}
+                    {{--        <div class="sidebar-sticky" data-stick-in-parent="true">--}}
+                    {{--            <ul class="section-nav">--}}
+                    {{--                <li class="toc-entry toc-h3"><a href="#download">Example</a></li>--}}
+                    {{--                <li class="toc-entry toc-h3"><a href="#metadata">Metadata</a></li>--}}
+                    {{--                <li class="toc-entry toc-h3"><a href="#actions">Actions</a></li>--}}
+                    {{--                <li class="toc-entry toc-h3"><a href="#commentable">Commentable</a></li>--}}
+                    {{--                <li class="toc-entry toc-h3"><a href="#list-groups">List groups</a></li>--}}
+                    {{--                <li class="toc-entry toc-h3"><a href="#card-with-overlay">Card with overlay</a></li>--}}
+                    {{--                <li class="toc-entry toc-h3"><a href="#colored-cards">Colored cards</a></li>--}}
+                    {{--                <li class="toc-entry toc-h3"><a href="#pricing-cards">Pricing cards</a></li>--}}
+                    {{--                <li class="toc-entry toc-h3"><a href="#icon-cards">Icon cards</a></li>--}}
+                    {{--            </ul>--}}
+                    {{--        </div>--}}
+                    {{--    </div>--}}
                 </div>
             </div>
             </div>

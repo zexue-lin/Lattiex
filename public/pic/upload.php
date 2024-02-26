@@ -3,21 +3,6 @@ require_once __DIR__ . '/common.func.php';
 require_once __DIR__ . '/common.inc.php';
 require_once '../../vendor/autoload.php';
 
-// //
-// $servername = '127.0.0.1';
-// $username = 'root';
-// $password = 'root';
-// $dbname = 'laravel-voyager';
-//
-// // 创建PDO连接
-// try {
-//     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-//     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// } catch (PDOException $e) {
-//     die('数据库连接失败' . $e->getMessage());
-// }
-// // 存储的表
-// define('TAB', 'uploads');
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["submit"])) {
 
@@ -87,18 +72,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST["submit"])) {
     $ftp->put($fileUrl, $_FILES["file"]["tmp_name"]);
 
     $ftp->close();
-    // // 关闭ftp连接
+    // 关闭ftp连接
 
     // echo '文件路径：' . $baseUrl . $fileUrl;
     // 保存图片导目录
     //move_uploaded_file($_FILES["file"]["tmp_name"], $fileUrl) or die("上传文件到 $fullfileName 失败！"); //将上传的文件移到目标位置。
 
     // 插入数据库
-    // $insertSql = "INSERT INTO " . TAB . "(filename,url,mediatype,filesize,uptime) VALUES ('$fileName','$fileUrl','$uploadType','$fileSize','$Time')";
+    $insertSql = "INSERT INTO " . TAB . "(filename,url,mediatype,filesize,uptime) VALUES ('$fileName','$fileUrl','$uploadType','$fileSize','$Time')";
 
-    // $dd = $pdo->exec($insertSql);
-    // $fid = $pdo->lastInsertId();
-    // echo '已经上传：' . $fid . '个文件';
+    $dd = $pdo->exec($insertSql);
+    $fid = $pdo->lastInsertId();
 
 } else {
     echo '出误了,没有上传任何文件!';
