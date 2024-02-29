@@ -131,21 +131,21 @@
                                 {{--使用 now()->year 获取当前年份，循环获取年份--}}
                                 <select class="selectpicker" title="年" name="year" id="year">
                                     @for ($year = now()->year; $year >= 1975; $year--)
-                                        <option>{{ $year }}</option>
+                                        <option {{ optional($LoginUser)['year'] == $year ? 'selected' : '' }}>{{ $year }}</option>
                                     @endfor
                                 </select>
                             </div>
                             <div class="col-md-3">
                                 <select class="selectpicker" title="月" name="month" id="month">
                                     @for ($month = 1;$month<=12;$month++)
-                                        <option>{{$month}}</option>
+                                        <option {{ optional($LoginUser)['month'] == $month ? 'selected':''}}>{{$month}}</option>
                                     @endfor
                                 </select>
                             </div>
                             <div class="col-md-3">
                                 <select class="selectpicker" title="日" name="date" id="date">
                                     @for($date = 1;$date<=31;$date++)
-                                        <option>{{$date}}</option>
+                                          <option {{ optional($LoginUser)['date'] == $date ? 'selected':''}}>{{$date}}</option>
                                     @endfor
                                 </select>
                             </div>

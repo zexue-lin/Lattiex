@@ -9,6 +9,7 @@ use App\Models\Home\Website as WebModel;
 use App\Models\Home\Posts as PostsModel;
 use App\Models\User\User as UserModel;
 use App\Models\Home\Contact as ContactModel;
+use App\Models\Home\Comments as CommentsModel;
 use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
@@ -45,7 +46,17 @@ class HomeController extends Controller
     public
     function contact_form(Request $request)
     {
-        $params = $request->all();
+
+        // 使用 check_input 过滤用户输入数据
+        $name = check_input($request->input('name'));
+        $email = check_input($request->input('email'));
+        $content = check_input($request->input('content'));
+
+        $params = [
+            'name' => $name,
+            'email' => $email,
+            'content' => $content
+        ];
 
         $result = ContactModel::create($params);
 
@@ -56,7 +67,6 @@ class HomeController extends Controller
             // 留言失败
             return redirect('/contact')->with('error', '留言失败！');
         }
-
     }
 
 
@@ -89,7 +99,6 @@ class HomeController extends Controller
         Cache::put($CacheKey, true, now()->addMinutes(999));
         // 返回新的点赞数
         return response()->json(['LikeCount' => $likecount]);
-
     }
 
 
@@ -119,25 +128,27 @@ class HomeController extends Controller
         // 根据文章ID加载文章内容
         $posts = PostsModel::find($id);
 
-        // 查询这篇文章的用户id
+        // 查询这篇文章的作者id
         $Authorid = $posts->author_id;
 
         // dd($Authorid);
 
-        // 查询用户信息
+        // 查询作者信息
         $AuthorInfo = UserModel::find($Authorid);
 
+        // 查询这篇文章的评论
+        $comment = CommentsModel::where('post_id', $id)->limit(5)->get();
 
         // 返回到文章详情页面，并传递文章信息
         $data = compact([
             'posts',
             'AuthorInfo',
+            'comment'
         ]);
         // dd($data);
 
         // 将查询结果传递给视图
         return view('posts', $data);
-
     }
 
     // 文章内容点赞请求
@@ -198,7 +209,7 @@ class HomeController extends Controller
 
             // 记录用户的ip，避免重复增加
             $viewedIps[] = $userIp; // 将用户ip地址添加到数组中
-            $posts->viewed_ips = json_encode($viewedIps);// 保存到数据库
+            $posts->viewed_ips = json_encode($viewedIps); // 保存到数据库
 
             $posts->view = $NewViewCount; // 更新浏览次数字段
             $posts->save();
@@ -207,22 +218,52 @@ class HomeController extends Controller
         } else {
             return response()->json(['success' => false, 'message' => '该用户已经浏览过该文章']);
         }
-
     }
 
-    // 文章评论
+    // 文章发表评论
     public function PostComment(Request $request, $PostID)
     {
-        // 检查用户是否已登录
-        // 先查 先查 先查
-        // dd($PostID);
-        $LoginUser = !empty($request->cookie('LoginUser')) ? json_decode($request->cookie('LoginUser'), true) : [];
+        // 检查用户是否已登录  先查 先查 先查
 
+        $LoginUser = !empty($request->cookie('LoginUser')) ? json_decode($request->cookie('LoginUser'), true) : [];
+        //  获取用户评论的内容
+        $commentText = $request->input('comment');
+        // dd($params);
         if (empty($LoginUser)) {
             // dd('用户未登录，将执行重定向');
             return response()->json(['error' => '请先登录！'], 400);
         }
-        // $UserId = !empty($LoginUser['id']) ? $LoginUser['id'] : 0;
-        // dd($UserId);
+        // 用户名
+        $Username = !empty($LoginUser['name']) ? $LoginUser['name'] : 0;
+        // 用户头像 使用的时候前面要加 uploads/
+        $UserAvatar = !empty($LoginUser['avatar']) ? $LoginUser['avatar'] : '';
+
+        $UserId = !empty($LoginUser['id']) ? $LoginUser['id'] : 0;
+        // dd($LoginUser);
+
+        // 创建新的评论记录
+        $comment = new CommentsModel();
+        $comment->post_id = check_input($PostID);
+        $comment->userid = check_input($UserId);
+        $comment->username = check_input($Username);
+        $comment->avatar = check_input($UserAvatar);
+        $comment->content = check_input($commentText);
+        $result = $comment->save();
+
+        if ($result === false) {
+            return response()->json(['error' => '评论失败!'], 400);
+        } else {
+            return response()->json(['success' => '评论成功!'], 200);
+        }
+    }
+
+    // 加载更多评论
+    public function loadMore($PostID)
+    {
+        $commentCount = CommentsModel::where('post_id', $PostID)->count();
+        //查询全部评论,跳过前五条数据，从第六条获取
+        $comment = CommentsModel::where('post_id', $PostID)->limit($commentCount)->offset(5)->get();
+
+        return response()->json(['comment' => $comment], 200);
     }
 }

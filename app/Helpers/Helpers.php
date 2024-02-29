@@ -39,3 +39,49 @@ if (!function_exists('build_ranstr')) {
         return $str;
     }
 }
+
+if (!function_exists('check_input')) {
+    /**
+     * Desc : 安全过滤函数
+     * User : Lattiex
+     * Date : 2024-02-29 13:45
+     * @param String $str 输入的字符串
+     * @return array|string|string[]
+     */
+
+    function check_input($str)
+    {
+        $str = str_replace("\r\n", "", $str);
+        $str = str_replace("\n", "", $str);
+        $str = str_replace("\r", "", $str);
+        $str = str_replace("'", "&#39", $str);
+        $str = str_replace("\"", " ", $str);
+        $str = str_replace("'\'", " ", $str);
+        $str = str_replace("\'", " ", $str);
+        $str = str_replace("<", "＜", $str);
+        $str = str_replace(">", "＞", $str);
+        // $str = str_replace("php", "", $str);
+        //$str = str_replace("?","？",$str);
+        $str = str_replace("eval", "", $str);
+        // $str = str_replace("%","％",$str);
+        // $str = str_replace("$", "", $str);
+        $str = str_replace("script", " ", $str);
+        // $str = str_replace("="," ",$str);
+        $str = str_replace("and", " ", $str);
+        $str = str_replace("select", " ", $str);
+        $str = str_replace("delete", " ", $str);
+        $str = str_replace("update", " ", $str);
+        $str = str_replace("|", " ", $str);
+        $str = str_replace("&", " ", $str);
+        $str = str_replace(";", " ", $str);
+        // $str = str_replace("@"," ",$str);
+        $str = str_replace('"', " ", $str);
+        $str = str_replace("()", " ", $str);
+        // $str = str_replace("+"," ",$str);
+        $str = str_replace("CR", " ", $str);
+        $str = str_replace("LF", " ", $str);
+        $str = str_replace(",", " ", $str);
+        return $str;
+    }
+}
+

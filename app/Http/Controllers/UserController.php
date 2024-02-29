@@ -42,6 +42,9 @@ class UserController extends Controller
             'name' => $User['name'],
             'email' => $User['email'],
             'phone' => $User['phone'],
+            'year' => $User['year'],
+            'month' => $User['month'],
+            'date' => $User['date'],
             'avatar' => $User['avatar'],
             'sex' => $User['sex'],
             'province' => $User['province'],
@@ -147,7 +150,7 @@ class UserController extends Controller
         }
         // 查询区
         if ($LoginUser) {
-            $district = RegionModel::where(['province' => $LoginUser['city']])->select('code', 'name')->get();
+            $district = RegionModel::where(['parentid' => $LoginUser['city']])->select('code', 'name')->get();
         } else {
             $district = [];
         }
@@ -158,7 +161,6 @@ class UserController extends Controller
             'city',
             'district'
         ]);
-
         return view('user.profile', $data);
     }
 
@@ -201,17 +203,20 @@ class UserController extends Controller
 
         // 封装更新数据的数组
         $data = [
-            'name' => $params['name'],
-            'email' => $params['email'],
-            'province' => $params['province'],
-            'city' => $params['city'],
-            'district' => $params['district'],
-            'sex' => $params['sex'],
-            'year' => $params['year'],
-            'month' => $params['month'],
-            'date' => $params['date'],
-            'phone' => $params['phone'],
+            'id' => check_input($Userid),
+            'name' => check_input($params['name']),
+            'email' => check_input($params['email']),
+            'phone' => check_input($params['phone']),
+            'year' => check_input($params['year']),
+            'month' => check_input($params['month']),
+            'date' => check_input($params['date']),
+            'sex' => check_input($params['sex']),
+            'province' => check_input($params['province']),
+            'city' => check_input($params['city']),
+            'district' => check_input($params['district']),
+
         ];
+
 
         // 修改密码
         if (!empty($params['password'])) {
@@ -258,6 +263,9 @@ class UserController extends Controller
                 'name' => $user['name'],
                 'email' => $user['email'],
                 'phone' => $user['phone'],
+                'year' =>$user['year'],
+                'month'=>$user['month'],
+                'date'=>$user['date'],
                 'avatar' => $user['avatar'],
                 'sex' => $user['sex'],
                 'province' => $user['province'],

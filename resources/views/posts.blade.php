@@ -87,27 +87,59 @@
                                         </div>
                                     </div>
                                     <div class="list-group">
-                                        <a href="#"
-                                           class="list-group-item list-group-item-action d-flex align-items-center">
-                                            <div class="list-group-img">
-                                                <span class="avatar bg-purple">像</span>
+                                        {{--先检查该篇文章有是否有评论--}}
+                                        @if($comment->isNotEmpty())
+                                            {{--拿前五条评论--}}
+                                            @foreach($comment as $item)
+                                                <a href="#"
+                                                   class="list-group-item list-group-item-action d-flex align-items-center comment-item"
+                                                   onclick="return false;">
+                                                    <div class="list-group-img">
+                                                        <img class="avatar bg-purple"
+                                                             src="{{URL::asset('uploads/'.$item->avatar)}}"
+                                                             alt="用户头像"></img>
+                                                    </div>
+                                                    <div class="list-group-content">
+                                                        <div class="list-group-heading"><b>{{$item->username}}</b>
+                                                            <small>{{$item->created_at}}
+                                                            </small>
+                                                        </div>
+                                                        <div class="list-group-heading">{{$item->content}}</div>
+                                                    </div>
+                                                </a>
+                                            @endforeach
+                                        @else
+                                            <div style="display: flex;flex-direction: column;">
+                                                <a type="button" class="btn btn-sm btn-outline-secondary btn-icon"
+                                                   href="{{url('user/login')}}">
+
+                                                    <span class="btn-inner--text">登录/注册 即可发表你的评论</span>
+                                                    <span class="btn-inner--icon"><i
+                                                            class="fas fa-arrow-right"></i></span>
+                                                </a>
                                             </div>
-                                            <div class="list-group-content">
-                                                <div class="list-group-heading">像素狂战士 <small>10:05 PM</small>
-                                                </div>
-                                                <p class="text-sm">好吧，文章很详细</p>
-                                            </div>
-                                        </a>
+                                        @endif
                                     </div>
                                     <div class="card-footer">
+                                        {{-- 如果评论数超过五条，则显示“查看剩下的全部评论”按钮 --}}
+                                        @if($comment->count() >= 5)
+                                            <div style="display: flex;flex-direction: column;margin-bottom: 20px;">
+                                                <button type="button" class="btn btn-sm btn-outline-primary btn-icon"
+                                                        id="loadMore">
+                                                    <span class="btn-inner--text">查看剩下的全部评论</span>
+                                                    <span class="btn-inner--icon"><i
+                                                            class="fas fa-arrow-down"></i></span>
+                                                </button>
+                                            </div>
+                                        @endif
                                         <form class="card-comment-box" role="form" action="{{url('home/PostComment')}}">
                                             @csrf
                                             <div class="row align-items-center">
-                                                <div class="col-8">
+                                                <div class="col-11">
                                                     <textarea rows="1" class="form-control textarea-autosize"
                                                               placeholder="在此输入您的评论..."></textarea>
                                                 </div>
-                                                <div class="col-4 text-right">
+                                                <div class="col-1 text-right">
                                                     <button type="button"
                                                             class="btn btn-sm btn-success btn-icon-only rounded-circle">
                                                         <span class="btn-inner--icon"><i
@@ -116,18 +148,18 @@
                                                 </div>
                                             </div>
                                         </form>
+
                                     </div>
                                     {{--提示框--}}
 
                                     <div class="row justify-content-center" id="alert1" style="display: none">
                                         <div class="col-lg-8 alert-box-success">
-                                            <div
-                                                class="alert wow fadeInUp alert-warning alert-dismissible fade show"
-                                                role="alert">
-                                                    <span class="alert-inner--icon"><i
-                                                            class="fas fa-exclamation"></i></span>
+                                            <div class="alert wow fadeInUp alert-warning alert-dismissible fade show"
+                                                 role="alert">
+                                                <span class="alert-inner--icon"><i
+                                                        class="fas fa-exclamation"></i></span>
                                                 <span
-                                                    class="alert-inner--text"><strong>评论失败 </strong> 用户未登录!</span>
+                                                    class="alert-inner--text"><strong>评论失败 </strong> 请先登录!</span>
 
                                                 <button type="button" class="undo" aria-label="Undo">关闭
                                                 </button>
@@ -235,15 +267,23 @@
         // 文章评论
         $('.btn-icon-only').click(function () {
             var PostID = $('#post').data('post-id');
+            var commentText = $('.textarea-autosize').val();
+
+            var postData = {
+                PostID: PostID,
+                comment: commentText,
+            }
 
             $.ajax({
                 url: "{{url('home/PostComment')}}/" + PostID,
                 type: "POST",
+                data: postData,
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function (data) {
                     // 显示新的评论
+                    location.reload();
                 },
                 error: function () {
                     // 处理错误
@@ -252,6 +292,72 @@
             });
         })
         // 文章评论 end
+
+        //查看更多评论
+        //获取“查看剩下的全部评论”按钮
+        var loadMoreButton = document.getElementById('loadMore');
+        // 给按钮添加点击事件
+        loadMoreButton.addEventListener('click', function () {
+            // 隐藏按钮
+            loadMoreButton.style.display = 'none';
+            var PostID = $('#post').data('post-id');
+            $.ajax({
+                url: "{{url('home/loadMore')}}/" + PostID,
+                type: 'POST',
+                data: PostID,
+                dataType: 'json',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data) {
+                    // 循环遍历获取到的评论数据，并将每条评论添加到页面中
+                    data.comment.forEach(function (item) {
+                        var avatar = item.avatar
+                        // 对每个created_at 字符串都调用格式化函数
+                        var formattedDateString = formatDateString(item.created_at)
+                        var newCommentHtml = `
+            <a href="#" class="list-group-item list-group-item-action d-flex align-items-center comment-item" onclick="return false;">
+                <div class="list-group-img">
+                    <img class="avatar bg-purple" src="{{URL::asset('uploads/'.'${avatar}')}}" alt="用户头像">
+                </div>
+                <div class="list-group-content">
+                    <div class="list-group-heading"><b>${item.username}</b> <small>${formattedDateString}</small></div>
+                    <div class="list-group-heading">${item.content}</div>
+                </div>
+            </a>
+        `;
+                        // 将新的评论添加到页面中
+                        $('.list-group').append(newCommentHtml);
+                    });
+                },
+                error: function () {
+
+                }
+
+            })
+        });
+
+        function formatDateString(dateString) {
+            var date = new Date(dateString); // 创建 Date 对象
+            // 获取年、月、日、时、分、秒
+            var year = date.getFullYear();
+            var month = ("0" + (date.getMonth() + 1)).slice(-2);
+            var day = ("0" + date.getDate()).slice(-2);
+            var hours = ("0" + date.getHours()).slice(-2);
+            var minutes = ("0" + date.getMinutes()).slice(-2);
+            var seconds = ("0" + date.getSeconds()).slice(-2);
+
+            // 格式化日期字符串为 YYYY-MM-DD HH:MM:SS 格式
+            var formattedDateString = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+
+            return formattedDateString;
+        }
+
+        //掩藏按钮jq写法
+        // $('#loadMore').click(function () {
+        //     $(this).hide();
+        // })
+        //查看更多评论 end
 
         // 文章响应式图片 获取文章所有图片
         var allImages = document.querySelectorAll('#post img');

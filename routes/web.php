@@ -46,6 +46,7 @@ Route::prefix('home')->group(function () {
     Route::post('contact_like/{contactId}', [HomeController::class, 'contact_like']);
     Route::get('increaseViewCount/{PostId}', [HomeController::class, 'increaseViewCount']);
     Route::post('PostComment/{PostID}', [HomeController::class, 'PostComment']);
+    Route::post('loadMore/{PostID}',[HomeController::class, 'loadMore']);
 });
 
 
