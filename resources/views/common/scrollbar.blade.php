@@ -25,7 +25,7 @@
     {{--侧边可滚动导航栏--}}
     <div class="scrollbar-inner">
         <ul class="navigation pr-3">
-            <li class="navigation-title">分类一</li>
+            <li class="navigation-title">分类一11</li>
             <li class="navigation-item">
                 <a href="introduction.html" class="navigation-link">翻斗花园1.1</a>
             </li>

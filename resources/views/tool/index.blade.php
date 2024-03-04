@@ -41,7 +41,7 @@
                 <ul class="navigation pr-3">
                     <li class="navigation-title">分类一</li>
                     <li class="navigation-item">
-                        <a href="{{url('tool/QRcode')}}" class="navigation-link">二维码生成</a>
+                        <a href="{{url('tool/QRcode')}}" class="navigation-link">二维码/短链生成</a>
                     </li>
                     <li class="navigation-item">
                         <a href="file-structure.html" class="navigation-link">翻斗花园1.2</a>
@@ -119,16 +119,14 @@
                     <div class="row">
                         <div class="col-lg-9">
                             <h3>左侧功能介绍</h3>
-                            <div class="p-3 mb-2 bg-secondary text-dark">1. 二维码生成</div>
+                            <h5 class="p-3 mb-2 bg-secondary">1. 二维码/短链生成</h5>
                             <img src="http://www.u3.lattiex.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20240102140524.png"
                                  alt="none">
                         </div>
-
                         <div class="col-lg-3"></div>
                     </div>
                 </div>
             </div>
-
         </section>
 
 

@@ -137,7 +137,7 @@ class HomeController extends Controller
         $AuthorInfo = UserModel::find($Authorid);
 
         // 查询这篇文章的评论
-        $comment = CommentsModel::where('post_id', $id)->limit(5)->get();
+        $comment = CommentsModel::where('post_id', $id)->get();
 
         // 返回到文章详情页面，并传递文章信息
         $data = compact([
@@ -145,7 +145,7 @@ class HomeController extends Controller
             'AuthorInfo',
             'comment'
         ]);
-        // dd($data);
+         // dd($AuthorInfo);
 
         // 将查询结果传递给视图
         return view('posts', $data);

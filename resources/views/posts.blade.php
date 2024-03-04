@@ -87,10 +87,20 @@
                                         </div>
                                     </div>
                                     <div class="list-group">
+                                        @if(empty(Cookie::get('LoginUser')))
+                                            <div style="display: flex;flex-direction: column;">
+                                                <a type="button" class="btn btn-sm btn-outline-secondary btn-icon"
+                                                   href="{{url('user/login')}}">
+                                                    <span class="btn-inner--text">登录/注册 即可发表你的评论</span>
+                                                    <span class="btn-inner--icon"><i
+                                                            class="fas fa-arrow-right"></i></span>
+                                                </a>
+                                            </div>
+                                        @endif
                                         {{--先检查该篇文章有是否有评论--}}
                                         @if($comment->isNotEmpty())
-                                            {{--拿前五条评论--}}
-                                            @foreach($comment as $item)
+                                            {{--先从视图拿五条评论--}}
+                                            @foreach($comment->take(5) as $item)
                                                 <a href="#"
                                                    class="list-group-item list-group-item-action d-flex align-items-center comment-item"
                                                    onclick="return false;">
@@ -108,17 +118,8 @@
                                                     </div>
                                                 </a>
                                             @endforeach
-                                        @else
-                                            <div style="display: flex;flex-direction: column;">
-                                                <a type="button" class="btn btn-sm btn-outline-secondary btn-icon"
-                                                   href="{{url('user/login')}}">
-
-                                                    <span class="btn-inner--text">登录/注册 即可发表你的评论</span>
-                                                    <span class="btn-inner--icon"><i
-                                                            class="fas fa-arrow-right"></i></span>
-                                                </a>
-                                            </div>
                                         @endif
+
                                     </div>
                                     <div class="card-footer">
                                         {{-- 如果评论数超过五条，则显示“查看剩下的全部评论”按钮 --}}
@@ -126,7 +127,8 @@
                                             <div style="display: flex;flex-direction: column;margin-bottom: 20px;">
                                                 <button type="button" class="btn btn-sm btn-outline-primary btn-icon"
                                                         id="loadMore">
-                                                    <span class="btn-inner--text">查看剩下的全部评论</span>
+                                                    <span
+                                                        class="btn-inner--text">查看剩下的{{$comment->count()-5}}条全部评论</span>
                                                     <span class="btn-inner--icon"><i
                                                             class="fas fa-arrow-down"></i></span>
                                                 </button>
@@ -186,20 +188,20 @@
                         <div class="card-footer">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <span class="avatar avatar-md bg-purple"><img
-                                            src="{{ config('app.url') . '/uploads/'.( $AuthorInfo->avatar) }}"
-                                            alt="作者头像"/> </span>
-                                    <span class="avatar-content">{{$AuthorInfo->name}}</span>
+                                    <img class="avatar avatar-md bg-purple"
+                                         src="{{ config('app.url') . '/uploads/'.( $AuthorInfo->avatar) }}"
+                                         alt="作者头像"/>
+                                    <span class="avatar-content h6">{{$AuthorInfo->name}}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h6 class="heading heading-5 strong-600">用户信息自定义</h6>
-                            <h6 class="heading heading-sm strong-400 text-muted mb-4">
-                                2小时前
-                            </h6>
+                            <span class="card-text">邮箱：{{$AuthorInfo->email}}</span>
+                            {{--<h6 class="heading heading-sm strong-400 text-muted mb-4">--}}
+                            {{--    2小时前--}}
+                            {{--</h6>--}}
                             <p class="card-text">也是用户信息</p>
-                            <a href="#" class="btn btn-sm btn-primary">点击跳转的一个按钮</a>
+                            <a href="#" class="btn btn-sm btn-primary">一个按钮</a>
                         </div>
                     </div>
                 </div>
