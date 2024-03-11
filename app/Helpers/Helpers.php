@@ -85,3 +85,44 @@ if (!function_exists('check_input')) {
     }
 }
 
+if (!function_exists('getRelativeTime')) {
+    /**
+     * 时间处理函数，计算文章发布时间
+     * @param string $created_at 创建时间
+     * @return String 返回时间差并显示
+     */
+    function getRelativeTime($created_at)
+    {
+        $currentDate = now();
+        $createdAtDate = $created_at;
+        $timeDifference = $currentDate->diffInSeconds($createdAtDate);
+        // 计算相对时间
+        // 方式1
+        //    if($timeDifference<60){
+        //        return '刚刚';
+        //    }else if($timeDifference <3600){
+        //        return floor($timeDifference/60). '分钟前';
+        //    }else if($timeDifference<86400){
+        //        return floor($timeDifference/3600) .'小时前';
+        //    }else{
+        //        return floor($timeDifference/86400) .'天前';
+        //    }
+        // 方式2
+        $intervals = [
+            '年' => 31536000,
+            '月' => 2592000,
+            '周' => 604800,
+            '天' => 86400,
+            '小时' => 3600,
+            '分钟' => 60,
+            '秒' => 1
+        ];
+        foreach ($intervals as $key =>$intervalSeconds){
+            $intervalValue = floor($timeDifference/$intervalSeconds);
+            if($intervalValue>0){
+                return $intervalValue . '' .$key .'前';
+            }
+        }
+        return '刚刚';
+    }
+}

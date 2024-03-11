@@ -4059,7 +4059,7 @@ tbody.collapse.show {
 
 .card-body {
     flex: 1 1 auto;
-    padding: 1.5rem
+    /*padding: 1.5rem*/
 }
 
 .card-title {
@@ -13321,5 +13321,4 @@ input:not(:placeholder-shown) ~ .reset {
 /* sizing svg icons */
 .search_form svg {
     width: 17px;
-    margin-top: -2px;
-}
+    margin-t

@@ -173,6 +173,7 @@
             </div>
         </div>
     </div>
+    <!-- 退出登录Modal end -->
 </nav>
 <script src="{{URL::asset('assets/vendor/jquery/jquery.min.js')}}"></script>
 <script>

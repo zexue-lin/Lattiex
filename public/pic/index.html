@@ -23,303 +23,11 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+     <!-- index Style CSS -->
+    <link rel="stylesheet" href="assets/css/index.css">
+
     <!--modernizr min js here-->
     <!--    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>-->
-    <style>
-        .container {
-            width: 60%;
-            /*margin: 10% auto 0;*/
-            /*background-color: #f0f0f0;*/
-            padding: 5% 5%;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .form {
-            /*background-color: #fff;*/
-            box-shadow: 0 0 30px rgb(218, 229, 255);
-            border: 1px solid rgb(159, 159, 160);
-            border-radius: 20px;
-            padding: 2rem .7rem .7rem .7rem;
-            text-align: center;
-            font-size: 1.125rem;
-            max-width: 320px;
-        }
-
-        .form-title {
-            color: #fff;
-            font-size: 1.8rem;
-            font-weight: 500;
-        }
-
-        .form-paragraph {
-            margin-top: 10px;
-            font-size: 0.9375rem;
-            color: rgb(105, 105, 105);
-        }
-
-        .drop-container {
-            background-color: #fff;
-            position: relative;
-            display: flex;
-            gap: 15px;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 15px;
-            margin-top: 2.1875rem;
-            border-radius: 10px;
-            border: 2px dashed rgb(171, 202, 255);
-            color: #444;
-            cursor: pointer;
-            transition: background .2s ease-in-out, border .2s ease-in-out;
-        }
-
-        .drop-container:hover {
-            background: rgba(0, 140, 255, 0.164);
-            border-color: rgba(17, 17, 17, 0.616);
-        }
-
-        .drop-container:hover .drop-title {
-            color: #d7d7d7;
-        }
-
-        .drop-title {
-            color: #444;
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-            transition: color .2s ease-in-out;
-        }
-
-        #file-input {
-            width: 300px;
-            font-size: 13px;
-            max-width: 100%;
-            color: #444;
-            padding: 2px;
-            background: #fff;
-            border-radius: 10px;
-            border: 1px solid rgba(8, 8, 8, 0.288);
-        }
-
-        #file-input::file-selector-button {
-            margin-right: 20px;
-            border: none;
-            background: #084cdf;
-            padding: 10px 20px;
-            border-radius: 10px;
-            color: #fff;
-            cursor: pointer;
-            transition: background .2s ease-in-out;
-        }
-
-        #file-input::file-selector-button:hover {
-            background: #0d45a5;
-        }
-
-        .btn {
-            height: 4em;
-            width: 12em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: transparent;
-            border: 0px solid black;
-            cursor: pointer;
-            margin: auto;
-            margin-top: 15px;
-        }
-
-        .wrapper {
-            height: 2em;
-            width: 8em;
-            position: relative;
-            background: transparent;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .text {
-            font-size: 17px;
-            z-index: 1;
-            color: #000;
-            padding: 4px 12px;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.7);
-            transition: all 0.5s ease;
-        }
-
-        .flower {
-            display: grid;
-            grid-template-columns: 1em 1em;
-            position: absolute;
-            transition: grid-template-columns 0.8s ease;
-        }
-
-        .flower1 {
-            top: -12px;
-            left: -13px;
-            transform: rotate(5deg);
-        }
-
-        .flower2 {
-            bottom: -5px;
-            left: 8px;
-            transform: rotate(35deg);
-        }
-
-        .flower3 {
-            bottom: -15px;
-            transform: rotate(0deg);
-        }
-
-        .flower4 {
-            top: -14px;
-            transform: rotate(15deg);
-        }
-
-        .flower5 {
-            right: 11px;
-            top: -3px;
-            transform: rotate(25deg);
-        }
-
-        .flower6 {
-            right: -15px;
-            bottom: -15px;
-            transform: rotate(30deg);
-        }
-
-        .petal {
-            height: 1em;
-            width: 1em;
-            border-radius: 40% 70% / 7% 90%;
-            background: linear-gradient(#07a6d7, #93e0ee);
-            border: 0.5px solid #96d1ec;
-            z-index: 0;
-            transition: width 0.8s ease, height 0.8s ease;
-        }
-
-        .two {
-            transform: rotate(90deg);
-        }
-
-        .three {
-            transform: rotate(270deg);
-        }
-
-        .four {
-            transform: rotate(180deg);
-        }
-
-        .btn:hover .petal {
-            background: linear-gradient(#0761d7, #93bdee);
-            border: 0.5px solid #96b4ec;
-        }
-
-        .btn:hover .flower {
-            grid-template-columns: 1.5em 1.5em;
-        }
-
-        .btn:hover .flower .petal {
-            width: 1.5em;
-            height: 1.5em;
-        }
-
-        .btn:hover .text {
-            background: rgba(255, 255, 255, 0.4);
-        }
-
-        .btn:hover div.flower1 {
-            animation: 15s linear 0s normal none infinite running flower1;
-        }
-
-        @keyframes flower1 {
-            0% {
-                transform: rotate(5deg);
-            }
-
-            100% {
-                transform: rotate(365deg);
-            }
-        }
-
-        .btn:hover div.flower2 {
-            animation: 13s linear 1s normal none infinite running flower2;
-        }
-
-        @keyframes flower2 {
-            0% {
-                transform: rotate(35deg);
-            }
-
-            100% {
-                transform: rotate(-325deg);
-            }
-        }
-
-        .btn:hover div.flower3 {
-            animation: 16s linear 1s normal none infinite running flower3;
-        }
-
-        @keyframes flower3 {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .btn:hover div.flower4 {
-            animation: 17s linear 1s normal none infinite running flower4;
-        }
-
-        @keyframes flower4 {
-            0% {
-                transform: rotate(15deg);
-            }
-
-            100% {
-                transform: rotate(375deg);
-            }
-        }
-
-        .btn:hover div.flower5 {
-            animation: 20s linear 1s normal none infinite running flower5;
-        }
-
-        @keyframes flower5 {
-            0% {
-                transform: rotate(25deg);
-            }
-
-            100% {
-                transform: rotate(-335deg);
-            }
-        }
-
-        .btn:hover div.flower6 {
-            animation: 15s linear 1s normal none infinite running flower6;
-        }
-
-        @keyframes flower6 {
-            0% {
-                transform: rotate(30deg);
-            }
-
-            100% {
-                transform: rotate(390deg);
-            }
-        }
-
-    </style>
 </head>
 
 <body>
@@ -330,23 +38,23 @@
     <div class="main_menu">
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a data-toggle="collapse" data-target="#submenu" href="javascript:void(0)">Portfolio <i
+                <li><a href="index.html">首页</a></li>
+                <li><a data-toggle="collapse" data-target="#submenu" href="javascript:void(0)">文件夹 <i
                     class="ion-ios-arrow-down"></i></a>
                     <ul class="sub_menu collapse" id="submenu">
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="single-portfolio.html">single Portfolio</a></li>
+                        <li><a href="portfolio.html">文件夹</a></li>
+                        <li><a href="single-portfolio.html">单一的</a></li>
                     </ul>
                 </li>
-                <li><a data-toggle="collapse" data-target="#submenu2" href="javascript:void(0)">blog <i
+                <li><a data-toggle="collapse" data-target="#submenu2" href="javascript:void(0)">博客 <i
                     class="ion-ios-arrow-down"></i></a>
                     <ul class="sub_menu collapse" id="submenu2">
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="blog-details.html">Blog Details</a></li>
+                        <li><a href="blog.html">博客1</a></li>
+                        <li><a href="blog-details.html">博客详情</a></li>
                     </ul>
                 </li>
-                <li><a href="about.html">about us</a></li>
-                <li><a href="contact.html">contact us</a></li>
+                <li><a href="about.html">关于我们</a></li>
+                <li><a href="contact.html">联系我们</a></li>
             </ul>
         </nav>
     </div>
@@ -457,7 +165,7 @@
             <div class="col-12">
                 <div class="footer_inner d-flex justify-content-between align-items-center">
                     <div class="copyright_right">
-                        <p> @ Lattiex. <a target="_blank" href="http://www.lattiex.com/" title="网页模板">翻斗花园</a>
+                        <p> @ Lattiex. <a target="_blank" href="http://www.lattiex.com/" title="翻斗花园">翻斗花园</a>
                         </p>
                     </div>
                     <div class="copyright_right">
@@ -465,7 +173,7 @@
                         </p>
                     </div>
                     <div class="copyright_right">
-                        <p> @ Lattiex. <a target="_blank" href="http://www.lattiex.com/" title="网页模板">翻斗花园</a>
+                        <p> @ Lattiex. <a target="_blank" href="http://www.lattiex.com/" title="翻斗花园">翻斗花园</a>
                         </p>
 
                     </div>
