@@ -199,8 +199,8 @@
     height: 100%;
     overflow: hidden;
     z-index: 1040;
-    background-color: #fff;
-    border-right: 1px solid #e9ecef
+    /*background-color: #fff; // 2024.3.12去掉背景和边框线 */
+    /*border-right: 1px solid #e9ecef*/
 }
 
 @media (max-width: 1199px) {

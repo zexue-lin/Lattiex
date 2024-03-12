@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row align-items-center cols-xs-space cols-sm-space cols-md-space">
                 <div class="col-lg-6">
-                    <h3 class="heading h3 mb-4">给我留言</h3>
+                    <h3 class="heading h3 mb-4">给我留言📝</h3>
                     @if (session('success'))
                         {{--提示框--}}
                         <div class="row justify-content-center">
@@ -77,9 +77,7 @@
                 </div>
                 <div class="col-lg-5 ml-lg-auto">
                     <h3 class="heading heading-3 strong-300">
-                        可以通过以下方式联系
-                        <br>
-                        邮件或者QQ
+                        联系我
                     </h3>
                     <p class="lead mt-4 mb-4">
                         Email: <a href="#">Lattiex@outlook.com</a>
@@ -89,9 +87,7 @@
                         Address: 翻斗大街翻斗花园2号楼1001室
                     </p>
                     <p class="">
-                        这个b班是一天都不想上. Multiple functionalities and controls added,
-                        extended color palette and beautiful typography, designed as its own extended version of
-                        Bootstrap at the highest level of quality.
+                        不服来打，我家住在翻斗大街翻斗花园。
                     </p>
                 </div>
 

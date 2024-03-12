@@ -18,7 +18,10 @@ class HomeController extends Controller
     public function index()
     {
         // 使用 PostModel 查询数据库中的所有数据，并按照创建时间倒序排序
-        $postsIndex = PostsModel::orderBy('created_at', 'desc')->get();
+        // $postsIndex = PostsModel::orderBy('created_at', 'desc')->get();
+
+        // 使用 with 方法预加载作者信息 2024。3.12
+        $postsIndex = PostsModel::with('author')->orderBy('created_at', 'desc')->get();
 
         $data = compact([
             'postsIndex'
@@ -145,7 +148,7 @@ class HomeController extends Controller
             'AuthorInfo',
             'comment'
         ]);
-         // dd($AuthorInfo);
+        // dd($AuthorInfo);
 
         // 将查询结果传递给视图
         return view('posts', $data);
