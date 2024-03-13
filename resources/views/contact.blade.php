@@ -1,14 +1,14 @@
-{{--首页页面 子视图--}}
+{{-- 首页页面 子视图 --}}
 @extends('layouts.home')
 
-@section('title','留言')
+@section('title', '留言')
 
-{{--设置token -- ajax请求必须需要--}}
-<meta name="csrf-token" content="{{csrf_token()}}">
+{{-- 设置token -- ajax请求必须需要 --}}
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
-{{--页面独立的css文件--}}
+{{-- 页面独立的css文件 --}}
 @push('css')
-    <link rel="stylesheet" href="{{URL::asset('assets/css/home.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/home.css') }}">
 @endpush
 @section('content')
     {{--  顶部导航  --}}
@@ -20,34 +20,29 @@
                 <div class="col-lg-6">
                     <h3 class="heading h3 mb-4">给我留言📝</h3>
                     @if (session('success'))
-                        {{--提示框--}}
+                        {{-- 提示框 --}}
                         <div class="row justify-content-center">
                             <div class="col-lg-8 alert-box-success">
-                                <div
-                                    class="alert wow fadeInUp alert-success alert-dismissible fade show"
-                                    role="alert">
-                                                        <span class="alert-inner--icon"><i
-                                                                class="fas fa-check"></i></span>
-                                    <span
-                                        class="alert-inner--text"><strong>留言成功 </strong> 感谢您的反馈!</span>
+                                <div class="alert wow fadeInUp alert-success alert-dismissible fade show" role="alert">
+                                    <span class="alert-inner--icon"><i class="fas fa-check"></i></span>
+                                    <span class="alert-inner--text"><strong>留言成功 </strong> 感谢您的反馈!</span>
                                     <button type="button" class="undo" aria-label="Undo">关闭
                                     </button>
-                                    <button type="button" class="close" data-dismiss="alert"
-                                            aria-label="Close">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     @endif
-                    <form class=" wow fadeInUp" data-wow-delay="200ms"
-                          style="margin-top: 3rem" action="{{url('home/contact_form')}}" method="post">
+                    <form class=" wow fadeInUp" data-wow-delay="200ms" style="margin-top: 3rem"
+                        action="{{ url('home/contact_form') }}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="您的姓名" name="name" id="name" type="text"
-                                           required>
+                                    <input class="form-control" placeholder="您的姓名" name="name" id="name"
+                                        type="text" required>
                                 </div>
                             </div>
                         </div>
@@ -55,16 +50,14 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <input class="form-control" placeholder="您的邮箱地址" name="email" id="email"
-                                           type="email"
-                                           required>
+                                        type="email" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <textarea class="form-control" rows="5" name="content" id="content"
-                                              placeholder="请输入内容......" required></textarea>
+                                    <textarea class="form-control" rows="5" name="content" id="content" placeholder="请输入内容......" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -91,35 +84,33 @@
                     </p>
                 </div>
 
-                {{--留言内容部分--}}
+                {{-- 留言内容部分 --}}
                 <div class="col-lg-12">
-                    <h3 class="heading h3 mb-4" style="padding-top: 2rem"><i
-                            class="fa fa-anchor"></i> 留言数量 <span style="color: #7272f5">{{$count}}</span></h3>
+                    <h3 class="heading h3 mb-4" style="padding-top: 2rem"><i class="fa fa-anchor"></i> 留言数量 <span
+                            style="color: #7272f5">{{ $count }}</span></h3>
                     <div id="comments_msg">
                         @include('home.contact_msg')
                     </div>
                 </div>
             </div>
-            {{--显示分页器--}}
+            {{-- 显示分页器 --}}
             {{ $message->links('home.contact_pagination') }} <!-- 显示分页链接 -->
         </div>
     </section>
 
-    {{--@include('common.gift')--}}
+    {{-- @include('common.gift') --}}
 
     {{--  底部导航  --}}
-    {{-- @include('common.footer')--}}
+    {{-- @include('common.footer') --}}
 @endsection
 
 @push('script')
     <script>
         // 监听分页器链接的点击事件
-        $('.pagination a').on('click', function (e) {
+        $('.pagination a').on('click', function(e) {
             e.preventDefault();
             var url = $(this).attr('href');
             window.location.href = url;
         });
-
-
     </script>
 @endpush
