@@ -351,17 +351,39 @@
 
 .card {
     margin-bottom: 1rem;
-    background: #f8f8f6;
+    /* background: #f8f8f6; // 主页文章卡片背景颜色 */ 
+    cursor: pointer;
+    transition: 0.5s ease-out;
+    overflow: visible;
 }
+
+/*Hover*/
+.card:hover {
+  border-color: #008bf8;
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+ }
 
 .main {
     /*background-image: url('/assets/images/backgrounds/dot-grid.png');*/
-
 
 }
 
 
 /* ------------views/website.blade.php------------ */
+
+.card-website {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: .0625rem solid rgba(0, 0, 0, 0.05);
+  border-radius: .375rem
+}
+
 .item_row {
     display: flex;
     justify-content: space-between;
@@ -382,13 +404,18 @@
 }
 
 .card_web:hover {
-    transform: translateY(-.7rem); /* 上移 10 像素 */
+    transform: translateY(-.5rem); /* 上移 10 像素 */
 
 }
 
 .card_web-body {
     flex: 1 1 auto;
-    padding: 1rem
+    padding: 1rem;
+    display: flex;
+}
+
+.card_web-body2{
+  overflow: hidden;
 }
 
 .card_web-text {

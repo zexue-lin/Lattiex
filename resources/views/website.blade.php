@@ -29,55 +29,56 @@
         <div class="col-lg-9">
           <h2 id="tools" style="margin-bottom: 1.5rem;">工具类网站</h2>
           <div class="row item_row">
-            <div class="col-lg-12">
-              <div class="card">
-                @foreach($websites1 as $item)
-                <div class="list-group">
-                  <a href="{{$item->href}}" target="_blank" class="list-group-item list-group-item-action d-flex align-items-center">
-                    <div class="list-group-img">
-                      {{-- <span class="avatar bg-purple">http://www.google.com/s2/favicons?domain={{$item->href}}</span>--}}
-                      <img class="avatar" src="http://www.google.com/s2/favicons?domain={{$item->href}}" alt="Website Icon"></img>
-                    </div>
-                    <div class="list-group-content">
-                      <div class="list-group-heading"><b>{{$item->title}}</b>
-                        <small>{{$item->id}}</small>
-                      </div>
-                      <span class="text-dark">{{$item->text}}</span>
-                    </div>
-                  </a>
-                </div>
-                @endforeach
+            @foreach($websites1 as $item)
+              <div class="card_web" data-toggle="tooltip" data-placement="bottom" title="{{$item->toggle_title}}">
+                  <a href="{{$item->href}}" style="text-decoration: none;" target="_blank">
+                    <div style="width: 12rem;">
+                        <div class="card_web-body">
+                          <div>
+                            <img class="avatar avatar-sms" src="http://www.google.com/s2/favicons?domain={{$item->href}}" alt="Website Icon"></img>
+                          </div>
+                          <div class="card_web-body2">
+                               <h5 class="card_web-title">{{$item->title}}</h5>
+                                <p class="card_web-text">{{$item->text}}</p>
+                          </div>
+                     
+                        </div>
+                  </div>
+                </a>
               </div>
-            </div>
+           @endforeach
           </div>
 
-          {{--<h2 id="downloads" style="margin-bottom: 1.5rem">下载类网站</h2>--}}
-          {{--<div class="row item_row">--}}
-          {{-- @foreach($websites2 as $item)--}}
-          {{-- <div class="card_web" data-toggle="tooltip"--}}
-          {{-- data-placement="bottom"--}}
-          {{-- title="{{$item->toggle_title}}">--}}
-          {{-- <a href="{{$item->href}}" style="text-decoration: none;" target="_blank">--}}
-          {{-- <div style="width: 10rem;">--}}
-          {{-- <div class="card_web-body">--}}
-          {{-- <h5 class="card_web-title">{{$item->title}}</h5>--}}
-          {{-- <p class="card_web-text">{{$item->text}}</p>--}}
-          {{-- </div>--}}
-          {{-- </div>--}}
-          {{-- </a>--}}
-          {{-- </div>--}}
-          {{-- @endforeach--}}
-          {{--</div>--}}
           <h2 id="downloads" style="margin-bottom: 1.5rem">下载类网站</h2>
           <div class="row item_row">
+            @foreach($websites2 as $item)
+              <div class="card_web" data-toggle="tooltip" data-placement="bottom" title="{{$item->toggle_title}}">
+                  <a href="{{$item->href}}" style="text-decoration: none;" target="_blank">
+                    <div style="width: 12rem;">
+                        <div class="card_web-body">
+                          <div>
+                            <img class="avatar avatar-sms" src="http://www.google.com/s2/favicons?domain={{$item->href}}" alt="Website Icon"></img>
+                          </div>
+                          <div class="card_web-body2">
+                               <h5 class="card_web-title">{{$item->title}}</h5>
+                                <p class="card_web-text">{{$item->text}}</p>
+                          </div>
+                        </div>
+                  </div>
+                </a>
+              </div>
+           @endforeach
+          </div>
+          {{-- <h2 id="downloads" style="margin-bottom: 1.5rem">下载类网站</h2>
+          <div class="row item_row">
             <div class="col-lg-12">
-              <div class="card">
+              <div class="card-website">
                 @foreach($websites2 as $item)
                 <div class="list-group">
                   <a href="{{$item->href}}" target="_blank" class="list-group-item list-group-item-action d-flex align-items-center">
                     <div class="list-group-img">
                       {{-- <span class="avatar bg-purple">http://www.google.com/s2/favicons?domain={{$item->href}}</span>--}}
-                      <img class="avatar" src="http://www.google.com/s2/favicons?domain={{$item->href}}" alt="Website Icon"></img>
+                      {{-- <img class="avatar" src="http://www.google.com/s2/favicons?domain={{$item->href}}" alt="Website Icon"></img>
                     </div>
                     <div class="list-group-content">
                       <div class="list-group-heading"><b>{{$item->title}}</b>
@@ -90,7 +91,7 @@
                 @endforeach
               </div>
             </div>
-          </div>
+          </div> --}}
 
         </div>
         {{--右侧浮动导航栏--}}

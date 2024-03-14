@@ -68,8 +68,10 @@
                 <div class="row">
                     <div class="col-lg-9">
                         <h3 id="example">精选文章📔</h3>
-                        @foreach ($postsIndex as $item)
-                            <div class="card" style="">
+                        <section style="display: flex;flex-wrap:wrap;">
+                            @foreach ($postsIndex as $item)
+                                {{-- 文章卡牌样式1 已弃用 --}}
+                                {{-- <div class="card">
                                 <a href="{{ url('posts', ['id' => $item->id]) }}" style="text-decoration: none;"
                                     target="_blank">
                                     <div class="card-body">
@@ -93,40 +95,61 @@
                                         </div>
                                     </div>
                                 </a>
-                            </div>
-                        @endforeach
+                            </div> --}}
+                                {{-- 文章卡牌样式1 end 已弃用 --}}
+                                <div class="col-md-6">
+                                    <a href="{{ url('posts', ['id' => $item->id]) }}" style="text-decoration: none;color: inherit;"
+                                        target="_blank">
+                                        <div class="card">
+                                          <div class="card-header">
+                                            <div class="row align-items-center">
+                                                <div class="col-8">
+                                                    <h4 class="heading h5 mb-0">{{ $item->title }}</h4>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                            <div class="card-body">
+                                                {{-- <h5 class="heading heading-5 strong-600">{{ $item->title }}</h5> --}}
+                                                {{-- <h6 class="heading heading-sm strong-400 text-muted mb-2">
+                                                    {{ getRelativeTime($item->created_at) }}
+                                                </h6> --}}
+                                                <p class="card-text" style="margin-bottom: 1rem;">
+                                                    {{ $item->excerpt }}</p>
+                                                {{-- <a href="{{ url('posts', ['id' => $item->id]) }}" target="_blank"
+                                                    class="btn btn-sm btn-primary">查看详情</a> --}}
+                                            </div>
+                                            <div class="card-footer">
+                                                <div class="row align-items-center">
+                                                    <div class="col">
+                                                        <img class="avatar avatar-sms bg-purple"
+                                                            src="{{ URL::asset('uploads/' . $item->author->avatar) }}"></img>
+                                                        <span class="avatar-content">{{ $item->author->name }}</span>
+                                                    </div>
+                                                    <div class="col text-right text-xs-right">
+                                                        <ul class="list-inlineIndex mb-0">
+                                                            <li class="list-inline-item mr-3">
+                                                                {{ getRelativeTime($item->created_at) }}
+                                                            </li>
+                                                            <li class="list-inline-item pr-2">
+                                                                <i class="fas fa-heart mr-1"
+                                                                    style="color: #fc6464"></i>{{ $item->like }}
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <i
+                                                                    class="fas fa-eye text-muted mr-1"></i>{{ $item->view }}
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </section>
                         {{-- 有新的card样式直接写在这里就好了 --}}
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="heading heading-5 strong-600">{{ $item->title }}</h5>
-                                    <h6 class="heading heading-sm strong-400 text-muted mb-4">
-                                        {{ getRelativeTime($item->created_at) }}
-                                    </h6>
-                                    <p class="card-text">{{ $item->excerpt }}</p>
-                                    <a href="#" class="btn btn-sm btn-primary">查看详情</a>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <span class="avatar avatar-sm bg-purple">JD</span>
-                                            <span class="avatar-content">{{ $item->author->name }}</span>
-                                        </div>
-                                        <div class="col text-right text-xs-right">
-                                            <ul class="list-inline mb-0">
-                                                <li class="list-inline-item pr-2">
-                                                    <a href="#"><i class="fas fa-heart mr-1"
-                                                            style="color: #fc6464"></i>{{ $item->like }}</a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <i class="fas fa-eye text-muted mr-1"></i>{{ $item->view }}
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
 
                     </div>
                     {{-- 右侧浮动导航栏 --}}
@@ -140,13 +163,15 @@
                                 <div class="list-group">
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item" id="time">🕖</li>
-                                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                                        <li class="list-group-item">Vestibulum at eros</li>
-                                    </ul>
+                                        <li class="list-group-item">📃 总文章数：{{ $postsCount }}</li>
+                                        <li class="list-group-item">💬 每日一言<br><span class="hitokoto" id="yiyancon"></span></li>
+                                        <script type="text/javascript" src="https://international.v1.hitokoto.cn?encode=js&amp;charset=utf-8&amp;&amp;c=j&amp;c=k&amp;c=l"></script>
+                                        {{-- 每日一言 <script type="text/javascript" src="https://api.xygeng.cn/one/get/"></script> --}}
+                                      </ul>
                                 </div>
                             </div>
                             {{-- 第一个框框 end --}}
-                            <ul class="section-nav">
+                            {{-- <ul class="section-nav">
                                 <li class="toc-entry toc-h3"><a href="#download">定位导航条</a></li>
                                 <li class="toc-entry toc-h3"><a href="#metadata">定位导航条</a></li>
                                 <li class="toc-entry toc-h3"><a href="#actions">定位导航条</a></li>
@@ -156,8 +181,17 @@
                                 <li class="toc-entry toc-h3"><a href="#colored-cards">Colored cards</a></li>
                                 <li class="toc-entry toc-h3"><a href="#pricing-cards">Pricing cards</a></li>
                                 <li class="toc-entry toc-h3"><a href="#icon-cards">Icon cards</a></li>
-                            </ul>
-
+                            </ul> --}}
+                            <div class="card">
+                              <div class="card-header py-4">
+                                  <h4 class="heading h5 font-weight-500 mb-0">登录就送100抽！</h4>
+                              </div>
+                              <div class="list-group">
+                                  <ul class="list-group list-group-flush">
+                                    <img src="http://www.pic.lattiex.com/uploads/img/2024/0314/20240314154751-7359.png"  alt="抽奖">
+                                    </ul>
+                              </div>
+                          </div>
                         </div>
 
                     </div>

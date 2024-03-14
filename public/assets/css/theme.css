@@ -410,8 +410,16 @@ mark, .mark {
     padding-left: 0;
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: flex-end; */
     align-items: center;
+
+}
+.list-inlineIndex {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
 }
 
@@ -9945,7 +9953,7 @@ a.bg-lighter:hover, a.bg-lighter:focus, button.bg-lighter:hover, button.bg-light
 
 .avatar + .avatar-content {
     display: inline-block;
-    margin-left: .75rem
+    margin-left: .25rem
 }
 
 .avatar-lg {
@@ -9958,6 +9966,12 @@ a.bg-lighter:hover, a.bg-lighter:focus, button.bg-lighter:hover, button.bg-light
     width: 18px;
     height: 18px;
     font-size: .765625rem
+}
+
+.avatar-sms {
+  width: 25px;
+  height: 25px;
+  font-size: .765625rem
 }
 
 .badge a {
