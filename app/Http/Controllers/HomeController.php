@@ -17,11 +17,11 @@ class HomeController extends Controller
   // 主页
   public function index()
   {
-    // 使用 PostModel 查询数据库中的所有数据，并按照创建时间倒序排序
+    // 使用 PostModel 查询数据库中的所有状态为‘发布’的文章，并按照创建时间倒序排序
     // $postsIndex = PostsModel::orderBy('created_at', 'desc')->get();
 
     // 使用 with 方法预加载作者信息 2024。3.12
-    $postsIndex = PostsModel::with('author')->orderBy('created_at', 'desc')->get();
+    $postsIndex = PostsModel::with('author')->where('status', 'PUBLISHED')->orderBy('created_at', 'desc')->get();
 
     $postsCount = PostsModel::count();
 

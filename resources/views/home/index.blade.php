@@ -98,17 +98,17 @@
                             </div> --}}
                                 {{-- 文章卡牌样式1 end 已弃用 --}}
                                 <div class="col-md-6">
-                                    <a href="{{ url('posts', ['id' => $item->id]) }}" style="text-decoration: none;color: inherit;"
-                                        target="_blank">
+                                    <a href="{{ url('posts', ['id' => $item->id]) }}"
+                                        style="text-decoration: none;color: inherit;" target="_blank">
                                         <div class="card">
-                                          <div class="card-header">
-                                            <div class="row align-items-center">
-                                                <div class="col-8">
-                                                    <h4 class="heading h5 mb-0">{{ $item->title }}</h4>
+                                            <div class="card-header">
+                                                <div class="row align-items-center">
+                                                    <div class="col-8">
+                                                        <h4 class="heading h5 mb-0">{{ $item->title }}</h4>
+                                                    </div>
+
                                                 </div>
-                                                
                                             </div>
-                                        </div>
                                             <div class="card-body">
                                                 {{-- <h5 class="heading heading-5 strong-600">{{ $item->title }}</h5> --}}
                                                 {{-- <h6 class="heading heading-sm strong-400 text-muted mb-2">
@@ -153,6 +153,7 @@
 
                     </div>
                     {{-- 右侧浮动导航栏 --}}
+                    {{-- 这个d-none就是手机端隐藏的，去掉就显示了 --}}
                     <div class="col-lg-3 d-none d-lg-inline-block">
                         <div class="sidebar-sticky" data-stick-in-parent="true">
                             {{-- 第一个框框 --}}
@@ -164,10 +165,12 @@
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item" id="time">🕖</li>
                                         <li class="list-group-item">📃 总文章数：{{ $postsCount }}</li>
-                                        <li class="list-group-item">💬 每日一言<br><span class="hitokoto" id="yiyancon"></span></li>
-                                        <script type="text/javascript" src="https://international.v1.hitokoto.cn?encode=js&amp;charset=utf-8&amp;&amp;c=j&amp;c=k&amp;c=l"></script>
+                                        <li class="list-group-item">💬 每日一言<br><span class="hitokoto" id="yiyancon"></span>
+                                        </li>
+                                        <script type="text/javascript"
+                                            src="https://international.v1.hitokoto.cn?encode=js&amp;charset=utf-8&amp;&amp;c=j&amp;c=k&amp;c=l"></script>
                                         {{-- 每日一言 <script type="text/javascript" src="https://api.xygeng.cn/one/get/"></script> --}}
-                                      </ul>
+                                    </ul>
                                 </div>
                             </div>
                             {{-- 第一个框框 end --}}
@@ -182,16 +185,17 @@
                                 <li class="toc-entry toc-h3"><a href="#pricing-cards">Pricing cards</a></li>
                                 <li class="toc-entry toc-h3"><a href="#icon-cards">Icon cards</a></li>
                             </ul> --}}
-                            <div class="card">
-                              <div class="card-header py-4">
-                                  <h4 class="heading h5 font-weight-500 mb-0">登录就送100抽！</h4>
-                              </div>
-                              <div class="list-group">
-                                  <ul class="list-group list-group-flush">
-                                    <img src="http://www.pic.lattiex.com/uploads/img/2024/0314/20240314154751-7359.png"  alt="抽奖">
+                            <div class="card" onclick="window.location.href='{{ url('user/login') }}'">
+                                <div class="card-header py-4">
+                                    <h4 class="heading h5 font-weight-500 mb-0">登录就送100抽！</h4>
+                                </div>
+                                <div class="list-group">
+                                    <ul class="list-group list-group-flush">
+                                        <img src="http://www.pic.lattiex.com/uploads/img/2024/0314/20240314154751-7359.png"
+                                            alt="抽奖">
                                     </ul>
-                              </div>
-                          </div>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -201,7 +205,6 @@
             {{-- 中间部分的底部信息说明 --}}
             <footer class="px-3 footer bg-white">
                 <div class="container ">
-
                     <div class="row align-items-center py-3 border-top">
                         <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
                         <div class="col-lg-12 text-center">

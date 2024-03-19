@@ -17,7 +17,7 @@
 {{-- 主体内容  --}}
 <main class="main">
   {{--侧边可滚动导航栏--}}
-  @include('common.scrollbar')
+  {{-- @include('common.scrollbar') --}}
   <section class="content" style="margin-top: 62px">
     <div class="content-inner content-docs">
       {{--<div class="pt-3 pb-4 mb-4 border-bottom">--}}
@@ -41,7 +41,6 @@
                                <h5 class="card_web-title">{{$item->title}}</h5>
                                 <p class="card_web-text">{{$item->text}}</p>
                           </div>
-                     
                         </div>
                   </div>
                 </a>
