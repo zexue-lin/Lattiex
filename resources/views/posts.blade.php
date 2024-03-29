@@ -201,8 +201,8 @@
                             {{-- <h6 class="heading heading-sm strong-400 text-muted mb-4"> --}}
                             {{-- 2小时前 --}}
                             {{-- </h6> --}}
-                            <p class="card-text">也是用户信息</p>
-                            <a href="#" class="btn btn-sm btn-primary">一个按钮</a>
+                            <p class="card-text">示例用户信息</p>
+                            <a href="#" class="btn btn-sm btn-primary">无用按钮</a>
                         </div>
                     </div>
                 </div>
