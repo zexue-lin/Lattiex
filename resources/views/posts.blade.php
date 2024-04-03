@@ -28,9 +28,10 @@
                             <div class="row justify-content-center" id="alert" style="display: none">
                                 <div class="col-lg-8 alert-box-success">
                                     <div class="alert wow fadeInUp alert-warning alert-dismissible fade show"
-                                        role="alert">
+                                         role="alert">
                                         <span class="alert-inner--icon"><i class="fas fa-exclamation"></i></span>
-                                        <span class="alert-inner--text"><strong>您已经点赞过 </strong> 无需重复点赞!</span>
+                                        <span
+                                            class="alert-inner--text"><strong>您已经点赞过 </strong> 无需重复点赞!</span>
                                         <button type="button" class="undo" aria-label="Undo">关闭
                                         </button>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -71,12 +72,12 @@
                                             <ul class="list-inline mb-0">
                                                 <div class="btn-group btn-action-label" role="group" aria-label="Like">
                                                     <a type="button" class="btn btn-sm btn-secondary btn-action"
-                                                        onclick="likeRequest({{ $posts->id }})">
+                                                       onclick="likeRequest({{ $posts->id }})">
                                                         <i class="fas fa-thumbs-up"></i>
                                                         <span>Like</span>
                                                     </a>
                                                     <span class="btn btn-sm btn-outline-secondary btn-label"
-                                                        id="likeCount{{ $posts->id }}">{{ $posts->like }}</span>
+                                                          id="likeCount{{ $posts->id }}">{{ $posts->like }}</span>
                                                 </div>
                                             </ul>
                                         </div>
@@ -96,9 +97,10 @@
                                         @if (empty(Cookie::get('LoginUser')))
                                             <div style="display: flex;flex-direction: column;">
                                                 <a type="button" class="btn btn-md btn-outline-secondary btn-icon"
-                                                    href="{{ url('user/login') }}">
+                                                   href="{{ url('user/login') }}">
                                                     <span class="btn-inner--text">登录/注册 即可发表你的评论</span>
-                                                    <span class="btn-inner--icon"><i class="fas fa-arrow-right"></i></span>
+                                                    <span class="btn-inner--icon"><i
+                                                            class="fas fa-arrow-right"></i></span>
                                                 </a>
                                             </div>
                                         @endif
@@ -107,12 +109,12 @@
                                             {{-- 先从视图拿五条评论 --}}
                                             @foreach ($comment->take(5) as $item)
                                                 <a href="#"
-                                                    class="list-group-item list-group-item-action d-flex align-items-center comment-item"
-                                                    onclick="return false;">
+                                                   class="list-group-item list-group-item-action d-flex align-items-center comment-item"
+                                                   onclick="return false;">
                                                     <div class="list-group-img">
                                                         <img class="avatar bg-purple"
-                                                            src="{{ URL::asset('uploads/' . $item->avatar) }}"
-                                                            alt="用户头像"></img>
+                                                             src="{{ URL::asset('uploads/' . $item->avatar) }}"
+                                                             alt="用户头像"></img>
                                                     </div>
                                                     <div class="list-group-content">
                                                         <div class="list-group-heading"><b>{{ $item->username }}</b>
@@ -131,24 +133,27 @@
                                         @if ($comment->count() >= 5)
                                             <div style="display: flex;flex-direction: column;margin-bottom: 20px;">
                                                 <button type="button" class="btn btn-sm btn-outline-primary btn-icon"
-                                                    id="loadMore">
+                                                        id="loadMore">
                                                     <span
                                                         class="btn-inner--text">查看剩下的{{ $comment->count() - 5 }}条全部评论</span>
-                                                    <span class="btn-inner--icon"><i class="fas fa-arrow-down"></i></span>
+                                                    <span class="btn-inner--icon"><i
+                                                            class="fas fa-arrow-down"></i></span>
                                                 </button>
                                             </div>
                                         @endif
                                         <form class="card-comment-box" role="form"
-                                            action="{{ url('home/PostComment') }}">
+                                              action="{{ url('home/PostComment') }}">
                                             @csrf
                                             <div class="row align-items-center">
                                                 <div class="col-11">
-                                                    <textarea rows="1" class="form-control textarea-autosize" placeholder="在此输入您的评论..."></textarea>
+                                                    <textarea rows="1" class="form-control textarea-autosize"
+                                                              placeholder="在此输入您的评论..."></textarea>
                                                 </div>
                                                 <div class="col-1 text-right">
                                                     <button type="button"
-                                                        class="btn btn-sm btn-success btn-icon-only rounded-circle">
-                                                        <span class="btn-inner--icon"><i class="fas fa-check"></i></span>
+                                                            class="btn btn-sm btn-success btn-icon-only rounded-circle">
+                                                        <span class="btn-inner--icon"><i
+                                                                class="fas fa-check"></i></span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -160,16 +165,18 @@
                                     <div class="row justify-content-center" id="alert1" style="display: none">
                                         <div class="col-lg-8 alert-box-success">
                                             <div class="alert wow fadeInUp alert-warning alert-dismissible fade show"
-                                                role="alert">
-                                                <span class="alert-inner--icon"><i class="fas fa-exclamation"></i></span>
-                                                <span class="alert-inner--text"><strong>评论失败 </strong> 请先登录!</span>
+                                                 role="alert">
+                                                <span class="alert-inner--icon"><i
+                                                        class="fas fa-exclamation"></i></span>
+                                                <span
+                                                    class="alert-inner--text"><strong>评论失败 </strong> 请先登录!</span>
 
                                                 <button type="button" class="undo" aria-label="Undo">关闭
                                                 </button>
                                                 <span style="margin: auto;">点击前往<a
                                                         href="{{ url('user/login') }}">登录</a></span>
                                                 <button type="button" class="close" data-dismiss="alert"
-                                                    aria-label="Close">
+                                                        aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
@@ -190,8 +197,8 @@
                             <div class="row align-items-center">
                                 <div class="col">
                                     <img class="avatar avatar-md bg-purple"
-                                        src="{{ config('app.url') . '/uploads/' . $AuthorInfo->avatar }}"
-                                        alt="作者头像" />
+                                         src="{{ config('app.url') . '/uploads/' . $AuthorInfo->avatar }}"
+                                         alt="作者头像"/>
                                     <span class="avatar-content h6">{{ $AuthorInfo->name }}</span>
                                 </div>
                             </div>
@@ -220,7 +227,7 @@
         var allImages = document.querySelectorAll('#post img');
 
         // 循环遍历每个图片
-        allImages.forEach(function(image) {
+        allImages.forEach(function (image) {
             // 获取文本框的宽度
             var textBoxWidth = document.getElementById('post').clientWidth;
 
@@ -247,12 +254,12 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                success: function(data) {
+                success: function (data) {
                     // 更新点赞数量显示
                     $('#likeCount' + postId).text(data.newLikeCount);
 
                 },
-                error: function() {
+                error: function () {
                     // 处理错误
                     $('#alert').removeAttr('style')
                 }
@@ -262,7 +269,7 @@
         // 文章点赞请求 end
 
         // 文章浏览量+1
-        $(document).ready(function() {
+        $(document).ready(function () {
             var PostId = $('#post').data('post-id');
 
             // 调用增加浏览次数的函数
@@ -275,11 +282,11 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    success: function(data) {
+                    success: function (data) {
                         // 更新浏览次数显示
                         $('.posts-view .ii').text(data.NewViewCount);
                     },
-                    error: function() {
+                    error: function () {
                         // 处理错误
                         console.log('浏览次数增加失败')
                     }
@@ -289,7 +296,7 @@
         // 文章浏览量+1 end
 
         // 文章评论
-        $('.btn-icon-only').click(function() {
+        $('.btn-icon-only').click(function () {
             var PostID = $('#post').data('post-id');
             var commentText = $('.textarea-autosize').val();
 
@@ -305,11 +312,11 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                success: function(data) {
+                success: function (data) {
                     // 显示新的评论
                     location.reload();
                 },
-                error: function() {
+                error: function () {
                     // 处理错误
                     $('#alert1').removeAttr('style')
                 }
@@ -322,7 +329,7 @@
         var loadMoreButton = document.getElementById('loadMore');
         if (loadMoreButton) {
             // 给按钮添加点击事件
-            loadMoreButton.addEventListener('click', function() {
+            loadMoreButton.addEventListener('click', function () {
                 // 隐藏按钮
                 loadMoreButton.style.display = 'none';
                 var PostID = $('#post').data('post-id');
@@ -334,9 +341,9 @@
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
-                    success: function(data) {
+                    success: function (data) {
                         // 循环遍历获取到的评论数据，并将每条评论添加到页面中
-                        data.comment.forEach(function(item) {
+                        data.comment.forEach(function (item) {
                             var avatar = item.avatar
                             // 对每个created_at 字符串都调用格式化函数
                             var formattedDateString = formatDateString(item.created_at)
@@ -355,7 +362,7 @@
                             $('.list-group').append(newCommentHtml);
                         });
                     },
-                    error: function() {
+                    error: function () {
 
                     }
 
