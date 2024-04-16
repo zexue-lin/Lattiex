@@ -59,15 +59,32 @@ class HomeController extends Controller
     $email = check_input($request->input('email'));
     $content = check_input($request->input('content'));
 
+    // 有人恶意提交留言，做广告，设置同一ip内短时间不能留言
+    $ip = request()->ip();
+
+    // 转成json格式
+    $ipAddress = json_encode($ip);
+    // 获取上次提交留言的时间
+    $lastSubmitTime = Cache::get('last_submit_time_' . $ip);
+
+    //now()->diffInMinutes($lastSubmitTime) 计算当前时间与上次留言提交时间的时间差（单位为分钟）
+    if ($lastSubmitTime && now()->diffInMinutes($lastSubmitTime) < 1) {
+      return redirect('/contact')->with('error1', '留言失败！');
+    }
+
     $params = [
       'name' => $name,
       'email' => $email,
-      'content' => $content
+      'content' => $content,
+      'ip' => $ipAddress
     ];
-
+    // dd($lastSubmitTime);
     $result = ContactModel::create($params);
 
     if ($result) {
+      // 更新缓存中的留言时间 // 设置有效期为 1 分钟
+      Cache::put('last_submit_time_' . $ip, now(), now()->addMinutes(1));
+
       // 留言成功
       return redirect('/contact')->with('success', '留言成功！');
     } else {

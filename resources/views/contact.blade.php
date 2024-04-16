@@ -35,6 +35,22 @@
                             </div>
                         </div>
                     @endif
+                    @if (session('error1'))
+                        {{-- 提示框-失败 --}}
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 alert-box-success">
+                                <div class="alert wow fadeInUp alert-danger alert-dismissible fade show" role="alert">
+                                    <span class="alert-inner--icon"><i class="fas fa-times"></i></span>
+                                    <span class="alert-inner--text"><strong>留言失败 </strong> 禁止短时间内重复留言!</span>
+                                    <button type="button" class="undo" aria-label="Undo">关闭
+                                    </button>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                     <form class=" wow fadeInUp" data-wow-delay="200ms" style="margin-top: 3rem"
                         action="{{ url('home/contact_form') }}" method="post">
                         @csrf
