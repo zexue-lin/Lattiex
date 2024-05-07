@@ -18,16 +18,18 @@
         {{-- 引用侧边可滚动导航栏 --}}
         {{-- @include('common.scrollbar') --}}
 
-        <section style="padding-top: 6rem">
+        <section style="padding-top: 3rem">
             <div class="content-inner content-docs">
-                <div class="pt-3 pb-4 mb-4 border-bottom">
+                <div class="pt-3 pb-4 mb-4 border-bottom indexTop">
                     {{-- 一共12份，分成了6+1+5 两份 --}}
                     <div class="row">
                         <div class="col-lg-3">
                             <h2 class="heading h2 font-weight-bold"></h2>
                         </div>
                         <div class="col-lg-6">
-                            <h2 class="heading h2 font-weight-bold">欢迎来翻斗大街翻斗花园！</h2>
+                            <h2 class="heading h2 font-weight-bold"
+                                style="text-align: center;padding-top: 14rem;padding-bottom:2rem;">
+                                欢迎来翻斗大街翻斗花园！</h2>
                             <form class="post_area">
                                 <div class="form-group">
                                     <textarea class="form-control textarea-autosize" placeholder="只因你太美，Oh，baby..." rows="1"></textarea>
@@ -159,7 +161,7 @@
                             {{-- 第一个框框 --}}
                             <div class="card">
                                 <div class="card-header py-4">
-                                    <h4 class="heading h5 font-weight-500 mb-0">信息看板</h4>
+                                    <h4 class="heading h5 font-weight-500 mb-0">信息栏</h4>
                                 </div>
                                 <div class="list-group">
                                     <ul class="list-group list-group-flush">
@@ -219,7 +221,8 @@
                             reserved.
                         </div>
                         <div class="col-lg-4 text-center text-lg-left mb-2 mb-lg-0">
-                            备案号: <a href="http://beian.miit.gov.cn/" target="_blank">豫ICP备2023022876号.</a>
+                            备案号: <a href="http://beian.miit.gov.cn/" target="_blank"
+                                style="color: inherit">豫ICP备2023022876号.</a>
 
                         </div>
                         <div class="col-lg-4 text-center text-lg-right">
