@@ -27,11 +27,10 @@
                             <h2 class="heading h2 font-weight-bold"></h2>
                         </div>
                         <div class="col-lg-6">
-                            <h2 class="heading h2 font-weight-bold"
-                                style="text-align: center;padding-top: 14rem;padding-bottom:2rem;">
+                            <h2 class="heading h2 font-weight-bold indexH2">
                                 欢迎来翻斗大街翻斗花园！</h2>
                             <form class="post_area">
-                                <div class="form-group">
+                                <div class="form-group indexInpue">
                                     <textarea class="form-control textarea-autosize" placeholder="只因你太美，Oh，baby..." rows="1"></textarea>
                                 </div>
                                 <label for="file-1" id="avatarbox">
@@ -193,7 +192,7 @@
                                 </div>
                                 <div class="list-group">
                                     <ul class="list-group list-group-flush">
-                                        <img src="http://www.pic.lattiex.com/uploads/img/2024/0314/20240314154751-7359.png"
+                                        <img src="http://www.pic.lattiex.com/uploads/img/2024/0507/20240507163915-4779.jpg"
                                             alt="抽奖">
                                     </ul>
                                 </div>
