@@ -414,12 +414,13 @@ mark, .mark {
     align-items: center;
 
 }
+
 .list-inlineIndex {
-  padding-left: 0;
-  list-style: none;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 
 }
 
@@ -9969,9 +9970,9 @@ a.bg-lighter:hover, a.bg-lighter:focus, button.bg-lighter:hover, button.bg-light
 }
 
 .avatar-sms {
-  width: 25px;
-  height: 25px;
-  font-size: .765625rem
+    width: 25px;
+    height: 25px;
+    font-size: .765625rem
 }
 
 .badge a {
