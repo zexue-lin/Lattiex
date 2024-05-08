@@ -135,9 +135,12 @@ class HomeController extends Controller
     // 使用 WebModel 模型查询网站类型为1的所有数据
     $websites2 = WebModel::where('category', 2)->get();
 
+    $websites3 = WebModel::where('category', 3)->get();
+
     $data = compact([
       'websites1',
-      'websites2'
+      'websites2',
+      'websites3'
     ]);
 
     // 将查询结果传递给视图
