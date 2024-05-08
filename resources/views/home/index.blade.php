@@ -193,7 +193,7 @@
                                 <div class="list-group">
                                     <ul class="list-group list-group-flush">
                                         <img src="http://www.pic.lattiex.com/uploads/img/2024/0508/20240508104738-1034.jpg"
-                                            alt="图片">
+                                            alt="图片1">
                                     </ul>
                                 </div>
                             </div>
