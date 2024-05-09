@@ -6,7 +6,7 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts测试2 -->
+        <!-- Fonts测试3 -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
