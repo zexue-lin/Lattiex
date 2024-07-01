@@ -220,24 +220,5 @@
 @endsection
 
 @push('script')
-<script>
-    // 文章响应式图片 获取文章所有图片
-    var allImages = document.querySelectorAll('#post img');
-
-    // 循环遍历每个图片
-    allImages.forEach(function (image) {
-        // 获取文本框的宽度
-        var textBoxWidth = document.getElementById('post').clientWidth;
-
-        // 获取图片宽度
-        var imageWidth = image.clientWidth;
-        // 检查是否超出文本框的宽度
-        if (imageWidth > textBoxWidth) {
-            image.style.width = '100%';
-            image.style.height = 'auto';
-        }
-    })
-    // 文章响应式图片 end
-</script>
     <script src="{{ asset('assets/js/home/posts.js') }}"></script>
 @endpush
