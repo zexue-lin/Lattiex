@@ -22,78 +22,37 @@
     background-image: url('../../assets/images/backgrounds/bac-2.jpg');
     background-position: 50% 90%;
     background-repeat: no-repeat;
+    overflow-x: hidden; /* 防止内容溢出 */
+    max-width: 100%; /* 确保宽度不会超过容器 */
 }
-@media only screen and (max-width:993px) {
-  .indexTop{
-    background-position: 70% 50%;
-  }
-  
+
+@media only screen and (max-width: 993.6px) {
+    .indexTop {
+        background-position: 70% 50%;
+    }
 }
-.indexH2{
-  text-align: center;
-  padding-top: 12rem;
-  padding-bottom:3rem;
-  color: white;
-  letter-spacing: 2px;
+
+.indexH2 {
+    text-align: center;
+    padding-top: 12rem;
+    padding-bottom: 3rem;
+    color: white;
+    letter-spacing: 2px;
 }
-.post_area{
+
+.post_area {
     display: flex;
     justify-content: center;
 }
-.indexInpue{
-  width: 90%;
+
+.indexInpue {
+    width: 90%;
 }
+
 /*主页输入框*/
 .post_area {
     background: none;
     padding: 5px;
-}
-
-.post_bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /*更改鼠标光标的样式.这里是‘用于链接，表示可点击的链接’；还有auto，default，text，not-allowed*/
-    cursor: pointer;
-}
-
-.post_items:hover {
-    color: #288cff;
-}
-
-.post_items {
-    border-radius: 5px;
-    /*background: #288cff;*/
-}
-
-/*图片上传按钮*/
-.custom-input-img {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    outline: none;
-    /*overflow: hidden;*/
-    position: absolute;
-    z-index: -1
-}
-
-.custom-input-img + label {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    cursor: pointer;
-    /*display: block;*/
-    /*overflow: hidden;*/
-    /*padding: 0.625rem 1.25rem;*/
-    /*border: 1px solid #ced4da;*/
-    /*border-radius: 0.375rem;*/
-    /*color: #495057;*/
-    /*background-color: #fff;*/
-    outline: none;
-    margin-bottom: 0;
-}
-
-.custom-input-img + label :hover {
-    color: #288cff;
 }
 
 /*主页输入框 end*/
@@ -115,7 +74,7 @@
 .main {
     /* background-image: url('../../assets/images/backgrounds/repeated-square.png'); */
     /* background-image: url('../../assets/images/backgrounds/去水印的bot4.jpeg'); */
-    
+
 }
 
 

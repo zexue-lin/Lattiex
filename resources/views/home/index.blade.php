@@ -31,31 +31,9 @@
                                 欢迎来翻斗大街翻斗花园！</h2>
                             <form class="post_area">
                                 <div class="form-group indexInpue">
-                                    <textarea class="form-control textarea-autosize" placeholder="只因你太美，Oh，baby..." rows="1"></textarea>
+                                    <textarea class="form-control textarea-autosize" placeholder="只因你太美，Oh，baby..."
+                                              rows="1"></textarea>
                                 </div>
-                                <label for="file-1" id="avatarbox">
-                                    <img src="assets/images/upload.png" id="upload" alt="">
-                                </label>
-                                {{-- <div class="post_bottom"> --}}
-                                {{-- <div class="post_items"><i class="fa fa-smile" --}}
-                                {{-- style="margin-right: 5px"> </i>表情 --}}
-                                {{-- </div> --}}
-                                {{-- <div class="post_items"> --}}
-                                {{-- <input type="file" name="file-1[]" id="file-1" --}}
-                                {{-- class="custom-input-img" --}}
-                                {{-- data-multiple-caption="{count} files selected" multiple/> --}}
-                                {{-- <label for="file-1"> --}}
-                                {{-- <i class="fas fa-image"></i> --}}
-                                {{-- <span>图片</span> --}}
-                                {{-- </label> --}}
-                                {{-- </div> --}}
-                                {{-- <div class="post_items"><i class="fas fa-video" style="margin-right: 5px"></i>视频 --}}
-                                {{-- </div> --}}
-                                {{-- <div class="post_items"><i class="fas fa-user-plus" --}}
-                                {{-- style="margin-right: 5px"> </i>标记 --}}
-                                {{-- </div> --}}
-                                {{-- <button class="btn btn-sm btn-primary">发送</button> --}}
-                                {{-- </div> --}}
                             </form>
                         </div>
                         <div class="col-lg-3">
@@ -100,7 +78,7 @@
                                 {{-- 文章卡牌样式1 end 已弃用 --}}
                                 <div class="col-md-6">
                                     <a href="{{ url('posts', ['id' => $item->id]) }}"
-                                        style="text-decoration: none;color: inherit;" target="_blank">
+                                       style="text-decoration: none;color: inherit;" target="_blank">
                                         <div class="card">
                                             <div class="card-header">
                                                 <div class="row align-items-center">
@@ -124,7 +102,7 @@
                                                 <div class="row align-items-center">
                                                     <div class="col">
                                                         <img class="avatar avatar-sms bg-purple"
-                                                            src="{{ URL::asset('uploads/' . $item->author->avatar) }}"></img>
+                                                             src="{{ URL::asset('uploads/' . $item->author->avatar) }}"></img>
                                                         <span class="avatar-content">{{ $item->author->name }}</span>
                                                     </div>
                                                     <div class="col text-right text-xs-right">
@@ -134,7 +112,7 @@
                                                             </li>
                                                             <li class="list-inline-item pr-2">
                                                                 <i class="fas fa-heart mr-1"
-                                                                    style="color: #fc6464"></i>{{ $item->like }}
+                                                                   style="color: #fc6464"></i>{{ $item->like }}
                                                             </li>
                                                             <li class="list-inline-item">
                                                                 <i
@@ -166,10 +144,11 @@
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item" id="time">🕖</li>
                                         <li class="list-group-item">📃 总文章数：{{ $postsCount }}</li>
-                                        <li class="list-group-item">💬 每日一言<br><span class="hitokoto" id="yiyancon"></span>
+                                        <li class="list-group-item">💬 每日一言<br><span class="hitokoto"
+                                                                                        id="yiyancon"></span>
                                         </li>
                                         <script type="text/javascript"
-                                            src="https://international.v1.hitokoto.cn?encode=js&amp;charset=utf-8&amp;&amp;c=j&amp;c=k&amp;c=l"></script>
+                                                src="https://international.v1.hitokoto.cn?encode=js&amp;charset=utf-8&amp;&amp;c=j&amp;c=k&amp;c=l"></script>
                                         {{-- 每日一言 <script type="text/javascript" src="https://api.xygeng.cn/one/get/"></script> --}}
                                     </ul>
                                 </div>
@@ -192,7 +171,8 @@
                                 </div>
                                 <div class="list-group">
                                     <ul class="list-group list-group-flush">
-                                        <img src="http://www.pic.lattiex.com/uploads/img/2024/0508/20240508104738-1034.jpg"
+                                        <img
+                                            src="http://www.pic.lattiex.com/uploads/img/2024/0508/20240508104738-1034.jpg"
                                             alt="图片1">
                                     </ul>
                                 </div>
@@ -221,14 +201,14 @@
                         </div>
                         <div class="col-lg-4 text-center text-lg-left mb-2 mb-lg-0">
                             备案号: <a href="http://beian.miit.gov.cn/" target="_blank"
-                                style="color: inherit">豫ICP备2023022876号.</a>
+                                       style="color: inherit">豫ICP备2023022876号.</a>
 
                         </div>
                         <div class="col-lg-4 text-center text-lg-right">
                             <ul class="nav justify-content-center justify-content-lg-end">
                                 <li class="nav-item">
                                     <a class="nav-link active" href="https://instagram.com/webpixelsofficial"
-                                        target="_blank"><i class="fab fa-instagram"></i></a>
+                                       target="_blank"><i class="fab fa-instagram"></i></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="https://facebook.com/webpixels" target="_blank"><i
@@ -270,7 +250,7 @@
             return '🕖' + year + '年' + month + '月' + day + '日&nbsp;' + hour + ':' + minute + ':' + seconds;
         }
 
-        setInterval(function() {
+        setInterval(function () {
             document.getElementById('time').innerHTML = getTime();
         }, 1000)
         //页面时间获取函数 end
