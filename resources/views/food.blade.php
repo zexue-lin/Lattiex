@@ -14,23 +14,24 @@
     {{--  顶部导航  --}}
     @include('common.navbar')
     <section class="slice-lg">
-        <h1>{{ $message }}</h1>
         <h2>蔬菜</h2>
         <div class="foodBox">
-            <div class="common vegetable">🥦花菜</div>
-            <div class="common vegetable">🥬白菜</div>
-            <div class="common vegetable">🥕胡萝卜</div>
+            @foreach($vegetables as $item)
+                <div class="common vegetable">{{ $item }}</div>
+            @endforeach
+
         </div>
         <h2>肉类</h2>
         <div class="foodBox">
-            <div class="common meat">🐷猪肉</div>
-            <div class="common meat">🍖排骨</div>
+            @foreach($meats as $item)
+                <div class="common meat">{{ $item }}</div>
+            @endforeach
         </div>
         <h2>主食</h2>
         <div class="foodBox">
-            <div class="common stapleFood">🍚米饭</div>
-            <div class="common stapleFood">🍝面条</div>
-            <div class="common stapleFood">🍜方便面</div>
+            @foreach($stapleFood as $item)
+                <div class="common stapleFood">{{ $item }}</div>
+            @endforeach
         </div>
         <h2>菜谱</h2>
         <div class="foodBox">

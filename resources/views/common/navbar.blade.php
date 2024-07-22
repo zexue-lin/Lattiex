@@ -16,7 +16,7 @@
             </li>
 
             <li class="nav-item" data-id="food">
-                <a class="nav-link" href="{{ url('/food') }}">今天吃啥</a>
+                <a class="nav-link" href="{{ url('/food') }}">今天吃什么</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbar_1_dropdown_1" role="button"

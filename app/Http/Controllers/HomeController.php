@@ -10,6 +10,7 @@ use App\Models\Home\Posts as PostsModel;
 use App\Models\User\User as UserModel;
 use App\Models\Home\Contact as ContactModel;
 use App\Models\Home\Comments as CommentsModel;
+use App\Models\Home\Food as FoodModel;
 use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
@@ -297,7 +298,15 @@ class HomeController extends Controller
     //食物页面
     public function food()
     {
-        $str = '今天周一通班';
-        return view('food', ['message' => $str]);
+        $vegetables = FoodModel::where('category', 1)->pluck('food_name');
+        $meats = FoodModel::where('category', 2)->pluck('food_name');
+        $stapleFood = FoodModel::where('category', 3)->pluck('food_name');
+
+        $data = compact([
+            'vegetables',
+            'meats',
+            'stapleFood'
+        ]);
+        return view('food', $data);
     }
 }
