@@ -1,0 +1,46 @@
+.common {
+    position: relative;
+    width: fit-content;
+    padding: 3px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 0 5px;
+    font-size: 0.9em;
+    transition: all 0.3s;
+}
+
+.common:hover {
+    box-shadow: 0 4px 4px -4px #44558a;
+}
+
+.foodBox {
+    display: flex;
+}
+
+.vegetable {
+    background-color: rgb(186, 245, 206, 1);
+    color: #166534;
+    border: solid 1px rgb(187, 247, 208, 1);
+}
+
+.meat {
+    background-color: #FCA5A533;
+    color: #991B1B;
+    border: solid 1px rgb(254, 202, 202, 1);
+}
+
+.stapleFood {
+    background-color: #FDE04733;
+    color: #854D0E;
+    border: solid 1px rgb(254, 240, 138, 1);
+}
+
+.menu {
+    background-color: rgba(147, 197, 253, 0.5);
+    color: #1D4ED8;
+    border: solid 1px rgb(191, 219, 254, 1);
+}

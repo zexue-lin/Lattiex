@@ -26,6 +26,8 @@ Route::get('website', [HomeController::class, 'website']);
 
 Route::get('contact', [HomeController::class, 'contact']);
 
+Route::get('food', [HomeController::class, 'food']);
+
 
 // home相关路由
 // Route::prefix('home')->group(function () {
@@ -46,7 +48,7 @@ Route::prefix('home')->group(function () {
     Route::post('contact_like/{contactId}', [HomeController::class, 'contact_like']);
     Route::get('increaseViewCount/{PostId}', [HomeController::class, 'increaseViewCount']);
     Route::post('PostComment/{PostID}', [HomeController::class, 'PostComment']);
-    Route::post('loadMore/{PostID}',[HomeController::class, 'loadMore']);
+    Route::post('loadMore/{PostID}', [HomeController::class, 'loadMore']);
 });
 
 

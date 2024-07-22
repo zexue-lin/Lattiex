@@ -3,24 +3,24 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="/">翻斗花园</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_example_1"
-        aria-controls="navbar_example_1" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="navbar_example_1" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbar_example_1">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item" data-id="home">
                 <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" data-id="website">
                 <a class="nav-link" href="{{ url('/website') }}">网站列表</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">AAA水果批发</a>
+            <li class="nav-item" data-id="food">
+                <a class="nav-link" href="{{ url('/food') }}">今天吃啥</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbar_1_dropdown_1" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多</a>
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多</a>
                 <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
                     <a class="dropdown-item" href="{{ url('tool') }}">工具</a>
                     <a class="dropdown-item" href="#">其他行动</a>
@@ -28,11 +28,11 @@
                     <a class="dropdown-item" href="#">常用正版软件下载地址</a>
                 </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" data-id="contact">
                 <a class="nav-link" href="{{ url('/contact') }}">留言</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">这个不可以点</a>
+            <li class="nav-item" data-id="other">
+                <a class="nav-link disabled" href="#">其他</a>
             </li>
 
         </ul>
@@ -40,16 +40,16 @@
         <div class="search_form">
             <button>
                 <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
-                    aria-labelledby="search">
+                     aria-labelledby="search">
                     <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9"
-                        stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round">
+                          stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round">
                     </path>
                 </svg>
             </button>
             <input class="searcg_input" placeholder="搜索你想要的内容" required="" type="text">
             <button class="reset" type="reset">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" stroke-width="2">
+                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
@@ -61,7 +61,7 @@
             </li> --}}
             <li class="nav-item dropdown">
                 <a class="nav-link nav-link-icon" href="#" id="navbar_1_dropdown_2" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></a>
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-xl py-0">
                     <div class="py-3 px-3">
                         <h5 class="heading h6 mb-0">通知中心</h5>
@@ -107,12 +107,12 @@
                 {{-- aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a> --}}
                 @if (!empty(Cookie::get('LoginUser')))
                     <a class="nav-link" href="#" id="navbar_1_dropdown_3" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
                             src="{{ URL::asset('uploads/' . json_decode(Cookie::get('LoginUser'))->avatar) }}"
                             alt="User Avatar" class="avatar avatar-sm"></a>
                 @else
                     <a class="nav-link" href="#" id="navbar_1_dropdown_3" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
                             src="{{ URL::asset('uploads/users/default.png') }}" alt="Default Avatar"
                             class="avatar avatar-sm"></a>
                 @endif
@@ -145,7 +145,7 @@
     </div>
     <!-- 退出登录Modal -->
     <div class="modal modal-danger fade" id="modal_5" tabindex="-1" role="dialog" aria-labelledby="modal_5"
-        aria-hidden="true">
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -166,7 +166,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="logoutButton" class="btn btn-sm btn-secondary"
-                        data-dismiss="modal">是的,确定
+                            data-dismiss="modal">是的,确定
                     </button>
                 </div>
             </div>
@@ -176,7 +176,7 @@
 </nav>
 <script src="{{ URL::asset('assets/vendor/jquery/jquery.min.js') }}"></script>
 <script>
-    $("#logoutButton").click(function() {
+    $("#logoutButton").click(function () {
         $.ajax({
             url: "{{ url('user/logout') }}",
             type: "POST",
@@ -184,15 +184,38 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            success: function(res) {
+            success: function (res) {
                 if (res.code === 1) {
                     console.log('退出登录成功')
                 }
             },
-            error: function() {
+            error: function () {
                 // 处理错误
                 console.log('退出登录失败')
             }
         })
     })
+    // 导航条选中样式
+    document.addEventListener('DOMContentLoaded', function () {
+        var urlObj = new URL(window.location.href);
+        var path = urlObj.pathname;
+        var parts = path.split('/');
+        var afterSlash = parts[parts.length - 1];
+
+        const navItems = document.querySelectorAll('.nav-item[data-id]');
+
+        const dataIds = Array.from(navItems).map(item => item.getAttribute('data-id'));
+
+        if (dataIds.includes(afterSlash)) {
+            navItems.forEach(item => {
+                if (item.getAttribute('data-id') === afterSlash) {
+                    item.classList.add('active')
+                }
+            })
+        } else {
+            console.log('没有这个导航页')
+        }
+
+    })
+
 </script>
