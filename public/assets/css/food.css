@@ -8,9 +8,10 @@
     align-items: center;
     justify-content: center;
     align-content: center;
-    margin: 0 5px;
+    margin: 5px;
     font-size: 0.9em;
     transition: all 0.3s;
+
 }
 
 .common:hover {
@@ -19,6 +20,9 @@
 
 .foodBox {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: all 0.3s;
 }
 
 .vegetable {
