@@ -301,11 +301,13 @@ class HomeController extends Controller
         $vegetables = FoodModel::where('category', 1)->pluck('food_name');
         $meats = FoodModel::where('category', 2)->pluck('food_name');
         $stapleFood = FoodModel::where('category', 3)->pluck('food_name');
+        $menus = FoodModel::where('category', 4)->pluck('food_name');
 
         $data = compact([
             'vegetables',
             'meats',
-            'stapleFood'
+            'stapleFood',
+            'menus'
         ]);
         return view('food', $data);
     }

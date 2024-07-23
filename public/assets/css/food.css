@@ -14,8 +14,11 @@
 
 }
 
-.common:hover {
-    box-shadow: 0 4px 4px -4px #44558a;
+@media (min-width: 768px) {
+    /*当屏幕最小宽度为768px的时候才应用下面样式*/
+    .common:hover {
+        box-shadow: 0 4px 4px -4px #44558a;
+    }
 }
 
 .foodBox {

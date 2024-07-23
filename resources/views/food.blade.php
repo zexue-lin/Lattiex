@@ -14,6 +14,7 @@
     {{--  顶部导航  --}}
     @include('common.navbar')
     <section class="slice-lg">
+        <h2>今天周二 早班</h2>
         <h2>蔬菜</h2>
         <div class="foodBox">
             @foreach($vegetables as $item)
@@ -34,8 +35,10 @@
             @endforeach
         </div>
         <h2>菜谱</h2>
-        <div class="foodBox">
-            <div class="common menu">🥔🐔土豆鸡块</div>
+        <div class="foodBox" id="menuBox">
+            @foreach($menus as $item)
+                <div class="common menu">{{ $item }}</div>
+            @endforeach
         </div>
     </section>
 
@@ -44,10 +47,13 @@
 
 @push('script')
     <script type="text/javascript">
+
         // 共享的数组
         var selectedElements = [];
 
-        function handleClick(elementsClass, vegetableStyle, meatStyle, stapleStyle) {
+        const menus = document.querySelectorAll('.menu');
+
+        function handleClick(elementsClass, vegetableStyle, meatStyle, stapleFoodStyle) {
 
             var elements = document.querySelectorAll('.' + elementsClass);
 
@@ -55,12 +61,12 @@
                 var isCilcked = false;
 
                 div.addEventListener('click', function () {
-                    var elementname = this.innerHTML.trim();
+                    const elementName = this.innerHTML.trim().replace(/[^\u4e00-\u9fa5]/g, ''); // 只保留中文字符
 
                     if (isCilcked) {
                         this.style.background = '';
                         this.style.color = '';
-                        selectedElements = selectedElements.filter(item => item !== elementname);
+                        selectedElements = selectedElements.filter(item => item !== elementName);
                         isCilcked = false;
                     } else {
                         if (elementsClass === 'vegetable') {
@@ -73,10 +79,23 @@
                             this.style.background = stapleFoodStyle.backgroundColor;
                             this.style.color = stapleFoodStyle.color;
                         }
-                        selectedElements.push(elementname);
+                        selectedElements.push(elementName);
                         isCilcked = true;
                     }
                     console.log(selectedElements)
+                    menus.forEach(function (menu) {
+                        const menuName = menu.innerHTML.trim().replace(/[^\u4e00-\u9fa5]/g, ''); // 只保留中文字符
+
+                        let isMatch = selectedElements.some(function (element) {
+                            return menuName.includes(element);
+                        })
+
+                        if (isMatch) {
+                            menu.style.display = ''; // 显示匹配的菜单项
+                        } else {
+                            menu.style.display = 'none'; // 隐藏不匹配的菜单项
+                        }
+                    })
                 })
             })
         }
