@@ -46,7 +46,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
-                        <h3 id="example">精选文章📔</h3>
+                        <h3 id="example">随便看看📔</h3>
                         <section style="display: flex;flex-wrap:wrap;">
                             @foreach ($postsIndex as $item)
                                 {{-- 文章卡牌样式1 已弃用 --}}
@@ -81,28 +81,18 @@
                                        style="text-decoration: none;color: inherit;" target="_blank">
                                         <div class="card">
                                             <div class="card-header">
-                                                <div class="row align-items-center">
-                                                    <div class="col-8">
-                                                        <h4 class="heading h5 mb-0">{{ $item->title }}</h4>
-                                                    </div>
-
-                                                </div>
+                                                <h4 class="heading h5 mb-0">{{ $item->title }}</h4>
                                             </div>
                                             <div class="card-body">
-                                                {{-- <h5 class="heading heading-5 strong-600">{{ $item->title }}</h5> --}}
-                                                {{-- <h6 class="heading heading-sm strong-400 text-muted mb-2">
-                                                    {{ getRelativeTime($item->created_at) }}
-                                                </h6> --}}
-                                                <p class="card-text" style="margin-bottom: 1rem;">
+                                                <p class="card-text">
                                                     {{ $item->excerpt }}</p>
-                                                {{-- <a href="{{ url('posts', ['id' => $item->id]) }}" target="_blank"
-                                                    class="btn btn-sm btn-primary">查看详情</a> --}}
                                             </div>
                                             <div class="card-footer">
                                                 <div class="row align-items-center">
                                                     <div class="col">
                                                         <img class="avatar avatar-sms bg-purple"
-                                                             src="{{ URL::asset('uploads/' . $item->author->avatar) }}"></img>
+                                                             src="{{ URL::asset('uploads/' . $item->author->avatar) }}"
+                                                             alt="avatar">
                                                         <span class="avatar-content">{{ $item->author->name }}</span>
                                                     </div>
                                                     <div class="col text-right text-xs-right">
@@ -170,18 +160,17 @@
                                     <h4 class="heading h5 font-weight-500 mb-0">登录就送100抽！</h4>
                                 </div>
                                 <div class="list-group">
-                                    <ul class="list-group list-group-flush">
+                                    <div class="list-group list-group-flush">
                                         <img
                                             src="http://www.pic.lattiex.com/uploads/img/2024/0508/20240508104738-1034.jpg"
                                             alt="图片1">
-                                    </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
                 </div>
-            </div>
             </div>
             {{-- 中间部分的底部信息说明 --}}
             <footer class="px-3 footer bg-white">

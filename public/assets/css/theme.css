@@ -4093,7 +4093,7 @@ tbody.collapse.show {
 }
 
 .card-header {
-    padding: 1.25rem 1.5rem;
+    padding: 1.25rem 1.25rem;
     margin-bottom: 0;
     background-color: #fff;
     border-bottom: .0625rem solid rgba(0, 0, 0, 0.05)
