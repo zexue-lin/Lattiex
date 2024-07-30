@@ -1,5 +1,13 @@
 hljs.highlightAll();
 
+window.onload = function () {
+    adjustImages();
+    var allImages = document.querySelectorAll('#post img');
+    allImages.forEach(function (image) {
+        image.onload = adjustImages();
+    })
+}
+
 // 文章响应式图片 获取文章所有图片
 function adjustImages() {
     var allImages = document.querySelectorAll('#post img');
@@ -16,16 +24,24 @@ function adjustImages() {
             image.style.width = '100%';
             image.style.height = 'auto';
         }
+        image.onclick = function () {
+            openModal(image.src);
+        }
     })
 }
 
-window.onload = function () {
-    adjustImages();
-    var allImages = document.querySelectorAll('#post img');
-    allImages.forEach(function (image) {
-        image.onload = adjustImages();
-    })
+function openModal(src) {
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("modal-image");
+    modal.style.display = "block";
+    modalImg.src = src;
 }
+
+function closeModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
+
 
 // 文章响应式图片 end
 

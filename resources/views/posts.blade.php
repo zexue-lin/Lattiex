@@ -64,6 +64,10 @@
                                     <div id="post" data-post-id="{{ $posts->id }}">
                                         <div>{!! $posts->body !!}</div>
                                     </div>
+                                    <!-- 模态框 -->
+                                    <div id="myModal" class="modal" onclick="closeModal()">
+                                        <img id="modal-image" class="modal-image" alt="model">
+                                    </div>
                                     {{-- <a href="#" class="btn btn-sm btn-primary">Go somewhere</a> --}}
                                 </div>
                                 <div class="card-footer">
@@ -98,7 +102,7 @@
                                             <div style="display: flex;flex-direction: column;">
                                                 <a type="button" class="btn btn-md btn-outline-secondary btn-icon"
                                                    href="{{ url('user/login') }}">
-                                                    <span class="btn-inner--text">登录/注册 即可发表你的评论</span>
+                                                    <span class="btn-inner--text">登录可发表你的评论</span>
                                                     <span class="btn-inner--icon"><i
                                                             class="fas fa-arrow-right"></i></span>
                                                 </a>
